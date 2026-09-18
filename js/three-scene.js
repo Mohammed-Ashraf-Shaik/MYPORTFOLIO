@@ -319,5 +319,50 @@
       camera.updateProjectionMatrix();
       renderer.setSize(window.innerWidth, window.innerHeight);
     });
+
+    // Color Theme Sync Handler (Blue, Red, White, Brown)
+    function applySceneTheme(theme) {
+      if (theme === 'blue') {
+        outerMat.color.setHex(0x38bdf8);
+        midMat.color.setHex(0x0284c7);
+        innerMat.color.setHex(0x0369a1);
+        ring1Mat.color.setHex(0x0ea5e9);
+        ring2Mat.color.setHex(0x7dd3fc);
+        particleMat.opacity = 0.8;
+      } else if (theme === 'red') {
+        outerMat.color.setHex(0xf87171);
+        midMat.color.setHex(0xdc2626);
+        innerMat.color.setHex(0x991b1b);
+        ring1Mat.color.setHex(0xef4444);
+        ring2Mat.color.setHex(0xfca5a5);
+        particleMat.opacity = 0.75;
+      } else if (theme === 'white') {
+        outerMat.color.setHex(0xe2e8f0);
+        midMat.color.setHex(0xffffff);
+        innerMat.color.setHex(0x64748b);
+        ring1Mat.color.setHex(0xcbd5e1);
+        ring2Mat.color.setHex(0xf8fafc);
+        particleMat.opacity = 0.85;
+      } else {
+        // Default Vintage Brown
+        outerMat.color.setHex(0xd4a373);
+        midMat.color.setHex(0xf59e0b);
+        innerMat.color.setHex(0x9a3412);
+        ring1Mat.color.setHex(0xd97706);
+        ring2Mat.color.setHex(0xb77e3f);
+        particleMat.opacity = 0.68;
+      }
+    }
+
+    // Apply stored theme on init
+    const initialTheme = localStorage.getItem('ashraf_color_theme') || 'brown';
+    if (initialTheme !== 'brown') {
+      applySceneTheme(initialTheme);
+    }
+
+    window.addEventListener('colorThemeChanged', (e) => {
+      const theme = e.detail?.theme || 'brown';
+      applySceneTheme(theme);
+    });
   }
 })();

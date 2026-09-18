@@ -38,8 +38,8 @@
   <header class="header-hud">
     <div class="hud-container">
       <a href="#hero" class="brand-logo">
-        <div class="logo-badge">SMA</div>
-        <div class="logo-text">ASHRAF<span>.DEV</span></div>
+        <div class="logo-badge">MA</div>
+        <div class="logo-text">ASHRAF</div>
       </a>
 
       <!-- Navigation Links -->
@@ -72,13 +72,42 @@
           </svg>
         </button>
 
-        <!-- Developer CLI Button -->
-        <button class="btn-cli" data-open-terminal title="Launch Developer Terminal (Press ~)">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <polyline points="4 17 10 12 4 7"></polyline>
-            <line x1="12" y1="19" x2="20" y2="19"></line>
-          </svg>
-          <span>CLI</span>
+        <!-- Theme Accent Color Paint Palette -->
+        <div class="theme-palette-wrapper" id="theme-palette-wrapper">
+          <button id="theme-palette-btn" class="btn-hud-icon" title="Choose Accent Color" aria-label="Theme Accent Color">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.92 0 1.67-.75 1.67-1.67 0-.43-.17-.83-.44-1.13-.27-.3-.44-.7-.44-1.13 0-.92.75-1.67 1.67-1.67H16c3.31 0 6-2.69 6-6 0-4.96-4.49-9.5-10-9.5z"></path>
+              <circle cx="7.5" cy="10.5" r="1.5" fill="currentColor"></circle>
+              <circle cx="12" cy="7.5" r="1.5" fill="currentColor"></circle>
+              <circle cx="16.5" cy="10.5" r="1.5" fill="currentColor"></circle>
+            </svg>
+          </button>
+          <div class="theme-palette-popover" id="theme-palette-popover">
+            <div class="theme-palette-heading">THEME ACCENT</div>
+            <div class="theme-swatches-grid">
+              <button class="swatch-btn theme-brown active" data-color="brown" title="Vintage Brown (Default)">
+                <span class="swatch-dot" style="background:#d97706;"></span>
+                <span class="swatch-title">Brown</span>
+              </button>
+              <button class="swatch-btn theme-blue" data-color="blue" title="Cobalt Sapphire Blue">
+                <span class="swatch-dot" style="background:#0284c7;"></span>
+                <span class="swatch-title">Blue</span>
+              </button>
+              <button class="swatch-btn theme-red" data-color="red" title="Crimson Ruby Red">
+                <span class="swatch-dot" style="background:#dc2626;"></span>
+                <span class="swatch-title">Red</span>
+              </button>
+              <button class="swatch-btn theme-white" data-color="white" title="Ivory Silver White">
+                <span class="swatch-dot" style="background:#ffffff; border:1px solid #94a3b8;"></span>
+                <span class="swatch-title">White</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Light / Dark Mode Toggle with Moon Symbol -->
+        <button id="theme-mode-btn" class="btn-hud-icon" title="Toggle Light / Dark Mode" aria-label="Toggle Light / Dark Mode">
+          <span id="theme-mode-symbol" class="theme-mode-symbol">🌙</span>
         </button>
 
         <!-- Mobile Menu Toggle -->
@@ -113,7 +142,7 @@
           <!-- Mind-Blowing Visual Centerpiece for Name -->
           <div class="name-visual-monolith" id="name-visual-monolith">
             <div class="monolith-eyebrow">
-              <span class="monolith-code">[ARCHITECT // 01]</span>
+              <span class="monolith-code">[ARCHITECT 01]</span>
               <span class="monolith-line"></span>
               <span class="monolith-status">B.Tech CSE • GPREC Kurnool</span>
             </div>
@@ -122,7 +151,7 @@
               <span class="name-accent" data-text="ASHRAF">ASHRAF</span>
             </h1>
             <div class="name-signature-flourish">
-              <span class="flourish-handwriting">~ the algorithmic craftsman &amp; system architect ~</span>
+              <span class="flourish-handwriting">"If I were the villain, I wouldn't let the hero win."</span>
               <svg class="flourish-svg-stroke" viewBox="0 0 320 20" fill="none">
                 <path d="M5 12C60 4 140 18 315 8" stroke="url(#goldStroke)" stroke-width="2.5" stroke-linecap="round"/>
                 <defs>
@@ -167,10 +196,6 @@
               </svg>
               <span>DOWNLOAD CV</span>
             </a>
-
-            <button class="btn-cli" data-open-terminal title="Open CLI Terminal (~)">
-              <span>~_ CLI</span>
-            </button>
           </div>
         </div>
 
@@ -230,7 +255,7 @@
       <div class="metrics-strip">
         <div class="metric-tile">
           <div class="metric-number-wrap">
-            <span class="metric-number" id="metric-lc-solved">128</span>
+            <span class="metric-number count-up-num" id="metric-lc-solved" data-target="128">0</span>
             <span class="metric-unit">+</span>
           </div>
           <div class="metric-title">LeetCode Solved</div>
@@ -238,7 +263,7 @@
 
         <div class="metric-tile">
           <div class="metric-number-wrap">
-            <span class="metric-number">1,216</span>
+            <span class="metric-number count-up-num" data-target="1216">0</span>
             <span class="metric-unit">ELO</span>
           </div>
           <div class="metric-title">Chess.com Rapid Rating</div>
@@ -246,7 +271,7 @@
 
         <div class="metric-tile">
           <div class="metric-number-wrap">
-            <span class="metric-number">8.78</span>
+            <span class="metric-number count-up-num" data-target="8.78" data-decimals="2">0.00</span>
             <span class="metric-unit">/10</span>
           </div>
           <div class="metric-title">B.Tech Engineering CGPA</div>
@@ -254,7 +279,7 @@
 
         <div class="metric-tile">
           <div class="metric-number-wrap">
-            <span class="metric-number">100</span>
+            <span class="metric-number count-up-num" data-target="100">0</span>
             <span class="metric-unit">%</span>
           </div>
           <div class="metric-title">SmartCare Live Status</div>
@@ -273,7 +298,6 @@
 
     <div class="container">
       <div class="section-header">
-        <div class="section-tag">// LIVE_TELEMETRY_RADAR</div>
         <h2 class="section-title">Autonomous <span class="gradient-text-amber-gold">Engineering Proof</span></h2>
         <p class="section-subtitle">
           Real-time dynamic telemetry synchronized with live GitHub contributions, LeetCode algorithmic submissions, and Chess.com tactical ratings.
@@ -313,17 +337,17 @@
             <div class="metric-panel">
               <div class="mp-split">
                 <div>
-                  <div class="mp-hero-val" id="github-repos-val">7</div>
+                  <div class="mp-hero-val count-up-num" id="github-repos-val" data-target="7">0</div>
                   <div class="text-muted font-mono" style="font-size:0.75rem;">Public Repos</div>
                 </div>
                 <div class="mp-split-divider"></div>
                 <div>
-                  <div class="mp-hero-val" id="github-followers-val">1</div>
+                  <div class="mp-hero-val count-up-num" id="github-followers-val" data-target="1">0</div>
                   <div class="text-muted font-mono" style="font-size:0.75rem;">Followers</div>
                 </div>
                 <div class="mp-split-divider"></div>
                 <div>
-                  <div class="mp-hero-val" style="color:var(--accent-amber);" id="github-commits-stat">180+</div>
+                  <div class="mp-hero-val count-up-num" style="color:var(--accent-amber);" id="github-commits-stat" data-target="180" data-suffix="+">0</div>
                   <div class="text-muted font-mono" style="font-size:0.75rem;">Commits</div>
                 </div>
               </div>
@@ -335,7 +359,7 @@
             <!-- Right: Pinned Repositories Grid -->
             <div class="metric-panel">
               <div class="text-muted font-mono" style="font-size:0.75rem;margin-bottom:0.65rem;color:var(--accent-amber);display:flex;justify-content:space-between;">
-                <span>// PINNED_REPOSITORIES</span>
+                <span>PINNED REPOSITORIES</span>
                 <span>3 ACTIVE</span>
               </div>
               <div class="gh-pinned-repos-grid" id="github-recent-repos">
@@ -380,41 +404,20 @@
             </div>
           </div>
 
-          <!-- DYNAMIC GITHUB 52-WEEK CONTRIBUTION HEATMAP CALENDAR -->
+          <!-- DYNAMIC GITHUB CONTRIBUTION HEATMAP (First Progress Only) -->
           <div class="heatmap-block">
             <div class="heatmap-block-header">
               <div>
-                <span style="color:var(--accent-amber);font-weight:700;">●</span> GitHub Annual Contributions Grid (Live Sync)
+                <span style="color:var(--accent-amber);font-weight:700;">●</span> GitHub Annual Contributions (Live Sync)
               </div>
               <div class="text-secondary font-mono" style="font-size:0.75rem;">
-                Total: <strong id="gh-total-commits-text" style="color:#ffffff;">180+</strong> contributions | Active: <strong id="gh-active-weeks-text" style="color:#ffffff;">48</strong> weeks
+                Total: <strong id="gh-total-commits-text" class="count-up-num" data-target="180" data-suffix="+" style="color:#ffffff;">0</strong> contributions | Active: <strong id="gh-active-weeks-text" class="count-up-num" data-target="48" style="color:#ffffff;">0</strong> weeks
               </div>
             </div>
 
             <!-- Official GitHub SVG Chart Embed -->
             <div class="gh-real-chart-box">
               <img src="https://ghchart.rshah.org/d97706/Mohammed-Ashraf-Shaik" alt="Mohammed-Ashraf-Shaik GitHub Contribution Chart" class="gh-real-chart-img" loading="lazy">
-            </div>
-
-            <!-- Interactive Fallback & Calibration Grid -->
-            <div class="heatmap-scroll-area" style="margin-top:0.75rem;">
-              <div class="calendar-months">
-                <span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span>Jun</span>
-                <span>Jul</span><span>Aug</span><span>Sep</span><span>Oct</span><span>Nov</span><span>Dec</span>
-              </div>
-              <div class="calendar-grid" id="github-heatmap-grid">
-                <!-- 52 weeks x 7 days rendered by live-stats.js -->
-              </div>
-            </div>
-
-            <div class="heatmap-legend">
-              <span>Less</span>
-              <div class="legend-cell lvl-0"></div>
-              <div class="legend-cell lvl-1"></div>
-              <div class="legend-cell lvl-2"></div>
-              <div class="legend-cell lvl-3"></div>
-              <div class="legend-cell lvl-4"></div>
-              <span>More</span>
             </div>
           </div>
         </div>
@@ -429,16 +432,21 @@
                 <div class="tr-user">@Shaik_mohameed_Ashraf</div>
               </div>
             </div>
-            <div class="tr-sync-pill" id="leetcode-sync-status">SYNCING API...</div>
+            <div style="display:flex;align-items:center;gap:0.75rem;">
+              <a href="https://leetcode.com/u/Shaik_mohameed_Ashraf/" target="_blank" rel="noopener noreferrer" class="btn-primary" style="padding:0.5rem 1.1rem;font-size:0.8rem;white-space:nowrap;">
+                <span>FOLLOW LEETCODE ↗</span>
+              </a>
+              <div class="tr-sync-pill" id="leetcode-sync-status">SYNCING API...</div>
+            </div>
           </div>
 
           <div class="tr-grid">
             <div class="metric-panel">
-              <div class="mp-hero-val" id="leetcode-total-val">128</div>
+              <div class="mp-hero-val count-up-num" id="leetcode-total-val" data-target="128">0</div>
               <div class="lc-stats-breakdown">
-                <span>Easy: <b id="leetcode-easy-val" style="color:#10b981;">87</b></span>
-                <span>Med: <b id="leetcode-med-val" style="color:#f59e0b;">37</b></span>
-                <span>Hard: <b id="leetcode-hard-val" style="color:#ef4444;">4</b></span>
+                <span>Easy: <b id="leetcode-easy-val" class="count-up-num" data-target="87" style="color:#10b981;">0</b></span>
+                <span>Med: <b id="leetcode-med-val" class="count-up-num" data-target="37" style="color:#f59e0b;">0</b></span>
+                <span>Hard: <b id="leetcode-hard-val" class="count-up-num" data-target="4" style="color:#ef4444;">0</b></span>
               </div>
               <div class="multi-seg-bar">
                 <div class="bar-seg easy" id="lc-bar-easy" style="width: 68%;"></div>
@@ -453,12 +461,12 @@
             <div class="metric-panel">
               <div class="mp-split">
                 <div>
-                  <div class="mp-hero-val" id="leetcode-rank-val">1,347,751</div>
+                  <div class="mp-hero-val count-up-num" id="leetcode-rank-val" data-target="1347751">0</div>
                   <div class="text-muted font-mono" style="font-size:0.75rem;">Global Standing</div>
                 </div>
                 <div class="mp-split-divider"></div>
                 <div>
-                  <div class="mp-hero-val" style="color:var(--accent-amber);">1,460</div>
+                  <div class="mp-hero-val count-up-num" style="color:var(--accent-amber);" id="leetcode-contest-val" data-target="1460">0</div>
                   <div class="text-muted font-mono" style="font-size:0.75rem;">Contest Rating</div>
                 </div>
               </div>
@@ -475,7 +483,7 @@
                 <span style="color:var(--accent-amber);font-weight:700;">●</span> 1-Year Algorithmic Submissions Grid
               </div>
               <div class="text-secondary font-mono" style="font-size:0.75rem;">
-                Total: <strong id="lc-total-subs-text" style="color:#ffffff;">265</strong> submissions | Active: <strong id="lc-active-days-text" style="color:#ffffff;">61</strong> days
+                Total: <strong id="lc-total-subs-text" class="count-up-num" data-target="265" style="color:#ffffff;">0</strong> submissions | Active: <strong id="lc-active-days-text" class="count-up-num" data-target="61" style="color:#ffffff;">0</strong> days
               </div>
             </div>
 
@@ -521,24 +529,29 @@
                 </div>
               </div>
             </div>
-            <div class="tr-sync-pill" id="chess-sync-status">SYNCING API...</div>
+            <div style="display:flex;align-items:center;gap:0.75rem;">
+              <a href="https://www.chess.com/member/ashumm" target="_blank" rel="noopener noreferrer" class="btn-primary" style="padding:0.5rem 1.1rem;font-size:0.8rem;white-space:nowrap;">
+                <span>FOLLOW CHESS ↗</span>
+              </a>
+              <div class="tr-sync-pill" id="chess-sync-status">SYNCING API...</div>
+            </div>
           </div>
 
           <div class="tr-grid">
             <div class="metric-panel">
               <div class="mp-split">
                 <div>
-                  <div class="mp-hero-val" id="chess-rapid-val">1,216</div>
+                  <div class="mp-hero-val count-up-num" id="chess-rapid-val" data-target="1216">0</div>
                   <div class="text-muted font-mono" style="font-size:0.75rem;">Rapid Elo Rating</div>
                 </div>
                 <div class="mp-split-divider"></div>
                 <div>
-                  <div class="mp-hero-val" id="chess-peak-val" style="color:var(--accent-amber);">1,232</div>
+                  <div class="mp-hero-val count-up-num" id="chess-peak-val" data-target="1232" style="color:var(--accent-amber);">0</div>
                   <div class="text-muted font-mono" style="font-size:0.75rem;">All-Time Peak</div>
                 </div>
                 <div class="mp-split-divider"></div>
                 <div>
-                  <div class="mp-hero-val" id="chess-tactics-val" style="color:var(--accent-amber);">1,461</div>
+                  <div class="mp-hero-val count-up-num" id="chess-tactics-val" data-target="1461" style="color:var(--accent-amber);">0</div>
                   <div class="text-muted font-mono" style="font-size:0.75rem;">Tactics Peak</div>
                 </div>
               </div>
@@ -550,9 +563,9 @@
 
             <div class="metric-panel">
               <div class="chess-record-pills">
-                <span class="c-rec win"><b id="chess-wins-val">1,116</b> Wins</span>
-                <span class="c-rec loss"><b id="chess-losses-val">977</b> Losses</span>
-                <span class="c-rec draw"><b id="chess-draws-val">78</b> Draws</span>
+                <span class="c-rec win"><b id="chess-wins-val" class="count-up-num" data-target="1116">0</b> Wins</span>
+                <span class="c-rec loss"><b id="chess-losses-val" class="count-up-num" data-target="977">0</b> Losses</span>
+                <span class="c-rec draw"><b id="chess-draws-val" class="count-up-num" data-target="78">0</b> Draws</span>
               </div>
               <div class="multi-seg-bar" style="margin-top:1rem;">
                 <div class="bar-seg easy" id="chess-win-bar" style="width: 52%;"></div>
@@ -580,7 +593,6 @@
 
     <div class="container">
       <div class="section-header">
-        <div class="section-tag">// FLAGSHIP_CASE_STUDY</div>
         <h2 class="section-title">Spotlight <span class="gradient-text-amber-gold">Production Project</span></h2>
         <p class="section-subtitle">
           Real-world deployed web application engineered for medical workflow optimization, responsive accessibility, and cloud scalability.
@@ -730,7 +742,6 @@
 
     <div class="container">
       <div class="section-header">
-        <div class="section-tag">// TECHNICAL_STACK</div>
         <h2 class="section-title">Engineering <span class="gradient-text-amber-gold">Arsenal &amp; Skills</span></h2>
         <p class="section-subtitle">
           Core programming languages, algorithmic problem solving patterns, frontend 3D graphics, and system architecture.
@@ -827,7 +838,6 @@
 
     <div class="container">
       <div class="section-header">
-        <div class="section-tag">// ENGINEERING_PHILOSOPHY</div>
         <h2 class="section-title">The <span class="gradient-text-amber-gold">Mindset &amp; Philosophy</span></h2>
         <p class="section-subtitle">
           Bridging mathematical foundations, algorithmic discipline, and scalable software architecture.
@@ -892,7 +902,6 @@
 
     <div class="container">
       <div class="section-header">
-        <div class="section-tag">// ACADEMIC_TRAJECTORY</div>
         <h2 class="section-title">Education &amp; <span class="gradient-text-amber-gold">Milestones</span></h2>
         <p class="section-subtitle">
           Proven academic record combined with hands-on software engineering excellence.
@@ -907,14 +916,14 @@
           <h3 class="timeline-title">Bachelor of Technology (B.Tech) – Computer Science</h3>
           <div class="timeline-institution">G. Pulla Reddy Engineering College (GPREC), Kurnool</div>
           <p class="timeline-desc">
-            Maintaining an exceptional <strong>CGPA of 8.78</strong>. Core curriculum covers Data Structures &amp; Algorithms, Automata Theory, Computer Networks, Artificial Intelligence, and Software Engineering principles.
+            Maintaining an exceptional CGPA of <strong class="count-up-num" data-target="8.78" data-decimals="2" style="color:var(--accent-amber);">0.00</strong>. Core curriculum covers Data Structures &amp; Algorithms, Automata Theory, Computer Networks, Artificial Intelligence, and Software Engineering principles.
           </p>
         </div>
 
         <!-- Intermediate -->
         <div class="timeline-card">
           <span class="timeline-date-badge">2022 — 2024</span>
-          <h3 class="timeline-title">Intermediate (MPC) – 94.3%</h3>
+          <h3 class="timeline-title">Intermediate (MPC) – <span class="count-up-num" data-target="94.3" data-decimals="1" data-suffix="%" style="color:var(--accent-amber);">0.0%</span></h3>
           <div class="timeline-institution">Nucleus Junior College, BIEAP</div>
           <p class="timeline-desc">
             Graduated with top honors in Mathematics, Physics, and Chemistry (MPC stream), demonstrating strong quantitative analysis and mathematical reasoning.
@@ -924,7 +933,7 @@
         <!-- 10th Standard -->
         <div class="timeline-card">
           <span class="timeline-date-badge">2021 — 2022</span>
-          <h3 class="timeline-title">10th Standard (SSC) – 543 / 600 (90.5%)</h3>
+          <h3 class="timeline-title">10th Standard (SSC) – <span class="count-up-num" data-target="543" style="color:var(--accent-amber);">0</span> / 600 (<span class="count-up-num" data-target="90.5" data-decimals="1" data-suffix="%" style="color:var(--accent-amber);">0.0%</span>)</h3>
           <div class="timeline-institution">GVR EM School</div>
           <p class="timeline-desc">
             Graduated with high distinction (90.5%), excelling in mathematics, analytical sciences, and foundational computer studies.
@@ -944,7 +953,6 @@
 
     <div class="container">
       <div class="section-header">
-        <div class="section-tag">// COMMUNICATION_LINK</div>
         <h2 class="section-title">Initiate <span class="gradient-text-amber-gold">Transmission</span></h2>
         <p class="section-subtitle">
           Have an exciting software engineering role, collaborative project, or opportunity? Let's connect directly.
@@ -1075,7 +1083,6 @@
     <a href="#about" class="dock-item" data-tooltip="Mindset" aria-label="Mindset & Philosophy">🧠</a>
     <a href="#education" class="dock-item" data-tooltip="Academics" aria-label="Academics">🎓</a>
     <a href="#contact" class="dock-item" data-tooltip="Contact" aria-label="Contact">✉️</a>
-    <button class="dock-item" data-open-terminal data-tooltip="CLI (~)" aria-label="Developer Terminal" style="cursor:pointer;border:none;">💻</button>
   </div>
 
   <!-- ========================================================================
@@ -1088,8 +1095,8 @@
         <!-- Brand & Tagline -->
         <div class="footer-col-brand">
           <a href="#hero" class="brand-logo" style="width:fit-content;">
-            <div class="logo-badge">SMA</div>
-            <div class="logo-text">ASHRAF<span>.DEV</span></div>
+            <div class="logo-badge">MA</div>
+            <div class="logo-text">ASHRAF</div>
           </a>
           <p class="footer-tagline">
             "Architecting high-scale distributed systems and immersive web experiences."
@@ -1149,11 +1156,6 @@
             <li class="footer-link-item"><a href="mailto:ashubasha52@gmail.com">ashubasha52@gmail.com</a></li>
             <li class="footer-link-item"><a href="tel:+918500543154">+91 8500543154</a></li>
             <li class="footer-link-item" style="color:var(--text-muted);font-size:0.88rem;">Nandyal, AP, India</li>
-            <li class="footer-link-item" style="margin-top:0.5rem;">
-              <button class="btn-cli" data-open-terminal title="Open CLI Developer Terminal">
-                <span>OPEN CLI TERMINAL (~_)</span>
-              </button>
-            </li>
           </ul>
         </div>
 

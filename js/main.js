@@ -138,7 +138,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     toast.innerHTML = `
-      <span style="color:var(--accent-amber);font-weight:bold;">// ASHRAF.DEV</span>
+      <span style="color:var(--accent-amber);font-weight:bold;">// ASHRAF</span>
       <span>${msg}</span>
     `;
 
@@ -249,4 +249,181 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
+
+  // =========================================================================
+  // 11. Millisecond Count-Up Visuals for Important Statistics (0 to Target)
+  // =========================================================================
+  function setupCountUpVisuals() {
+    const statElements = document.querySelectorAll('.count-up-num');
+
+    function animateCount(elem) {
+      if (!elem) return;
+      if (elem.dataset.hasCounted === 'true') return;
+      elem.dataset.hasCounted = 'true';
+
+      const targetAttr = elem.getAttribute('data-target');
+      const targetVal = targetAttr !== null 
+        ? parseFloat(targetAttr) 
+        : parseFloat(elem.textContent.replace(/[^0-9.]/g, ''));
+
+      if (isNaN(targetVal)) return;
+
+      const decimals = parseInt(elem.getAttribute('data-decimals') || '0', 10);
+      const suffix = elem.getAttribute('data-suffix') || '';
+      const prefix = elem.getAttribute('data-prefix') || '';
+      const duration = 1100; // Fast millisecond rolling effect
+      let startTimestamp = null;
+
+      function step(timestamp) {
+        if (!startTimestamp) startTimestamp = timestamp;
+        const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+        // Quartic ease out for snappy start and satisfying deceleration
+        const ease = 1 - Math.pow(1 - progress, 4);
+        const currentVal = ease * targetVal;
+
+        if (decimals > 0) {
+          elem.textContent = `${prefix}${currentVal.toFixed(decimals)}${suffix}`;
+        } else {
+          elem.textContent = `${prefix}${Math.floor(currentVal).toLocaleString()}${suffix}`;
+        }
+
+        if (progress < 1) {
+          window.requestAnimationFrame(step);
+        } else {
+          if (decimals > 0) {
+            elem.textContent = `${prefix}${targetVal.toFixed(decimals)}${suffix}`;
+          } else {
+            elem.textContent = `${prefix}${targetVal.toLocaleString()}${suffix}`;
+          }
+        }
+      }
+
+      window.requestAnimationFrame(step);
+    }
+
+    const countObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          animateCount(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    statElements.forEach((elem) => countObserver.observe(elem));
+
+    // Immediately trigger any elements visible above the fold on initial load
+    setTimeout(() => {
+      statElements.forEach((elem) => {
+        const rect = elem.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+          animateCount(elem);
+        }
+      });
+    }, 150);
+
+    // Global trigger for live API refreshes
+    window.triggerStatCountUp = function(elem, target) {
+      if (!elem) return;
+      elem.dataset.hasCounted = 'false';
+      elem.setAttribute('data-target', target);
+      animateCount(elem);
+    };
+  }
+
+  setupCountUpVisuals();
+
+  // =========================================================================
+  // 12. Theme Accent Palette (Blue, Red, White, Brown) & Light/Dark Mode Toggle
+  // =========================================================================
+  function setupThemeSystem() {
+    const paletteBtn = document.getElementById('theme-palette-btn');
+    const popover = document.getElementById('theme-palette-popover');
+    const swatchBtns = document.querySelectorAll('.swatch-btn');
+    const modeBtn = document.getElementById('theme-mode-btn');
+    const modeSymbol = document.getElementById('theme-mode-symbol');
+
+    // 12.1 Restore saved Color Theme
+    const savedColor = localStorage.getItem('ashraf_color_theme') || 'brown';
+    applyColorTheme(savedColor, false);
+
+    // 12.2 Restore saved Light/Dark Mode
+    const savedMode = localStorage.getItem('ashraf_theme_mode') || 'dark';
+    applyThemeMode(savedMode, false);
+
+    // Toggle Palette Popover on Click
+    if (paletteBtn && popover) {
+      paletteBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        popover.classList.toggle('active');
+        if (window.cyberAudio) window.cyberAudio.playClick();
+      });
+
+      document.addEventListener('click', (e) => {
+        if (!popover.contains(e.target) && e.target !== paletteBtn) {
+          popover.classList.remove('active');
+        }
+      });
+    }
+
+    // Color Swatch Clicks
+    swatchBtns.forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const color = btn.getAttribute('data-color');
+        applyColorTheme(color, true);
+        if (popover) popover.classList.remove('active');
+        if (window.cyberAudio) window.cyberAudio.playClick();
+        showToast(`ACCENT COLOR: ${color.toUpperCase()}`);
+      });
+    });
+
+    function applyColorTheme(themeName, animate = true) {
+      if (themeName === 'brown') {
+        document.documentElement.removeAttribute('data-color-theme');
+      } else {
+        document.documentElement.setAttribute('data-color-theme', themeName);
+      }
+      localStorage.setItem('ashraf_color_theme', themeName);
+
+      swatchBtns.forEach((b) => {
+        if (b.getAttribute('data-color') === themeName) {
+          b.classList.add('active');
+        } else {
+          b.classList.remove('active');
+        }
+      });
+
+      // Dispatch event to 3D WebGL Scene
+      window.dispatchEvent(new CustomEvent('colorThemeChanged', { detail: { theme: themeName } }));
+    }
+
+    // Light / Dark Mode Toggle Button (Moon Symbol)
+    if (modeBtn) {
+      modeBtn.addEventListener('click', () => {
+        const isCurrentLight = document.documentElement.getAttribute('data-theme-mode') === 'light';
+        const newMode = isCurrentLight ? 'dark' : 'light';
+        applyThemeMode(newMode, true);
+        if (window.cyberAudio) window.cyberAudio.playClick();
+        showToast(newMode === 'light' ? 'MODE: PARCHMENT LIGHT' : 'MODE: ESPRESSO DARK');
+      });
+    }
+
+    function applyThemeMode(mode, notify = true) {
+      if (mode === 'light') {
+        document.documentElement.setAttribute('data-theme-mode', 'light');
+        if (modeSymbol) modeSymbol.textContent = '☀️';
+        if (modeBtn) modeBtn.title = 'Switch to Dark Mode (Espresso)';
+      } else {
+        document.documentElement.removeAttribute('data-theme-mode');
+        if (modeSymbol) modeSymbol.textContent = '🌙';
+        if (modeBtn) modeBtn.title = 'Switch to Light Mode (Parchment)';
+      }
+      localStorage.setItem('ashraf_theme_mode', mode);
+
+      // Dispatch event to 3D WebGL Scene
+      window.dispatchEvent(new CustomEvent('themeModeChanged', { detail: { mode } }));
+    }
+  }
+
+  setupThemeSystem();
 });

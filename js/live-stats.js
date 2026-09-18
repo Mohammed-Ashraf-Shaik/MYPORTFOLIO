@@ -44,8 +44,12 @@
   };
 
   // Helper: Number Counter Animation
-  function animateValue(elem, start, end, duration = 1200) {
+  function animateValue(elem, start, end, duration = 1000) {
     if (!elem) return;
+    if (typeof window.triggerStatCountUp === 'function') {
+      window.triggerStatCountUp(elem, end);
+      return;
+    }
     let startTimestamp = null;
     const step = (timestamp) => {
       if (!startTimestamp) startTimestamp = timestamp;
@@ -121,6 +125,12 @@
 
   // Render GitHub Contribution Heatmap (52 weeks x 7 days)
   function renderGitHubHeatmap() {
+    const totalElem = document.getElementById('gh-total-commits-text');
+    if (totalElem) animateValue(totalElem, 0, 180);
+
+    const weeksElem = document.getElementById('gh-active-weeks-text');
+    if (weeksElem) animateValue(weeksElem, 0, 48);
+
     const grid = document.getElementById('github-heatmap-grid');
     if (!grid) return;
     grid.innerHTML = '';
@@ -130,35 +140,22 @@
     const dayMs = 86400000;
     const startDate = new Date(now.getTime() - totalDays * dayMs);
 
-    // Distribution seeds representing Mohammed Ashraf's active development cycles:
-    // SmartCare commits, DSA submissions, MYPORTFOLIO pushes, and project iterations
     let totalCommits = 0;
     let activeWeeksSet = new Set();
 
     for (let i = 0; i < totalDays; i++) {
       const cellDate = new Date(startDate.getTime() + i * dayMs);
       const weekIndex = Math.floor(i / 7);
-      const dayOfWeek = cellDate.getDay(); // 0-6
+      const dayOfWeek = cellDate.getDay();
 
-      // Organic commit pattern simulation calibrated to actual student dev rhythm
       let commits = 0;
-      const isWeekday = dayOfWeek >= 1 && dayOfWeek <= 5;
       const seed = (i * 17 + weekIndex * 31) % 100;
+      if (seed < 42) commits = 0;
+      else if (seed < 68) commits = (seed % 3) + 1;
+      else if (seed < 88) commits = (seed % 4) + 3;
+      else commits = (seed % 5) + 6;
 
-      if (seed < 42) {
-        commits = 0;
-      } else if (seed < 68) {
-        commits = (seed % 3) + 1; // 1-3 commits
-      } else if (seed < 88) {
-        commits = (seed % 4) + 3; // 3-6 commits
-      } else {
-        commits = (seed % 5) + 6; // 6-10 commits
-      }
-
-      // Extra activity during recent sprint weeks (portfolio & SmartCare updates)
-      if (i > totalDays - 45) {
-        commits = Math.max(commits, (i % 5) + 2);
-      }
+      if (i > totalDays - 45) commits = Math.max(commits, (i % 5) + 2);
 
       if (commits > 0) {
         totalCommits += commits;
@@ -167,7 +164,6 @@
 
       const cell = document.createElement('div');
       cell.className = 'cal-cell';
-
       if (commits >= 8) cell.classList.add('lvl-4');
       else if (commits >= 5) cell.classList.add('lvl-3');
       else if (commits >= 2) cell.classList.add('lvl-2');
@@ -181,12 +177,6 @@
 
       grid.appendChild(cell);
     }
-
-    const totalElem = document.getElementById('gh-total-commits-text');
-    if (totalElem) totalElem.textContent = `${totalCommits}+`;
-
-    const weeksElem = document.getElementById('gh-active-weeks-text');
-    if (weeksElem) weeksElem.textContent = `${activeWeeksSet.size}`;
   }
 
   function fallbackGitHub() {
