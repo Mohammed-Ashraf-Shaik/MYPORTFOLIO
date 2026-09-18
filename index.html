@@ -2,60 +2,59 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>SHAIK MOHAMMED ASHRAF // 3D Cyber-Quantum Portfolio & Spatial Inventory</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SHAIK MOHAMMED ASHRAF // Full-Stack Software Engineer &amp; DSA Architect</title>
 
-  <!-- Meta Tags -->
-  <meta name="description" content="Official 3D Cyber-Quantum Portfolio of Shaik Mohammed Ashraf. Full-Stack Software Engineer, DSA Enthusiast & System Architect.">
-  <meta name="keywords" content="Shaik Mohammed Ashraf, Portfolio, Full-Stack Developer, DSA, Three.js, LeetCode, SmartCare">
+  <!-- Meta SEO -->
+  <meta name="description" content="Portfolio of Shaik Mohammed Ashraf. Full-Stack Software Engineer, DSA Enthusiast & System Architect. Interactive 3D WebGL experiences and real-time live telemetry.">
+  <meta name="keywords" content="Shaik Mohammed Ashraf, Full-Stack Engineer, DSA, Three.js, WebGL, LeetCode, SmartCare">
   <meta name="author" content="Shaik Mohammed Ashraf">
 
-  <!-- Open Graph / Cyber Meta -->
-  <meta property="og:title" content="Shaik Mohammed Ashraf // 3D Cyber-Quantum Portfolio">
-  <meta property="og:description" content="Explore live algorithmic telemetry, SmartCare flagship project, and engineering credentials in an interactive 3D spatial bag architecture.">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Shaik Mohammed Ashraf // Software Engineer">
+  <meta property="og:description" content="Full-Stack Engineer, DSA Problem Solver, and Builder of Immersive Web Platforms.">
   <meta property="og:type" content="website">
 
-  <!-- Premium Futuristic Typography -->
+  <!-- Premium Typography -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
 
-  <!-- Main Stylesheet -->
+  <!-- Stylesheet -->
   <link rel="stylesheet" href="css/style.css">
 
   <!-- Favicon -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
 </head>
-<body class="cyber-spatial-body">
+<body>
 
-  <!-- 3D Three.js Background & Dimensional Bag Canvas -->
+  <!-- Three.js 3D WebGL Background & Interactive Artifact -->
   <div id="bg-canvas-container"></div>
   <div class="quantum-vignette-overlay"></div>
-  <div class="cyber-scanlines-filter"></div>
 
   <!-- ========================================================================
-       TOP HEADER HUD
+       HEADER HUD
        ======================================================================== -->
   <header class="header-hud">
     <div class="hud-container">
-      <a href="#" class="brand-logo" data-action="pack-to-bag" title="Return to 3D Bag Overview">
+      <a href="#hero" class="brand-logo">
         <div class="logo-badge">SMA</div>
         <div class="logo-text">ASHRAF<span>.DEV</span></div>
       </a>
 
-      <!-- Quick Bag Item Jump Links -->
+      <!-- Navigation Links -->
       <ul class="nav-links">
-        <li><a href="#" class="nav-link active" data-item-target="item-1">// 01_IDENTITY</a></li>
-        <li><a href="#" class="nav-link" data-item-target="item-2">// 02_RADAR</a></li>
-        <li><a href="#" class="nav-link" data-item-target="item-3">// 03_SKILLS</a></li>
-        <li><a href="#" class="nav-link" data-item-target="item-4">// 04_SMARTCARE</a></li>
-        <li><a href="#" class="nav-link" data-item-target="item-5">// 05_MINDSET</a></li>
-        <li><a href="#" class="nav-link" data-item-target="item-6">// 06_ACADEMICS</a></li>
-        <li><a href="#" class="nav-link" data-item-target="item-7">// 07_COMMS</a></li>
+        <li><a href="#hero" class="nav-link active">Home</a></li>
+        <li><a href="#telemetry" class="nav-link">Live Radar</a></li>
+        <li><a href="#project" class="nav-link">SmartCare</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#education" class="nav-link">Education</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
       </ul>
 
       <div class="hud-actions">
-        <!-- Quick Resume Download Button in Header -->
+        <!-- Quick Resume Download -->
         <a href="Resume_Mohammed_Ashraf.docx" download class="btn-resume-header" title="Download CV (DOCX)">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
@@ -65,25 +64,25 @@
           <span>CV.DOCX</span>
         </a>
 
-        <!-- Audio SFX Toggle Button -->
-        <button id="audio-toggle-btn" class="btn-hud-icon" title="Toggle Sci-Fi SFX" aria-label="Toggle Audio SFX">
+        <!-- Audio Toggle -->
+        <button id="audio-toggle-btn" class="btn-hud-icon" title="Toggle Sound FX" aria-label="Toggle Audio">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
             <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
           </svg>
         </button>
 
-        <!-- Developer CLI Terminal Button -->
+        <!-- Developer CLI Button -->
         <button class="btn-cli" title="Launch Developer Terminal (Press ~)">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <polyline points="4 17 10 12 4 7"></polyline>
             <line x1="12" y1="19" x2="20" y2="19"></line>
           </svg>
-          <span>CLI_MODE</span>
+          <span>CLI</span>
         </button>
 
         <!-- Mobile Menu Toggle -->
-        <button id="mobile-menu-btn" class="mobile-menu-toggle" aria-label="Toggle Navigation Menu">
+        <button id="mobile-menu-btn" class="mobile-menu-toggle" aria-label="Toggle Menu">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <line x1="3" y1="12" x2="21" y2="12"></line>
             <line x1="3" y1="6" x2="21" y2="6"></line>
@@ -95,1180 +94,895 @@
   </header>
 
   <!-- ========================================================================
-       ZERO-SCROLL SPATIAL VIEWPORT
+       HERO SECTION
        ======================================================================== -->
-  <main id="spatial-viewport">
-
-    <!-- Top Spatial HUD Bar -->
-    <div class="spatial-hud-bar">
-      <!-- Active Relic Status Indicator -->
-      <div class="hud-relic-tracker" id="active-relic-status">
-        <span class="status-dot" style="background:#00f5ff;box-shadow:0 0 8px #00f5ff;"></span>
-        <span>RELIC [01]: <strong>NEURAL IDENTITY</strong> [EXTRACTED]</span>
-      </div>
-
-      <!-- Relic Cycling & Bag Overview Controls -->
-      <div class="hud-actions-group">
-        <button class="btn-hud-control" id="btn-prev-relic" title="Previous Relic (Press ← or A)">
-          <span>← PREV [A]</span>
-        </button>
-        <button class="btn-hud-control" id="btn-next-relic" title="Next Relic (Press → or D)">
-          <span>NEXT [D] →</span>
-        </button>
-        <button class="btn-hud-control pack-btn" id="btn-bag-overview" title="Store in Bag / Panorama View (Press ESC or B)">
-          <span style="font-size:1rem;">🎒</span>
-          <span>BAG OVERVIEW [ESC]</span>
-        </button>
-      </div>
-    </div>
-
-    <!-- ======================================================================
-         SPATIAL STAGE: 7 PULLABLE INVENTORY RELIC CARDS
-         ====================================================================== -->
-    <div id="spatial-stage">
-
-      <!-- ====================================================================
-           RELIC 01: [ID_CORE] NEURAL IDENTITY & PROFILE
-           ==================================================================== -->
-      <div class="relic-item-container relic-active" id="item-1">
-        <div class="relic-holo-card">
-          <div class="relic-card-header">
-            <div class="relic-badge-info">
-              <span class="relic-icon-chip">👤</span>
-              <span class="relic-code-pill">[01] ID_CORE</span>
-              <span class="relic-title-text">Neural Identity &amp; Profile</span>
-            </div>
-            <div class="relic-card-actions">
-              <button class="btn-hud-control pack-btn" data-action="pack-to-bag" title="Pack back into 3D Bag (ESC)">
-                <span>PACK TO BAG [ESC]</span>
-              </button>
-            </div>
-          </div>
-
-          <div class="relic-scroll-body">
-            <div class="hero-grid">
-              
-              <!-- Left: Headline, 3D Kinetic Name, Bio & CTAs -->
-              <div class="hero-content-col">
-                <div class="hero-status-pill">
-                  <span class="status-dot"></span>
-                  <span>AVAILABLE FOR WORK • NANDYAL, INDIA</span>
-                </div>
-
-                <!-- Spectacular 3D Kinetic Liquid-Chrome Name Centerpiece -->
-                <div class="hero-name-monolith" id="kinetic-name-monolith" title="Interactive 3D Kinetic Typographic Monolith (Move mouse & click)">
-                  <div class="name-hud-tracker top-tracker">
-                    <span class="hud-bracket">[</span>
-                    <span class="hud-meta-code">SMA // COORD: 15.478°N, 78.483°E</span>
-                    <span class="hud-status-beacon">● SYSTEM_ONLINE</span>
-                    <span class="hud-bracket">]</span>
-                  </div>
-
-                  <h1 class="kinetic-name-title" data-name="SHAIK MOHAMMED ASHRAF">
-                    <span class="name-row row-first" data-text="SHAIK MOHAMMED">
-                      <span class="letter-layer layer-back" aria-hidden="true">SHAIK MOHAMMED</span>
-                      <span class="letter-layer layer-glow" aria-hidden="true">SHAIK MOHAMMED</span>
-                      <span class="letter-layer layer-front">SHAIK MOHAMMED</span>
-                    </span>
-                    <span class="name-row row-accent" data-text="ASHRAF">
-                      <span class="letter-layer layer-back" aria-hidden="true">ASHRAF</span>
-                      <span class="letter-layer layer-glow" aria-hidden="true">ASHRAF</span>
-                      <span class="letter-layer layer-front">ASHRAF</span>
-                    </span>
-                  </h1>
-
-                  <div class="name-laser-beam">
-                    <div class="laser-spark"></div>
-                  </div>
-
-                  <div class="name-hud-tracker bottom-tracker">
-                    <span class="hud-chip">CYBER_ID: 0x7F8E</span>
-                    <span class="hud-divider">//</span>
-                    <span class="hud-chip">FULL-STACK &amp; ALGORITHMIC ARCHITECT</span>
-                  </div>
-                </div>
-
-                <div class="hero-role-wrapper">
-                  <span>&gt;&gt;</span>
-                  <span id="hero-role-text">Full-Stack Software Engineer</span>
-                  <span class="typewriter-cursor"></span>
-                </div>
-
-                <p class="hero-tagline">
-                  "Architecting high-scale distributed systems and immersive web experiences."
-                </p>
-
-                <p class="hero-bio">
-                  B.Tech Computer Science student with a relentless drive for algorithmic elegance, clean code architecture, and high-performance engineering. Focused on understanding deep core logic rather than rote memorization.
-                </p>
-
-                <div class="hero-cta-group">
-                  <button class="btn-primary-cyber" onclick="window.inventoryBag.pickItem('item-4')">
-                    <span>EXPLORE SMARTCARE</span>
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                      <line x1="5" y1="12" x2="19" y2="12"></line>
-                      <polyline points="12 5 19 12 12 19"></polyline>
-                    </svg>
-                  </button>
-
-                  <a href="Resume_Mohammed_Ashraf.docx" download class="btn-secondary-cyber">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                      <polyline points="7 10 12 15 17 10"></polyline>
-                      <line x1="12" y1="15" x2="12" y2="3"></line>
-                    </svg>
-                    <span>DOWNLOAD CV</span>
-                  </a>
-
-                  <button class="btn-cli" data-open-terminal title="Open CLI Terminal">
-                    <span>~_ CLI</span>
-                  </button>
-                </div>
-              </div>
-
-              <!-- Right: Holographic 3D Tilt Card Photo -->
-              <div class="hero-card-col">
-                <div class="holo-tilt-card" id="hero-tilt-card">
-                  <div class="card-glare"></div>
-                  
-                  <div class="card-frame">
-                    <img src="PROFILEPIC.jpg" alt="Shaik Mohammed Ashraf" class="card-photo" loading="eager">
-                    <div class="card-hologram-scan"></div>
-                    <div class="card-corner tl"></div>
-                    <div class="card-corner tr"></div>
-                    <div class="card-corner bl"></div>
-                    <div class="card-corner br"></div>
-                  </div>
-
-                  <div class="card-footer-info">
-                    <div class="card-identity">
-                      <div class="card-name">SHAIK MOHAMMED ASHRAF</div>
-                      <div class="card-title-sub">CSE UNDERGRAD • GPREC KURNOOL</div>
-                    </div>
-                    <div class="card-quantum-badge">
-                      <span>CGPA</span>
-                      <strong>8.78</strong>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-
-            <!-- Metrics Strip -->
-            <div class="metrics-grid" style="margin-top:2.5rem;">
-              <div class="metric-card" onclick="window.inventoryBag.pickItem('item-2')">
-                <div class="metric-glow cyan"></div>
-                <div class="metric-num-wrap">
-                  <span class="metric-val" id="metric-lc-solved">128</span>
-                  <span class="metric-plus">+</span>
-                </div>
-                <div class="metric-label">LeetCode Problems Solved</div>
-                <div class="metric-foot">ACTIVE LOGIC GRIND ↗</div>
-              </div>
-
-              <div class="metric-card" onclick="window.inventoryBag.pickItem('item-2')">
-                <div class="metric-glow violet"></div>
-                <div class="metric-num-wrap">
-                  <span class="metric-val">1,216</span>
-                  <span class="metric-unit">ELO</span>
-                </div>
-                <div class="metric-label">Chess.com Rapid Rating</div>
-                <div class="metric-foot">LEGEND LEAGUE TIER ↗</div>
-              </div>
-
-              <div class="metric-card" onclick="window.inventoryBag.pickItem('item-6')">
-                <div class="metric-glow emerald"></div>
-                <div class="metric-num-wrap">
-                  <span class="metric-val">8.78</span>
-                  <span class="metric-unit">/10</span>
-                </div>
-                <div class="metric-label">B.Tech Engineering CGPA</div>
-                <div class="metric-foot">GPREC CSE EXCELLENCE ↗</div>
-              </div>
-
-              <div class="metric-card" onclick="window.inventoryBag.pickItem('item-4')">
-                <div class="metric-glow amber"></div>
-                <div class="metric-num-wrap">
-                  <span class="metric-val">100</span>
-                  <span class="metric-unit">%</span>
-                </div>
-                <div class="metric-label">SmartCare Live System</div>
-                <div class="metric-foot">PRODUCTION DEPLOYED ↗</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- ====================================================================
-           RELIC 02: [RADAR_DATA] LIVE TELEMETRY RADAR
-           ==================================================================== -->
-      <div class="relic-item-container relic-stashed" id="item-2">
-        <div class="relic-holo-card">
-          <div class="relic-card-header">
-            <div class="relic-badge-info">
-              <span class="relic-icon-chip">📊</span>
-              <span class="relic-code-pill">[02] RADAR_DATA</span>
-              <span class="relic-title-text">Live Telemetry Radar (LeetCode, GitHub &amp; Chess)</span>
-            </div>
-            <div class="relic-card-actions">
-              <button class="btn-hud-control pack-btn" data-action="pack-to-bag" title="Pack back into 3D Bag (ESC)">
-                <span>PACK TO BAG [ESC]</span>
-              </button>
-            </div>
-          </div>
-
-          <div class="relic-scroll-body">
-            <div class="section-header" style="margin-bottom:1.75rem;">
-              <div class="section-tag">REALTIME_API_SYNC</div>
-              <h2 class="section-title">Live Dynamic <span class="gradient-text-cyan-violet">Telemetry Radar</span></h2>
-              <p class="section-subtitle">
-                Autonomous real-time tracking pulled directly from official LeetCode, GitHub, and Chess.com APIs.
-              </p>
-            </div>
-
-            <div class="live-telemetry-stack">
-
-              <!-- ROW 1: LEETCODE DYNAMIC PULSE -->
-              <div class="live-telemetry-row">
-                <div class="live-row-header">
-                  <div class="row-platform-brand">
-                    <div class="platform-icon lc-icon">⚡</div>
-                    <div>
-                      <div class="row-platform-title">LeetCode Live Pulse</div>
-                      <div class="row-platform-user">@Shaik_mohameed_Ashraf</div>
-                    </div>
-                  </div>
-                  <div class="row-sync-status" id="leetcode-sync-status">SYNCING API...</div>
-                </div>
-
-                <div class="live-row-grid lc-grid-layout">
-                  <div class="telemetry-card">
-                    <div class="tc-top">
-                      <span class="tc-label">Total Solved</span>
-                      <span class="tc-badge lc-badge">ALGORITHMIC</span>
-                    </div>
-                    <div class="tc-val-hero" id="leetcode-total-val">128</div>
-                    <div class="tc-progress-wrap">
-                      <div class="tc-progress-labels">
-                        <span>Easy: <b id="leetcode-easy-val">87</b></span>
-                        <span>Med: <b id="leetcode-med-val">37</b></span>
-                        <span>Hard: <b id="leetcode-hard-val">4</b></span>
-                      </div>
-                      <div class="tc-multi-bar">
-                        <div class="multi-bar-seg easy" id="lc-bar-easy" style="width: 68%;"></div>
-                        <div class="multi-bar-seg med" id="lc-bar-med" style="width: 29%;"></div>
-                        <div class="multi-bar-seg hard" id="lc-bar-hard" style="width: 3%;"></div>
-                      </div>
-                    </div>
-                    <div class="tc-meta" id="leetcode-recent-problem">RECENT: Subarray Sum Equals K (Java)</div>
-                  </div>
-
-                  <div class="telemetry-card">
-                    <div class="tc-top">
-                      <span class="tc-label">Global Standing</span>
-                      <span class="tc-badge">RANKING</span>
-                    </div>
-                    <div class="tc-val-hero" id="leetcode-rank-val">1,347,751</div>
-                    <div class="tc-sub-stat">
-                      <span>Contest Rating:</span>
-                      <strong class="text-cyan font-mono">1,460</strong>
-                    </div>
-                    <div class="tc-sub-stat">
-                      <span>Total Submissions:</span>
-                      <strong class="text-emerald font-mono" id="leetcode-submissions-val">282</strong>
-                    </div>
-                    <a href="https://leetcode.com/u/Shaik_mohameed_Ashraf/" target="_blank" rel="noopener noreferrer" class="btn-telemetry-link">
-                      <span>VIEW LEETCODE PROFILE ↗</span>
-                    </a>
-                  </div>
-                </div>
-
-                <!-- DYNAMIC LEETCODE 1-YEAR SUBMISSION HEATMAP CALENDAR -->
-                <div class="lc-heatmap-container">
-                  <div class="lc-heatmap-header">
-                    <div class="lc-heatmap-title">
-                      <span class="text-cyan">●</span> 1-Year Submission Activity (Visual Heatmap)
-                    </div>
-                    <div class="lc-heatmap-metrics">
-                      <span>Total: <strong id="lc-total-subs-text">265</strong> submissions</span>
-                      <span>Active: <strong id="lc-active-days-text">61</strong> days</span>
-                    </div>
-                  </div>
-
-                  <div class="lc-heatmap-scroll">
-                    <div class="lc-calendar-months">
-                      <span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span>Jun</span>
-                      <span>Jul</span><span>Aug</span><span>Sep</span><span>Oct</span><span>Nov</span><span>Dec</span>
-                    </div>
-                    <div class="lc-heatmap-grid" id="leetcode-heatmap-grid">
-                      <!-- 52 weeks x 7 days generated by live-stats.js -->
-                    </div>
-                  </div>
-
-                  <div class="lc-heatmap-legend">
-                    <span>Less</span>
-                    <div class="legend-cell lvl-0"></div>
-                    <div class="legend-cell lvl-1"></div>
-                    <div class="legend-cell lvl-2"></div>
-                    <div class="legend-cell lvl-3"></div>
-                    <div class="legend-cell lvl-4"></div>
-                    <span>More</span>
-                  </div>
-                </div>
-              </div>
-
-              <!-- ROW 2: GITHUB LIVE RADAR -->
-              <div class="live-telemetry-row">
-                <div class="live-row-header">
-                  <div class="row-platform-brand">
-                    <div class="platform-icon gh-icon">🐙</div>
-                    <div>
-                      <div class="row-platform-title">GitHub Live Pulse</div>
-                      <div class="row-platform-user">@Mohammed-Ashraf-Shaik</div>
-                    </div>
-                  </div>
-                  <div class="row-sync-status" id="github-sync-status">SYNCING API...</div>
-                </div>
-
-                <div class="live-row-grid">
-                  <div class="telemetry-card">
-                    <div class="tc-top">
-                      <span class="tc-label">Repositories &amp; Followers</span>
-                      <span class="tc-badge gh-badge">PUBLIC</span>
-                    </div>
-                    <div class="tc-split-metrics">
-                      <div>
-                        <div class="tc-val-hero" id="github-repos-val">5</div>
-                        <div class="tc-sub-label">Public Repos</div>
-                      </div>
-                      <div class="tc-split-divider"></div>
-                      <div>
-                        <div class="tc-val-hero" id="github-followers-val">1</div>
-                        <div class="tc-sub-label">Followers</div>
-                      </div>
-                    </div>
-                    <div class="tc-meta" id="github-bio-text">"EXTROVERT, trying to build new things using current tech..."</div>
-                  </div>
-
-                  <div class="telemetry-card">
-                    <div class="tc-top">
-                      <span class="tc-label">Active Repositories</span>
-                      <span class="tc-badge">LATEST</span>
-                    </div>
-                    <div class="live-repos-list" id="github-recent-repos">
-                      <a href="https://github.com/Mohammed-Ashraf-Shaik/smart-care-app" target="_blank" rel="noopener noreferrer" class="live-repo-chip">
-                        <span class="repo-name">📂 smart-care-app</span>
-                        <span class="repo-meta">JavaScript</span>
-                      </a>
-                      <a href="https://github.com/Mohammed-Ashraf-Shaik/myleetcode" target="_blank" rel="noopener noreferrer" class="live-repo-chip">
-                        <span class="repo-name">📂 myleetcode</span>
-                        <span class="repo-meta">Java/Python</span>
-                      </a>
-                    </div>
-                    <a href="https://github.com/Mohammed-Ashraf-Shaik" target="_blank" rel="noopener noreferrer" class="btn-telemetry-link">
-                      <span>VIEW GITHUB REPOSITORIES ↗</span>
-                    </a>
-                  </div>
-                </div>
-              </div>
-
-              <!-- ROW 3: CHESS.COM LIVE TELEMETRY -->
-              <div class="live-telemetry-row">
-                <div class="live-row-header">
-                  <div class="row-platform-brand">
-                    <div class="platform-icon chess-icon">♟️</div>
-                    <div>
-                      <div class="row-platform-title">Chess.com Live Pulse</div>
-                      <div class="row-platform-user">@ashumm</div>
-                    </div>
-                  </div>
-                  <div class="row-sync-status" id="chess-sync-status">SYNCING API...</div>
-                </div>
-
-                <div class="live-row-grid">
-                  <div class="telemetry-card">
-                    <div class="tc-top">
-                      <span class="tc-label">Rapid Elo &amp; Peak</span>
-                      <span class="tc-badge chess-badge">RAPID 10-MIN</span>
-                    </div>
-                    <div class="tc-split-metrics">
-                      <div>
-                        <div class="tc-val-hero" id="chess-rapid-val">1,216</div>
-                        <div class="tc-sub-label">Current Rating</div>
-                      </div>
-                      <div class="tc-split-divider"></div>
-                      <div>
-                        <div class="tc-val-hero text-violet" id="chess-peak-val">1,232</div>
-                        <div class="tc-sub-label">All-Time Peak</div>
-                      </div>
-                    </div>
-                    <div class="tc-meta">TACTICS RATING: <strong class="text-cyan font-mono" id="chess-tactics-val">1,461</strong></div>
-                  </div>
-
-                  <div class="telemetry-card">
-                    <div class="tc-top">
-                      <span class="tc-label">Match Record &amp; Win Rate</span>
-                      <span class="tc-badge">COMPETITIVE</span>
-                    </div>
-                    <div class="chess-record-pills">
-                      <span class="c-rec win"><b id="chess-wins-val">1,116</b> Wins</span>
-                      <span class="c-rec loss"><b id="chess-losses-val">977</b> Losses</span>
-                      <span class="c-rec draw"><b id="chess-draws-val">78</b> Draws</span>
-                    </div>
-                    <div class="tc-progress-wrap" style="margin-top:0.75rem;">
-                      <div class="tc-multi-bar">
-                        <div class="multi-bar-seg easy" id="chess-win-bar" style="width: 52%;"></div>
-                      </div>
-                      <div class="tc-meta" id="chess-winrate-text" style="margin-top:0.4rem;">52% WIN RATE (2,171+ MATCHES)</div>
-                    </div>
-                    <a href="https://www.chess.com/member/ashumm" target="_blank" rel="noopener noreferrer" class="btn-telemetry-link">
-                      <span>CHESS.COM PROFILE ↗</span>
-                    </a>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- ====================================================================
-           RELIC 03: [GALAXY_ORB] QUANTUM SKILL UNIVERSE
-           ==================================================================== -->
-      <div class="relic-item-container relic-stashed" id="item-3">
-        <div class="relic-holo-card">
-          <div class="relic-card-header">
-            <div class="relic-badge-info">
-              <span class="relic-icon-chip">🌌</span>
-              <span class="relic-code-pill">[03] GALAXY_ORB</span>
-              <span class="relic-title-text">Technical Arsenal &amp; Skill Constellation</span>
-            </div>
-            <div class="relic-card-actions">
-              <button class="btn-hud-control pack-btn" data-action="pack-to-bag" title="Pack back into 3D Bag (ESC)">
-                <span>PACK TO BAG [ESC]</span>
-              </button>
-            </div>
-          </div>
-
-          <div class="relic-scroll-body">
-            <div class="section-header" style="margin-bottom:1.75rem;">
-              <div class="section-tag">COMPUTATIONAL_STACK</div>
-              <h2 class="section-title">Technical <span class="gradient-text-cyan-violet">Competence Universe</span></h2>
-              <p class="section-subtitle">
-                Interactive 3D constellation of core engineering domains, programming paradigms, and modern tooling.
-              </p>
-            </div>
-
-            <!-- 3D Interactive Skill Constellation Canvas -->
-            <div class="skill-universe-grid">
-              <div class="skill-canvas-panel">
-                <div class="canvas-hud-header">
-                  <span class="hud-dot"></span>
-                  <span>3D SKILL CONSTELLATION GRAPH // DRAG &amp; ROTATE</span>
-                </div>
-                <canvas id="skill-galaxy-canvas"></canvas>
-                <div class="canvas-hud-footer">
-                  <span>ORBITS: 4 TIERS</span>
-                  <span>NODES: 24 ACTIVE</span>
-                </div>
-              </div>
-
-              <!-- Domain Cards -->
-              <div class="skill-domains-col">
-                <div class="skill-domain-card" data-domain="languages">
-                  <div class="domain-header">
-                    <div class="domain-title">
-                      <span class="domain-icon">⚡</span>
-                      <span>Core Languages</span>
-                    </div>
-                    <span class="text-cyan font-mono" style="font-size:0.8rem;">[01]</span>
-                  </div>
-                  <div class="skill-pills-list">
-                    <span class="skill-pill highlight">Python</span>
-                    <span class="skill-pill highlight">Java</span>
-                    <span class="skill-pill">JavaScript (ES6+)</span>
-                    <span class="skill-pill">HTML5</span>
-                    <span class="skill-pill">CSS3</span>
-                    <span class="skill-pill">SQL</span>
-                  </div>
-                </div>
-
-                <div class="skill-domain-card" data-domain="frontend">
-                  <div class="domain-header">
-                    <div class="domain-title">
-                      <span class="domain-icon">🎨</span>
-                      <span>Frontend &amp; 3D Graphics</span>
-                    </div>
-                    <span class="text-violet font-mono" style="font-size:0.8rem;">[02]</span>
-                  </div>
-                  <div class="skill-pills-list">
-                    <span class="skill-pill highlight">Three.js</span>
-                    <span class="skill-pill highlight">Vite</span>
-                    <span class="skill-pill">Modular CSS Architecture</span>
-                    <span class="skill-pill">Responsive Design</span>
-                    <span class="skill-pill">Canvas 2D / WebGL</span>
-                  </div>
-                </div>
-
-                <div class="skill-domain-card" data-domain="algorithms">
-                  <div class="domain-header">
-                    <div class="domain-title">
-                      <span class="domain-icon">🧠</span>
-                      <span>DSA &amp; Problem Solving</span>
-                    </div>
-                    <span class="text-emerald font-mono" style="font-size:0.8rem;">[03]</span>
-                  </div>
-                  <div class="skill-pills-list">
-                    <span class="skill-pill highlight">Sliding Window</span>
-                    <span class="skill-pill highlight">Two Pointers</span>
-                    <span class="skill-pill">Binary Search</span>
-                    <span class="skill-pill">Trees &amp; BST</span>
-                    <span class="skill-pill">Graph Traversals (BFS/DFS)</span>
-                    <span class="skill-pill">Space-Time Complexity</span>
-                  </div>
-                </div>
-
-                <div class="skill-domain-card" data-domain="tools">
-                  <div class="domain-header">
-                    <div class="domain-title">
-                      <span class="domain-icon">🗄️</span>
-                      <span>Backend, Vision &amp; Tools</span>
-                    </div>
-                    <span class="text-cyan font-mono" style="font-size:0.8rem;">[04]</span>
-                  </div>
-                  <div class="skill-pills-list">
-                    <span class="skill-pill highlight">MongoDB</span>
-                    <span class="skill-pill highlight">OpenCV (Computer Vision)</span>
-                    <span class="skill-pill">Git &amp; GitHub</span>
-                    <span class="skill-pill">Figma</span>
-                    <span class="skill-pill">Vercel Deployment</span>
-                    <span class="skill-pill">RESTful APIs</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- ====================================================================
-           RELIC 04: [FLAGSHIP_CHIP] SMARTCARE FLAGSHIP PROJECT
-           ==================================================================== -->
-      <div class="relic-item-container relic-stashed" id="item-4">
-        <div class="relic-holo-card">
-          <div class="relic-card-header">
-            <div class="relic-badge-info">
-              <span class="relic-icon-chip">🏥</span>
-              <span class="relic-code-pill">[04] FLAGSHIP_CHIP</span>
-              <span class="relic-title-text">SmartCare – Healthcare Management Web App</span>
-            </div>
-            <div class="relic-card-actions">
-              <button class="btn-hud-control pack-btn" data-action="pack-to-bag" title="Pack back into 3D Bag (ESC)">
-                <span>PACK TO BAG [ESC]</span>
-              </button>
-            </div>
-          </div>
-
-          <div class="relic-scroll-body">
-            <div class="section-header" style="margin-bottom:1.75rem;">
-              <div class="section-tag">FLAGSHIP_SHOWCASE</div>
-              <h2 class="section-title">Spotlight <span class="gradient-text-cyan-violet">Production Project</span></h2>
-              <p class="section-subtitle">
-                Real-world deployed web application built with precision, high responsiveness, and modern frontend architecture.
-              </p>
-            </div>
-
-            <!-- SmartCare Flagship Spotlight Card -->
-            <div class="smartcare-flagship-card" data-tilt data-tilt-max="5">
-              <div class="flagship-grid">
-                
-                <!-- Left Column: Project Overview, Features & CTAs -->
-                <div class="flagship-info-col">
-                  <div class="flagship-badge-row">
-                    <span class="flagship-pill-live">
-                      <span class="status-dot" style="background:#10b981;box-shadow:0 0 8px #10b981;"></span>
-                      LIVE PRODUCTION
-                    </span>
-                    <span class="flagship-pill-tag">HEALTHCARE MANAGEMENT</span>
-                    <span class="flagship-pill-tag">V1.0</span>
-                  </div>
-
-                  <h3 class="flagship-title">SmartCare – Healthcare Management Web App</h3>
-                  <p class="flagship-lead">
-                    A comprehensive healthcare management web application engineered to eliminate medical service fragmentation, streamline patient-doctor workflows, and provide an ultra-responsive digital health portal.
-                  </p>
-
-                  <div class="flagship-features-grid">
-                    <div class="flagship-feat-item">
-                      <div class="feat-item-title">
-                        <span style="color:#00f5ff;">⚡</span> Fast &amp; Fluid UX
-                      </div>
-                      <div class="feat-item-desc">
-                        Engineered with modern Vite bundling and optimized asset delivery for lightning-fast sub-second interactions.
-                      </div>
-                    </div>
-
-                    <div class="flagship-feat-item">
-                      <div class="feat-item-title">
-                        <span style="color:#a855f7;">📱</span> 100% Adaptive UI
-                      </div>
-                      <div class="feat-item-desc">
-                        Pixel-perfect responsive experience engineered across mobile smartphones, tablets, and desktop workstations.
-                      </div>
-                    </div>
-
-                    <div class="flagship-feat-item">
-                      <div class="feat-item-title">
-                        <span style="color:#10b981;">🏥</span> Centralized Health Hub
-                      </div>
-                      <div class="feat-item-desc">
-                        Unified interface providing appointment scheduling, emergency contact directory, and patient medical record navigation.
-                      </div>
-                    </div>
-
-                    <div class="flagship-feat-item">
-                      <div class="feat-item-title">
-                        <span style="color:#fbbf24;">🚀</span> Cloud-Native Deployment
-                      </div>
-                      <div class="feat-item-desc">
-                        Continuous CI/CD pipeline integrated directly with Vercel edge network for 99.9% uptime and zero-latency CDN serving.
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="flagship-tech-stack">
-                    <span class="flagship-tech-pill glow">HTML5</span>
-                    <span class="flagship-tech-pill glow">CSS3</span>
-                    <span class="flagship-tech-pill glow">JavaScript (ES6+)</span>
-                    <span class="flagship-tech-pill">Vite</span>
-                    <span class="flagship-tech-pill">Vercel Edge</span>
-                    <span class="flagship-tech-pill">Modular Component Architecture</span>
-                  </div>
-
-                  <div class="flagship-cta-group">
-                    <a href="https://smartcare-gprec.vercel.app" target="_blank" rel="noopener noreferrer" class="btn-primary-cyber">
-                      <span>OPEN LIVE WEB APP</span>
-                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                        <polyline points="15 3 21 3 21 9"></polyline>
-                        <line x1="10" y1="14" x2="21" y2="3"></line>
-                      </svg>
-                    </a>
-
-                    <a href="https://github.com/Mohammed-Ashraf-Shaik/smart-care-app" target="_blank" rel="noopener noreferrer" class="btn-secondary-cyber">
-                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-                      </svg>
-                      <span>SOURCE REPO</span>
-                    </a>
-                  </div>
-                </div>
-
-                <!-- Right Column: Interactive Browser Preview Mockup -->
-                <div class="flagship-preview-box">
-                  <div class="mockup-header-bar">
-                    <div class="mockup-dots">
-                      <span class="m-dot red"></span>
-                      <span class="m-dot yellow"></span>
-                      <span class="m-dot green"></span>
-                    </div>
-                    <div class="mockup-url-pill">
-                      <span style="color:#10b981;">https://</span>smartcare-gprec.vercel.app
-                    </div>
-                    <div style="width: 36px;"></div>
-                  </div>
-
-                  <div class="mockup-screen-content">
-                    <div class="mockup-hero-visual">
-                      <div class="mockup-app-icon">🏥</div>
-                      <div class="mockup-app-name">SmartCare Portal</div>
-                      <div style="font-size:0.82rem;color:var(--text-muted);">Smart Healthcare Management Web System</div>
-                    </div>
-
-                    <div class="mockup-stat-tile">
-                      <span style="font-size:0.85rem;color:var(--text-secondary);">Application Status</span>
-                      <span class="text-emerald font-mono" style="font-weight:700;font-size:0.82rem;">● OPERATIONAL (100%)</span>
-                    </div>
-
-                    <div class="mockup-stat-tile">
-                      <span style="font-size:0.85rem;color:var(--text-secondary);">Hosting Platform</span>
-                      <span class="text-cyan font-mono" style="font-size:0.82rem;">Vercel Edge Network</span>
-                    </div>
-
-                    <div class="mockup-stat-tile">
-                      <span style="font-size:0.85rem;color:var(--text-secondary);">Institution Association</span>
-                      <span class="text-violet font-mono" style="font-size:0.82rem;">GPREC Kurnool</span>
-                    </div>
-
-                    <a href="https://smartcare-gprec.vercel.app" target="_blank" rel="noopener noreferrer" class="btn-project-link" style="justify-content:center;margin-top:0.5rem;padding:0.75rem;">
-                      <span>VISIT LIVE SMARTCARE APPLICATION ↗</span>
-                    </a>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- ====================================================================
-           RELIC 05: [NEURAL_DNA] ENGINEERING MINDSET & PHILOSOPHY
-           ==================================================================== -->
-      <div class="relic-item-container relic-stashed" id="item-5">
-        <div class="relic-holo-card">
-          <div class="relic-card-header">
-            <div class="relic-badge-info">
-              <span class="relic-icon-chip">🧠</span>
-              <span class="relic-code-pill">[05] NEURAL_DNA</span>
-              <span class="relic-title-text">Engineering Mindset &amp; Philosophy</span>
-            </div>
-            <div class="relic-card-actions">
-              <button class="btn-hud-control pack-btn" data-action="pack-to-bag" title="Pack back into 3D Bag (ESC)">
-                <span>PACK TO BAG [ESC]</span>
-              </button>
-            </div>
-          </div>
-
-          <div class="relic-scroll-body">
-            <div class="section-header" style="margin-bottom:1.75rem;">
-              <div class="section-tag">ENGINEERING_DNA</div>
-              <h2 class="section-title">The <span class="gradient-text-cyan-violet">Mindset &amp; Background</span></h2>
-              <p class="section-subtitle">
-                Bridging mathematical foundations, algorithmic discipline, and scalable software architecture.
-              </p>
-            </div>
-
-            <div class="about-grid">
-              <div class="about-text-panel">
-                <p class="about-p">
-                  I'm <strong>Shaik Mohammed Ashraf</strong>, a Computer Science undergraduate at <strong>G. Pulla Reddy Engineering College (GPREC), Kurnool</strong> with an outstanding <strong>CGPA of 8.78</strong>.
-                </p>
-                <p class="about-p">
-                  My philosophy is grounded in <strong>deep fundamental comprehension</strong> rather than superficial memorization. Whether traversing complex graph algorithms, designing responsive modular web platforms, or training computer vision models, I strive to make intricate architectures feel effortless and intuitive.
-                </p>
-                <p class="about-p">
-                  I actively hone my problem-solving capabilities through regular competitive programming on LeetCode and CodeChef, prioritizing algorithmic optimization, clean structure, and scalable efficiency.
-                </p>
-
-                <div class="languages-spoken-box">
-                  <div class="languages-spoken-title">Languages Spoken &amp; Written</div>
-                  <div class="lang-tags">
-                    <div class="lang-tag">English <span>[Professional]</span></div>
-                    <div class="lang-tag">Telugu <span>[Native]</span></div>
-                    <div class="lang-tag">Hindi <span>[Fluent]</span></div>
-                    <div class="lang-tag">Urdu <span>[Fluent]</span></div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="about-highlights-col">
-                <div class="about-highlight-card">
-                  <div class="highlight-icon-wrap">⚡</div>
-                  <h4 class="highlight-card-title">Algorithmic Problem Solver</h4>
-                  <p class="highlight-card-desc">
-                    Strong grasp of DSA patterns: Sliding Window, Binary Search, Hash Tables, and Graph Traversals with keen focus on big-O asymptotic efficiency.
-                  </p>
-                </div>
-
-                <div class="about-highlight-card">
-                  <div class="highlight-icon-wrap">🌐</div>
-                  <h4 class="highlight-card-title">Modern Full-Stack Engineering</h4>
-                  <p class="highlight-card-desc">
-                    Crafting modular frontend applications with Vite, clean CSS architectures, and robust MongoDB backend integrations.
-                  </p>
-                </div>
-
-                <div class="about-highlight-card">
-                  <div class="highlight-icon-wrap">🚀</div>
-                  <h4 class="highlight-card-title">Scalable Architecture &amp; Clean Code</h4>
-                  <p class="highlight-card-desc">
-                    Committed to modular design, high maintainability, intuitive UI/UX, and optimal performance across modern full-stack web applications.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- ====================================================================
-           RELIC 06: [CHRONO_LEDGER] ACADEMIC MILESTONES
-           ==================================================================== -->
-      <div class="relic-item-container relic-stashed" id="item-6">
-        <div class="relic-holo-card">
-          <div class="relic-card-header">
-            <div class="relic-badge-info">
-              <span class="relic-icon-chip">🎓</span>
-              <span class="relic-code-pill">[06] CHRONO_LEDGER</span>
-              <span class="relic-title-text">Academic Milestones &amp; Trajectory</span>
-            </div>
-            <div class="relic-card-actions">
-              <button class="btn-hud-control pack-btn" data-action="pack-to-bag" title="Pack back into 3D Bag (ESC)">
-                <span>PACK TO BAG [ESC]</span>
-              </button>
-            </div>
-          </div>
-
-          <div class="relic-scroll-body">
-            <div class="section-header" style="margin-bottom:1.75rem;">
-              <div class="section-tag">ACADEMIC_TRAJECTORY</div>
-              <h2 class="section-title">Education &amp; <span class="gradient-text-cyan-violet">Milestones</span></h2>
-              <p class="section-subtitle">
-                Proven academic record combined with hands-on software development excellence.
-              </p>
-            </div>
-
-            <div class="timeline-container">
-              <!-- B.Tech -->
-              <div class="timeline-item">
-                <div class="timeline-node"></div>
-                <div class="timeline-card">
-                  <span class="timeline-date-badge">2024 — 2028 (CURRENTLY IN 5TH SEMESTER)</span>
-                  <h3 class="timeline-title">Bachelor of Technology (B.Tech) – Computer Science</h3>
-                  <div class="timeline-institution">G. Pulla Reddy Engineering College (GPREC), Kurnool</div>
-                  <p class="timeline-desc">
-                    Maintaining an exceptional <strong>CGPA of 8.78</strong>. Core curriculum covers Data Structures &amp; Algorithms, Automata Theory, Computer Networks, Artificial Intelligence, and Software Engineering principles.
-                  </p>
-                </div>
-              </div>
-
-              <!-- Intermediate -->
-              <div class="timeline-item">
-                <div class="timeline-node"></div>
-                <div class="timeline-card">
-                  <span class="timeline-date-badge">2022 — 2024</span>
-                  <h3 class="timeline-title">Intermediate (MPC) – 94.3%</h3>
-                  <div class="timeline-institution">Nucleus Junior College, BIEAP</div>
-                  <p class="timeline-desc">
-                    Graduated with top honors in Mathematics, Physics, and Chemistry (MPC stream), demonstrating strong quantitative analysis and mathematical reasoning.
-                  </p>
-                </div>
-              </div>
-
-              <!-- 10th Standard -->
-              <div class="timeline-item">
-                <div class="timeline-node"></div>
-                <div class="timeline-card">
-                  <span class="timeline-date-badge">2021 — 2022</span>
-                  <h3 class="timeline-title">10th Standard (SSC) – 543 / 600 (90.5%)</h3>
-                  <div class="timeline-institution">GVR EM School</div>
-                  <p class="timeline-desc">
-                    Graduated with high distinction (90.5%), excelling in mathematics, analytical sciences, and foundational computer studies.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- ====================================================================
-           RELIC 07: [UPLINK_COMMS] DIRECT TRANSMISSION & FOOTER
-           ==================================================================== -->
-      <div class="relic-item-container relic-stashed" id="item-7">
-        <div class="relic-holo-card">
-          <div class="relic-card-header">
-            <div class="relic-badge-info">
-              <span class="relic-icon-chip">📡</span>
-              <span class="relic-code-pill">[07] UPLINK_COMMS</span>
-              <span class="relic-title-text">Direct Transmission Uplink &amp; Contacts</span>
-            </div>
-            <div class="relic-card-actions">
-              <button class="btn-hud-control pack-btn" data-action="pack-to-bag" title="Pack back into 3D Bag (ESC)">
-                <span>PACK TO BAG [ESC]</span>
-              </button>
-            </div>
-          </div>
-
-          <div class="relic-scroll-body">
-            <div class="section-header" style="margin-bottom:1.75rem;">
-              <div class="section-tag">COMMUNICATION_LINK</div>
-              <h2 class="section-title">Initiate <span class="gradient-text-cyan-violet">Transmission</span></h2>
-              <p class="section-subtitle">
-                Have an exciting software engineering role, collaborative project, or opportunity? Let's connect directly.
-              </p>
-            </div>
-
-            <div class="contact-grid">
-              
-              <!-- Left: Quick Cards & Socials -->
-              <div class="contact-info-panel">
-                <p class="contact-info-desc">
-                  I am actively open to <strong>full-time software engineering roles</strong>, innovative development projects, and research opportunities. Let's create something extraordinary together.
-                </p>
-
-                <div class="contact-card-list">
-                  
-                  <!-- Email -->
-                  <div class="contact-quick-card">
-                    <div class="quick-card-left">
-                      <div class="quick-card-icon">✉️</div>
-                      <div>
-                        <div class="quick-card-label">Primary Email</div>
-                        <div class="quick-card-value">ashubasha52@gmail.com</div>
-                      </div>
-                    </div>
-                    <button class="copy-btn-action" data-copy="ashubasha52@gmail.com" title="Copy email">
-                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-                      </svg>
-                    </button>
-                  </div>
-
-                  <!-- Phone -->
-                  <div class="contact-quick-card">
-                    <div class="quick-card-left">
-                      <div class="quick-card-icon">📞</div>
-                      <div>
-                        <div class="quick-card-label">Direct Phone</div>
-                        <div class="quick-card-value">+91 8500543154</div>
-                      </div>
-                    </div>
-                    <button class="copy-btn-action" data-copy="+918500543154" title="Copy phone number">
-                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-                      </svg>
-                    </button>
-                  </div>
-
-                  <!-- Location -->
-                  <div class="contact-quick-card">
-                    <div class="quick-card-left">
-                      <div class="quick-card-icon">📍</div>
-                      <div>
-                        <div class="quick-card-label">Base Location</div>
-                        <div class="quick-card-value">Nandyal, Andhra Pradesh, India</div>
-                      </div>
-                    </div>
-                  </div>
-
-                </div>
-
-                <!-- Social Circle Links -->
-                <div class="social-links-strip">
-                  <a href="https://github.com/Mohammed-Ashraf-Shaik" target="_blank" rel="noopener noreferrer" class="social-circle-link" title="GitHub Profile">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-                    </svg>
-                  </a>
-
-                  <a href="https://linkedin.com/in/mohammed-ashraf-shaik" target="_blank" rel="noopener noreferrer" class="social-circle-link" title="LinkedIn Profile">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                      <rect x="2" y="9" width="4" height="12"></rect>
-                      <circle cx="4" cy="4" r="2"></circle>
-                    </svg>
-                  </a>
-
-                  <a href="https://x.com/ashraf_m_shaik" target="_blank" rel="noopener noreferrer" class="social-circle-link" title="Twitter / X Profile">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                    </svg>
-                  </a>
-                </div>
-
-              </div>
-
-              <!-- Right: Contact Form -->
-              <div class="contact-form-card">
-                <form id="contact-form">
-                  <div class="form-group">
-                    <label for="form-name" class="form-label">Full Name</label>
-                    <input type="text" id="form-name" class="form-input" placeholder="e.g. Satya Nadella" required>
-                  </div>
-
-                  <div class="form-group">
-                    <label for="form-email" class="form-label">Email Address</label>
-                    <input type="email" id="form-email" class="form-input" placeholder="name@company.com" required>
-                  </div>
-
-                  <div class="form-group">
-                    <label for="form-message" class="form-label">Message / Transmission</label>
-                    <textarea id="form-message" class="form-textarea" placeholder="Hello Ashraf, let's discuss an engineering role / collaboration..." required></textarea>
-                  </div>
-
-                  <button type="submit" class="btn-primary-cyber" style="width:100%;justify-content:center;">
-                    <span>SEND TRANSMISSION</span>
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <line x1="22" y1="2" x2="11" y2="13"></line>
-                      <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
-                    </svg>
-                  </button>
-                </form>
-              </div>
-
-            </div>
-
-            <!-- Integrated Cyber Bottom Footer in Relic 7 -->
-            <div style="margin-top:3.5rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1.5rem;">
-              <div class="footer-text font-mono" style="font-size:0.8rem;color:var(--text-muted);">
-                © 2026 <span style="color:var(--text-primary);font-weight:600;">SHAIK MOHAMMED ASHRAF</span>. BUILT WITH THREE.JS &amp; 3D SPATIAL INVENTORY.
-              </div>
-              <button class="btn-hud-control pack-btn" data-action="pack-to-bag">
-                <span>RETURN TO 3D BAG [ESC]</span>
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- ======================================================================
-         BAG OVERVIEW SCREEN (PANORAMIC 3D BAG VAULT)
-         ====================================================================== -->
-    <div id="bag-overview-screen">
-      <div class="bag-overview-center">
-        <div class="bag-center-badge">
-          <span class="status-dot"></span>
-          <span>CYBER-INVENTORY // 3D QUANTUM BACKPACK</span>
-        </div>
-
-        <h2 class="bag-overview-title">
-          Pick a <span class="gradient-text-cyan-violet">Relic from the Bag</span>
-        </h2>
-        <p class="bag-overview-subtitle">
-          The 3D Dimensional Bag stores Ashraf's engineering portfolio modules. Click any relic or press keys <strong>[1 – 7]</strong> on your keyboard to extract it in 3D space.
-        </p>
-
-        <div class="bag-relic-quick-grid">
-          <div class="bag-quick-relic-card" onclick="window.inventoryBag.pickItem('item-1')">
-            <span class="quick-relic-icon">👤</span>
-            <span class="quick-relic-name">Identity &amp; Bio</span>
-            <span class="quick-relic-code">[KEY: 1]</span>
-          </div>
-
-          <div class="bag-quick-relic-card" onclick="window.inventoryBag.pickItem('item-2')">
-            <span class="quick-relic-icon">📊</span>
-            <span class="quick-relic-name">Live Telemetry</span>
-            <span class="quick-relic-code">[KEY: 2]</span>
-          </div>
-
-          <div class="bag-quick-relic-card" onclick="window.inventoryBag.pickItem('item-3')">
-            <span class="quick-relic-icon">🌌</span>
-            <span class="quick-relic-name">Skill Matrix</span>
-            <span class="quick-relic-code">[KEY: 3]</span>
-          </div>
-
-          <div class="bag-quick-relic-card" onclick="window.inventoryBag.pickItem('item-4')">
-            <span class="quick-relic-icon">🏥</span>
-            <span class="quick-relic-name">SmartCare App</span>
-            <span class="quick-relic-code">[KEY: 4]</span>
-          </div>
-
-          <div class="bag-quick-relic-card" onclick="window.inventoryBag.pickItem('item-5')">
-            <span class="quick-relic-icon">🧠</span>
-            <span class="quick-relic-name">Mindset &amp; DNA</span>
-            <span class="quick-relic-code">[KEY: 5]</span>
-          </div>
-
-          <div class="bag-quick-relic-card" onclick="window.inventoryBag.pickItem('item-6')">
-            <span class="quick-relic-icon">🎓</span>
-            <span class="quick-relic-name">Academics</span>
-            <span class="quick-relic-code">[KEY: 6]</span>
-          </div>
-
-          <div class="bag-quick-relic-card" onclick="window.inventoryBag.pickItem('item-7')">
-            <span class="quick-relic-icon">📡</span>
-            <span class="quick-relic-name">Comms Uplink</span>
-            <span class="quick-relic-code">[KEY: 7]</span>
-          </div>
-
-          <div class="bag-quick-relic-card" onclick="window.inventoryBag.pickItem('item-1')">
-            <span class="quick-relic-icon">✨</span>
-            <span class="quick-relic-name">Extract All</span>
-            <span class="quick-relic-code">[KEY: SPACE]</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ======================================================================
-         FIXED CYBERNETIC BAG HUD DOCK (BOTTOM INVENTORY SLOTS)
-         ====================================================================== -->
-    <nav id="bag-dock" aria-label="3D Bag Inventory Dock">
-      <div class="bag-dock-container">
+  <section id="hero" class="hero-section">
+    <div class="container">
+      <div class="hero-grid">
         
-        <!-- Slot 1 -->
-        <button class="bag-slot-btn active" data-item-id="item-1" title="Extract Relic 1: Neural Identity & Profile (Press 1)">
-          <span class="slot-key-badge">1</span>
-          <span class="slot-icon">👤</span>
-          <div class="slot-info">
-            <span class="slot-title">Identity</span>
-            <span class="slot-code">ID_CORE</span>
+        <!-- Left: Headline, Bio & CTAs -->
+        <div class="hero-content-col">
+          <div class="hero-status-pill">
+            <span class="status-dot"></span>
+            <span>AVAILABLE FOR OPPORTUNITIES • NANDYAL, INDIA</span>
           </div>
-        </button>
 
-        <!-- Slot 2 -->
-        <button class="bag-slot-btn" data-item-id="item-2" title="Extract Relic 2: Live Telemetry Radar (Press 2)">
-          <span class="slot-key-badge">2</span>
-          <span class="slot-icon">📊</span>
-          <div class="slot-info">
-            <span class="slot-title">Telemetry</span>
-            <span class="slot-code">RADAR_DATA</span>
-          </div>
-        </button>
+          <!-- Editorial Headline: SHAIK MOHAMMED ASHRAF -->
+          <h1 class="editorial-name-title">
+            <span class="name-first">SHAIK MOHAMMED</span>
+            <span class="name-accent">ASHRAF</span>
+          </h1>
 
-        <!-- Slot 3 -->
-        <button class="bag-slot-btn" data-item-id="item-3" title="Extract Relic 3: Quantum Skill Universe (Press 3)">
-          <span class="slot-key-badge">3</span>
-          <span class="slot-icon">🌌</span>
-          <div class="slot-info">
-            <span class="slot-title">Skills</span>
-            <span class="slot-code">GALAXY_ORB</span>
+          <div class="hero-role-wrapper">
+            <span>&gt;&gt;</span>
+            <span id="hero-role-text">Full-Stack Software Engineer</span>
+            <span class="typewriter-cursor"></span>
           </div>
-        </button>
 
-        <!-- Slot 4 -->
-        <button class="bag-slot-btn" data-item-id="item-4" title="Extract Relic 4: SmartCare Flagship App (Press 4)">
-          <span class="slot-key-badge">4</span>
-          <span class="slot-icon">🏥</span>
-          <div class="slot-info">
-            <span class="slot-title">SmartCare</span>
-            <span class="slot-code">FLAGSHIP_CHIP</span>
-          </div>
-        </button>
+          <p class="hero-tagline">
+            "Architecting high-scale distributed systems and immersive web experiences."
+          </p>
 
-        <!-- Slot 5 -->
-        <button class="bag-slot-btn" data-item-id="item-5" title="Extract Relic 5: Engineering Mindset & DNA (Press 5)">
-          <span class="slot-key-badge">5</span>
-          <span class="slot-icon">🧠</span>
-          <div class="slot-info">
-            <span class="slot-title">Mindset</span>
-            <span class="slot-code">NEURAL_DNA</span>
-          </div>
-        </button>
+          <p class="hero-bio">
+            Computer Science undergraduate at GPREC Kurnool with a relentless drive for algorithmic elegance, clean code architecture, and high-performance engineering. Focused on understanding deep computational logic rather than rote memorization.
+          </p>
 
-        <!-- Slot 6 -->
-        <button class="bag-slot-btn" data-item-id="item-6" title="Extract Relic 6: Academic Trajectory (Press 6)">
-          <span class="slot-key-badge">6</span>
-          <span class="slot-icon">🎓</span>
-          <div class="slot-info">
-            <span class="slot-title">Academics</span>
-            <span class="slot-code">CHRONO_LEDGER</span>
-          </div>
-        </button>
+          <div class="hero-cta-group">
+            <a href="#project" class="btn-primary">
+              <span>EXPLORE SMARTCARE</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
 
-        <!-- Slot 7 -->
-        <button class="bag-slot-btn" data-item-id="item-7" title="Extract Relic 7: Direct Comms Transmission (Press 7)">
-          <span class="slot-key-badge">7</span>
-          <span class="slot-icon">📡</span>
-          <div class="slot-info">
-            <span class="slot-title">Comms</span>
-            <span class="slot-code">UPLINK_COMMS</span>
+            <a href="Resume_Mohammed_Ashraf.docx" download class="btn-secondary">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+              <span>DOWNLOAD CV</span>
+            </a>
+
+            <button class="btn-cli" data-open-terminal title="Open CLI Terminal (~)">
+              <span>~_ CLI</span>
+            </button>
           </div>
-        </button>
+        </div>
+
+        <!-- Right: Modern Framed Portrait -->
+        <div class="hero-card-col">
+          <div class="hero-portrait-card">
+            <div class="portrait-frame">
+              <img src="PROFILEPIC.jpg" alt="Shaik Mohammed Ashraf" class="portrait-img" loading="eager">
+            </div>
+            <div class="portrait-meta">
+              <div>
+                <div class="pm-name">SHAIK MOHAMMED ASHRAF</div>
+                <div class="pm-inst">B.Tech CSE • GPREC Kurnool</div>
+              </div>
+              <div class="pm-cgpa-pill">
+                8.78 CGPA
+              </div>
+            </div>
+          </div>
+        </div>
 
       </div>
-    </nav>
 
-  </main>
+      <!-- Quick Metrics Strip -->
+      <div class="metrics-strip">
+        <div class="metric-tile">
+          <div class="metric-number-wrap">
+            <span class="metric-number" id="metric-lc-solved">128</span>
+            <span class="metric-unit">+</span>
+          </div>
+          <div class="metric-title">LeetCode Solved</div>
+        </div>
+
+        <div class="metric-tile">
+          <div class="metric-number-wrap">
+            <span class="metric-number">1,216</span>
+            <span class="metric-unit">ELO</span>
+          </div>
+          <div class="metric-title">Chess.com Rapid Rating</div>
+        </div>
+
+        <div class="metric-tile">
+          <div class="metric-number-wrap">
+            <span class="metric-number">8.78</span>
+            <span class="metric-unit">/10</span>
+          </div>
+          <div class="metric-title">B.Tech Engineering CGPA</div>
+        </div>
+
+        <div class="metric-tile">
+          <div class="metric-number-wrap">
+            <span class="metric-number">100</span>
+            <span class="metric-unit">%</span>
+          </div>
+          <div class="metric-title">SmartCare Live Status</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       LIVE TELEMETRY RADAR (Linear/Vercel Style)
+       ======================================================================== -->
+  <section id="telemetry" class="section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">// REALTIME_METRICS</div>
+        <h2 class="section-title">Live Engineering <span class="gradient-text-cyan-violet">Telemetry Radar</span></h2>
+        <p class="section-subtitle">
+          Autonomous real-time performance indicators pulled directly from official LeetCode, GitHub, and Chess.com APIs.
+        </p>
+      </div>
+
+      <div class="telemetry-stack">
+
+        <!-- ROW 1: LEETCODE LIVE PULSE & 52-WEEK HEATMAP CALENDAR -->
+        <div class="telemetry-row-card">
+          <div class="tr-header">
+            <div class="tr-platform">
+              <div class="tr-icon lc">⚡</div>
+              <div>
+                <div class="tr-title">LeetCode Live Pulse</div>
+                <div class="tr-user">@Shaik_mohameed_Ashraf</div>
+              </div>
+            </div>
+            <div class="tr-sync-pill" id="leetcode-sync-status">SYNCING API...</div>
+          </div>
+
+          <div class="tr-grid">
+            <div class="metric-panel">
+              <div class="mp-hero-val" id="leetcode-total-val">128</div>
+              <div class="lc-stats-breakdown">
+                <span>Easy: <b id="leetcode-easy-val" style="color:#10b981;">87</b></span>
+                <span>Med: <b id="leetcode-med-val" style="color:#f59e0b;">37</b></span>
+                <span>Hard: <b id="leetcode-hard-val" style="color:#ef4444;">4</b></span>
+              </div>
+              <div class="multi-seg-bar">
+                <div class="bar-seg easy" id="lc-bar-easy" style="width: 68%;"></div>
+                <div class="bar-seg med" id="lc-bar-med" style="width: 29%;"></div>
+                <div class="bar-seg hard" id="lc-bar-hard" style="width: 3%;"></div>
+              </div>
+              <div class="text-secondary font-mono" id="leetcode-recent-problem" style="font-size:0.75rem;margin-top:0.6rem;">
+                RECENT: Subarray Sum Equals K (Java)
+              </div>
+            </div>
+
+            <div class="metric-panel">
+              <div class="mp-split">
+                <div>
+                  <div class="mp-hero-val" id="leetcode-rank-val">1,347,751</div>
+                  <div class="text-muted font-mono" style="font-size:0.75rem;">Global Standing</div>
+                </div>
+                <div class="mp-split-divider"></div>
+                <div>
+                  <div class="mp-hero-val" style="color:var(--accent-cyan);">1,460</div>
+                  <div class="text-muted font-mono" style="font-size:0.75rem;">Contest Rating</div>
+                </div>
+              </div>
+              <a href="https://leetcode.com/u/Shaik_mohameed_Ashraf/" target="_blank" rel="noopener noreferrer" class="btn-card-action">
+                <span>VIEW LEETCODE PROFILE ↗</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- DYNAMIC LEETCODE 1-YEAR SUBMISSION HEATMAP CALENDAR -->
+          <div class="lc-heatmap-container">
+            <div class="lc-heatmap-header">
+              <div>
+                <span style="color:var(--accent-cyan);font-weight:700;">●</span> 1-Year Submission Activity (Visual Heatmap)
+              </div>
+              <div class="text-secondary font-mono" style="font-size:0.75rem;">
+                Total: <strong id="lc-total-subs-text" style="color:#ffffff;">265</strong> submissions | Active: <strong id="lc-active-days-text" style="color:#ffffff;">61</strong> days
+              </div>
+            </div>
+
+            <div class="lc-heatmap-scroll">
+              <div class="lc-calendar-months">
+                <span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span>Jun</span>
+                <span>Jul</span><span>Aug</span><span>Sep</span><span>Oct</span><span>Nov</span><span>Dec</span>
+              </div>
+              <div class="lc-heatmap-grid" id="leetcode-heatmap-grid">
+                <!-- 52 weeks x 7 days rendered by live-stats.js -->
+              </div>
+            </div>
+
+            <div class="lc-heatmap-legend">
+              <span>Less</span>
+              <div class="legend-cell lvl-0"></div>
+              <div class="legend-cell lvl-1"></div>
+              <div class="legend-cell lvl-2"></div>
+              <div class="legend-cell lvl-3"></div>
+              <div class="legend-cell lvl-4"></div>
+              <span>More</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ROW 2: GITHUB LIVE RADAR -->
+        <div class="telemetry-row-card">
+          <div class="tr-header">
+            <div class="tr-platform">
+              <div class="tr-icon gh">🐙</div>
+              <div>
+                <div class="tr-title">GitHub Live Pulse</div>
+                <div class="tr-user">@Mohammed-Ashraf-Shaik</div>
+              </div>
+            </div>
+            <div class="tr-sync-pill" id="github-sync-status">SYNCING API...</div>
+          </div>
+
+          <div class="tr-grid">
+            <div class="metric-panel">
+              <div class="mp-split">
+                <div>
+                  <div class="mp-hero-val" id="github-repos-val">5</div>
+                  <div class="text-muted font-mono" style="font-size:0.75rem;">Public Repos</div>
+                </div>
+                <div class="mp-split-divider"></div>
+                <div>
+                  <div class="mp-hero-val" id="github-followers-val">1</div>
+                  <div class="text-muted font-mono" style="font-size:0.75rem;">Followers</div>
+                </div>
+              </div>
+              <div class="text-secondary" id="github-bio-text" style="font-size:0.85rem;margin-top:0.75rem;font-style:italic;">
+                "EXTROVERT, trying to build new things using current tech..."
+              </div>
+            </div>
+
+            <div class="metric-panel">
+              <div class="text-muted font-mono" style="font-size:0.75rem;margin-bottom:0.5rem;">Active Repositories</div>
+              <div class="gh-repos-list" id="github-recent-repos">
+                <a href="https://github.com/Mohammed-Ashraf-Shaik/smart-care-app" target="_blank" rel="noopener noreferrer" class="gh-repo-chip">
+                  <span class="repo-name">📂 smart-care-app</span>
+                  <span class="repo-meta">JavaScript</span>
+                </a>
+                <a href="https://github.com/Mohammed-Ashraf-Shaik/myleetcode" target="_blank" rel="noopener noreferrer" class="gh-repo-chip">
+                  <span class="repo-name">📂 myleetcode</span>
+                  <span class="repo-meta">Java / Python</span>
+                </a>
+              </div>
+              <a href="https://github.com/Mohammed-Ashraf-Shaik" target="_blank" rel="noopener noreferrer" class="btn-card-action">
+                <span>VIEW GITHUB PROFILE ↗</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ROW 3: CHESS.COM LIVE TELEMETRY -->
+        <div class="telemetry-row-card">
+          <div class="tr-header">
+            <div class="tr-platform">
+              <div class="tr-icon chess">♟️</div>
+              <div>
+                <div class="tr-title">Chess.com Live Pulse</div>
+                <div class="tr-user">@ashumm</div>
+              </div>
+            </div>
+            <div class="tr-sync-pill" id="chess-sync-status">SYNCING API...</div>
+          </div>
+
+          <div class="tr-grid">
+            <div class="metric-panel">
+              <div class="mp-split">
+                <div>
+                  <div class="mp-hero-val" id="chess-rapid-val">1,216</div>
+                  <div class="text-muted font-mono" style="font-size:0.75rem;">Rapid Elo Rating</div>
+                </div>
+                <div class="mp-split-divider"></div>
+                <div>
+                  <div class="mp-hero-val" id="chess-peak-val" style="color:var(--accent-violet);">1,232</div>
+                  <div class="text-muted font-mono" style="font-size:0.75rem;">All-Time Peak</div>
+                </div>
+              </div>
+              <div class="text-secondary font-mono" style="font-size:0.8rem;margin-top:0.75rem;">
+                TACTICS RATING: <strong id="chess-tactics-val" style="color:var(--accent-cyan);">1,461</strong>
+              </div>
+            </div>
+
+            <div class="metric-panel">
+              <div class="chess-record-pills">
+                <span class="c-rec win"><b id="chess-wins-val">1,116</b> Wins</span>
+                <span class="c-rec loss"><b id="chess-losses-val">977</b> Losses</span>
+                <span class="c-rec draw"><b id="chess-draws-val">78</b> Draws</span>
+              </div>
+              <div class="multi-seg-bar" style="margin-top:1rem;">
+                <div class="bar-seg easy" id="chess-win-bar" style="width: 52%;"></div>
+              </div>
+              <div class="text-muted font-mono" id="chess-winrate-text" style="font-size:0.75rem;margin-top:0.4rem;">
+                52% WIN RATE (2,171+ MATCHES) • LEGEND LEAGUE
+              </div>
+              <a href="https://www.chess.com/member/ashumm" target="_blank" rel="noopener noreferrer" class="btn-card-action">
+                <span>VIEW CHESS.COM PROFILE ↗</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       FLAGSHIP SPOTLIGHT: SMARTCARE WEB APP
+       ======================================================================== -->
+  <section id="project" class="section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">// FLAGSHIP_CASE_STUDY</div>
+        <h2 class="section-title">Spotlight <span class="gradient-text-cyan-violet">Production Project</span></h2>
+        <p class="section-subtitle">
+          Real-world deployed web application built with precision, high responsiveness, and modern frontend architecture.
+        </p>
+      </div>
+
+      <!-- SmartCare Spotlight Card -->
+      <div class="smartcare-spotlight-card">
+        <div class="flagship-grid">
+          
+          <!-- Left Column: Details, Features & CTAs -->
+          <div class="flagship-info-col">
+            <div class="flagship-badge-row">
+              <span class="flagship-pill-live">
+                <span class="status-dot" style="background:#10b981;"></span>
+                LIVE PRODUCTION
+              </span>
+              <span class="flagship-pill-tag">HEALTHCARE MANAGEMENT</span>
+              <span class="flagship-pill-tag">V1.0</span>
+            </div>
+
+            <h3 class="flagship-title">SmartCare – Healthcare Management Web App</h3>
+            <p class="flagship-lead">
+              A comprehensive healthcare management web application engineered to eliminate medical service fragmentation, streamline patient-doctor workflows, and provide an ultra-responsive digital health portal.
+            </p>
+
+            <div class="flagship-features-grid">
+              <div class="flagship-feat-item">
+                <div class="feat-item-title">
+                  <span style="color:var(--accent-cyan);">⚡</span> Fast &amp; Fluid UX
+                </div>
+                <div class="feat-item-desc">
+                  Engineered with modern Vite bundling and optimized asset delivery for lightning-fast sub-second interactions.
+                </div>
+              </div>
+
+              <div class="flagship-feat-item">
+                <div class="feat-item-title">
+                  <span style="color:var(--accent-violet);">📱</span> 100% Adaptive UI
+                </div>
+                <div class="feat-item-desc">
+                  Pixel-perfect responsive experience engineered across mobile smartphones, tablets, and desktop workstations.
+                </div>
+              </div>
+
+              <div class="flagship-feat-item">
+                <div class="feat-item-title">
+                  <span style="color:var(--accent-emerald);">🏥</span> Centralized Health Hub
+                </div>
+                <div class="feat-item-desc">
+                  Unified interface providing appointment scheduling, emergency contact directory, and patient medical record navigation.
+                </div>
+              </div>
+
+              <div class="flagship-feat-item">
+                <div class="feat-item-title">
+                  <span style="color:var(--accent-amber);">🚀</span> Cloud-Native Deployment
+                </div>
+                <div class="feat-item-desc">
+                  Continuous CI/CD pipeline integrated directly with Vercel edge network for 99.9% uptime and zero-latency CDN serving.
+                </div>
+              </div>
+            </div>
+
+            <div class="flagship-tech-stack">
+              <span class="flagship-tech-pill glow">HTML5</span>
+              <span class="flagship-tech-pill glow">CSS3</span>
+              <span class="flagship-tech-pill glow">JavaScript (ES6+)</span>
+              <span class="flagship-tech-pill">Vite</span>
+              <span class="flagship-tech-pill">Vercel Edge</span>
+              <span class="flagship-tech-pill">Modular Component Architecture</span>
+            </div>
+
+            <div class="flagship-cta-group">
+              <a href="https://smartcare-gprec.vercel.app" target="_blank" rel="noopener noreferrer" class="btn-primary">
+                <span>OPEN LIVE APPLICATION</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+              </a>
+
+              <a href="https://github.com/Mohammed-Ashraf-Shaik/smart-care-app" target="_blank" rel="noopener noreferrer" class="btn-secondary">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                </svg>
+                <span>SOURCE REPO</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Right Column: Interactive Browser Preview Mockup -->
+          <div class="flagship-preview-box">
+            <div class="mockup-header-bar">
+              <div class="mockup-dots">
+                <span class="m-dot red"></span>
+                <span class="m-dot yellow"></span>
+                <span class="m-dot green"></span>
+              </div>
+              <div class="mockup-url-pill">
+                <span style="color:#10b981;">https://</span>smartcare-gprec.vercel.app
+              </div>
+              <div style="width: 36px;"></div>
+            </div>
+
+            <div class="mockup-screen-content">
+              <div class="mockup-hero-visual">
+                <div class="mockup-app-icon">🏥</div>
+                <div class="mockup-app-name">SmartCare Portal</div>
+                <div style="font-size:0.82rem;color:var(--text-muted);">Smart Healthcare Management Web System</div>
+              </div>
+
+              <div class="mockup-stat-tile">
+                <span style="font-size:0.85rem;color:var(--text-secondary);">Application Status</span>
+                <span style="color:#34d399;font-family:var(--font-mono);font-weight:700;font-size:0.82rem;">● OPERATIONAL (100%)</span>
+              </div>
+
+              <div class="mockup-stat-tile">
+                <span style="font-size:0.85rem;color:var(--text-secondary);">Hosting Platform</span>
+                <span style="color:var(--accent-cyan);font-family:var(--font-mono);font-size:0.82rem;">Vercel Edge Network</span>
+              </div>
+
+              <div class="mockup-stat-tile">
+                <span style="font-size:0.85rem;color:var(--text-secondary);">Institution Association</span>
+                <span style="color:var(--accent-violet);font-family:var(--font-mono);font-size:0.82rem;">GPREC Kurnool</span>
+              </div>
+
+              <a href="https://smartcare-gprec.vercel.app" target="_blank" rel="noopener noreferrer" class="btn-primary" style="justify-content:center;margin-top:0.5rem;padding:0.75rem;font-size:0.85rem;">
+                <span>VISIT LIVE SMARTCARE APPLICATION ↗</span>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       TECHNICAL ARSENAL & SKILLS (Godly Style)
+       ======================================================================== -->
+  <section id="skills" class="section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">// COMPUTATIONAL_STACK</div>
+        <h2 class="section-title">Technical <span class="gradient-text-cyan-violet">Arsenal &amp; Skills</span></h2>
+        <p class="section-subtitle">
+          Core programming languages, algorithmic problem solving patterns, frontend 3D graphics, and engineering tools.
+        </p>
+      </div>
+
+      <div class="skills-quad-grid">
+        
+        <!-- 01: Core Languages -->
+        <div class="skill-category-card">
+          <div class="sk-header">
+            <div class="sk-title-group">
+              <span class="sk-icon">⚡</span>
+              <span class="sk-title">Core Languages</span>
+            </div>
+            <span class="sk-code">[01]</span>
+          </div>
+          <div class="skill-pills-wrap">
+            <span class="skill-pill highlight">Python</span>
+            <span class="skill-pill highlight">Java</span>
+            <span class="skill-pill">JavaScript (ES6+)</span>
+            <span class="skill-pill">HTML5</span>
+            <span class="skill-pill">CSS3</span>
+            <span class="skill-pill">SQL</span>
+          </div>
+        </div>
+
+        <!-- 02: Frontend & 3D -->
+        <div class="skill-category-card">
+          <div class="sk-header">
+            <div class="sk-title-group">
+              <span class="sk-icon">🎨</span>
+              <span class="sk-title">Frontend &amp; 3D Graphics</span>
+            </div>
+            <span class="sk-code" style="color:var(--accent-violet);">[02]</span>
+          </div>
+          <div class="skill-pills-wrap">
+            <span class="skill-pill highlight">Three.js</span>
+            <span class="skill-pill highlight">Vite</span>
+            <span class="skill-pill">Modular CSS Architecture</span>
+            <span class="skill-pill">Responsive Design</span>
+            <span class="skill-pill">WebGL &amp; Canvas 2D</span>
+          </div>
+        </div>
+
+        <!-- 03: Algorithms & DSA -->
+        <div class="skill-category-card">
+          <div class="sk-header">
+            <div class="sk-title-group">
+              <span class="sk-icon">🧠</span>
+              <span class="sk-title">Algorithms &amp; Problem Solving</span>
+            </div>
+            <span class="sk-code" style="color:var(--accent-emerald);">[03]</span>
+          </div>
+          <div class="skill-pills-wrap">
+            <span class="skill-pill highlight">Sliding Window</span>
+            <span class="skill-pill highlight">Two Pointers</span>
+            <span class="skill-pill">Binary Search Space</span>
+            <span class="skill-pill">Trees &amp; BST</span>
+            <span class="skill-pill">Graph Traversals (BFS/DFS)</span>
+            <span class="skill-pill">Space-Time Complexity (Big-O)</span>
+          </div>
+        </div>
+
+        <!-- 04: Backend, Vision & Tools -->
+        <div class="skill-category-card">
+          <div class="sk-header">
+            <div class="sk-title-group">
+              <span class="sk-icon">🗄️</span>
+              <span class="sk-title">Backend, Vision &amp; Tools</span>
+            </div>
+            <span class="sk-code">[04]</span>
+          </div>
+          <div class="skill-pills-wrap">
+            <span class="skill-pill highlight">MongoDB</span>
+            <span class="skill-pill highlight">OpenCV (Computer Vision)</span>
+            <span class="skill-pill">Git &amp; GitHub</span>
+            <span class="skill-pill">Figma</span>
+            <span class="skill-pill">Vercel Deployment</span>
+            <span class="skill-pill">RESTful APIs</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       ABOUT & PHILOSOPHY (Minimal Gallery Style)
+       ======================================================================== -->
+  <section id="about" class="section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">// ENGINEERING_DNA</div>
+        <h2 class="section-title">The <span class="gradient-text-cyan-violet">Mindset &amp; Philosophy</span></h2>
+        <p class="section-subtitle">
+          Bridging mathematical foundations, algorithmic discipline, and scalable software architecture.
+        </p>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-text-col">
+          <p class="about-p">
+            I'm <strong>Shaik Mohammed Ashraf</strong>, a Computer Science undergraduate at <strong>G. Pulla Reddy Engineering College (GPREC), Kurnool</strong> with an outstanding <strong>CGPA of 8.78</strong>.
+          </p>
+          <p class="about-p">
+            My engineering philosophy is grounded in <strong>deep fundamental comprehension</strong> rather than superficial memorization. Whether traversing complex graph algorithms, designing responsive modular web platforms, or training computer vision pipelines, I strive to make intricate architectures feel effortless, clean, and intuitive.
+          </p>
+          <p class="about-p">
+            I actively hone my problem-solving capabilities through regular competitive programming on LeetCode and CodeChef, prioritizing algorithmic optimization, clean code structure, and scalable efficiency.
+          </p>
+
+          <div class="languages-spoken-card">
+            <div class="lang-title">Languages Spoken &amp; Written</div>
+            <div class="lang-tags">
+              <div class="lang-tag">English <span>[Professional]</span></div>
+              <div class="lang-tag">Telugu <span>[Native]</span></div>
+              <div class="lang-tag">Hindi <span>[Fluent]</span></div>
+              <div class="lang-tag">Urdu <span>[Fluent]</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-pillars-col">
+          <div class="about-pillar-card">
+            <div class="pillar-title">⚡ Algorithmic Problem Solver</div>
+            <div class="pillar-desc">
+              Strong grasp of DSA patterns: Sliding Window, Binary Search, Hash Tables, and Graph Traversals with keen focus on asymptotic efficiency.
+            </div>
+          </div>
+
+          <div class="about-pillar-card">
+            <div class="pillar-title">🌐 Modern Full-Stack Engineering</div>
+            <div class="pillar-desc">
+              Crafting modular frontend applications with Vite, clean CSS architectures, and robust MongoDB backend integrations.
+            </div>
+          </div>
+
+          <div class="about-pillar-card">
+            <div class="pillar-title">🚀 Scalable Architecture &amp; Clean Code</div>
+            <div class="pillar-desc">
+              Committed to modular structure, high maintainability, intuitive UI/UX, and optimal performance across modern full-stack web applications.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       EDUCATION & TIMELINE
+       ======================================================================== -->
+  <section id="education" class="section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">// ACADEMIC_TRAJECTORY</div>
+        <h2 class="section-title">Education &amp; <span class="gradient-text-cyan-violet">Milestones</span></h2>
+        <p class="section-subtitle">
+          Proven academic record combined with hands-on software engineering excellence.
+        </p>
+      </div>
+
+      <div class="timeline-container">
+        
+        <!-- B.Tech -->
+        <div class="timeline-card">
+          <span class="timeline-date-badge">2024 — 2028 (CURRENTLY IN 5TH SEMESTER)</span>
+          <h3 class="timeline-title">Bachelor of Technology (B.Tech) – Computer Science</h3>
+          <div class="timeline-institution">G. Pulla Reddy Engineering College (GPREC), Kurnool</div>
+          <p class="timeline-desc">
+            Maintaining an exceptional <strong>CGPA of 8.78</strong>. Core curriculum covers Data Structures &amp; Algorithms, Automata Theory, Computer Networks, Artificial Intelligence, and Software Engineering principles.
+          </p>
+        </div>
+
+        <!-- Intermediate -->
+        <div class="timeline-card">
+          <span class="timeline-date-badge">2022 — 2024</span>
+          <h3 class="timeline-title">Intermediate (MPC) – 94.3%</h3>
+          <div class="timeline-institution">Nucleus Junior College, BIEAP</div>
+          <p class="timeline-desc">
+            Graduated with top honors in Mathematics, Physics, and Chemistry (MPC stream), demonstrating strong quantitative analysis and mathematical reasoning.
+          </p>
+        </div>
+
+        <!-- 10th Standard -->
+        <div class="timeline-card">
+          <span class="timeline-date-badge">2021 — 2022</span>
+          <h3 class="timeline-title">10th Standard (SSC) – 543 / 600 (90.5%)</h3>
+          <div class="timeline-institution">GVR EM School</div>
+          <p class="timeline-desc">
+            Graduated with high distinction (90.5%), excelling in mathematics, analytical sciences, and foundational computer studies.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       CONTACT & TRANSMISSION
+       ======================================================================== -->
+  <section id="contact" class="section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">// COMMUNICATION_LINK</div>
+        <h2 class="section-title">Initiate <span class="gradient-text-cyan-violet">Transmission</span></h2>
+        <p class="section-subtitle">
+          Have an exciting software engineering role, collaborative project, or opportunity? Let's connect directly.
+        </p>
+      </div>
+
+      <div class="contact-grid">
+        
+        <!-- Left: Quick Cards & Socials -->
+        <div class="contact-info-col">
+          <p class="text-secondary" style="font-size:1.05rem;line-height:1.7;">
+            I am actively open to <strong>full-time software engineering roles</strong>, innovative development projects, and research opportunities. Let's create something extraordinary together.
+          </p>
+
+          <div class="contact-quick-list">
+            
+            <!-- Email -->
+            <div class="contact-quick-tile">
+              <div class="cqt-left">
+                <span class="cqt-icon">✉️</span>
+                <div>
+                  <div class="cqt-label">Primary Email</div>
+                  <div class="cqt-val">ashubasha52@gmail.com</div>
+                </div>
+              </div>
+              <button class="copy-btn-action" data-copy="ashubasha52@gmail.com" title="Copy email">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                </svg>
+              </button>
+            </div>
+
+            <!-- Phone -->
+            <div class="contact-quick-tile">
+              <div class="cqt-left">
+                <span class="cqt-icon">📞</span>
+                <div>
+                  <div class="cqt-label">Direct Phone</div>
+                  <div class="cqt-val">+91 8500543154</div>
+                </div>
+              </div>
+              <button class="copy-btn-action" data-copy="+918500543154" title="Copy phone number">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                </svg>
+              </button>
+            </div>
+
+            <!-- Location -->
+            <div class="contact-quick-tile">
+              <div class="cqt-left">
+                <span class="cqt-icon">📍</span>
+                <div>
+                  <div class="cqt-label">Base Location</div>
+                  <div class="cqt-val">Nandyal, Andhra Pradesh, India</div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Social Links -->
+          <div class="social-links-strip">
+            <a href="https://github.com/Mohammed-Ashraf-Shaik" target="_blank" rel="noopener noreferrer" class="social-circle-link" title="GitHub">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+              </svg>
+            </a>
+
+            <a href="https://linkedin.com/in/mohammed-ashraf-shaik" target="_blank" rel="noopener noreferrer" class="social-circle-link" title="LinkedIn">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                <rect x="2" y="9" width="4" height="12"></rect>
+                <circle cx="4" cy="4" r="2"></circle>
+              </svg>
+            </a>
+
+            <a href="https://x.com/ashraf_m_shaik" target="_blank" rel="noopener noreferrer" class="social-circle-link" title="Twitter / X">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right: Contact Form -->
+        <div class="contact-form-card">
+          <form id="contact-form">
+            <div class="form-group">
+              <label for="form-name" class="form-label">Full Name</label>
+              <input type="text" id="form-name" class="form-input" placeholder="e.g. Satya Nadella" required>
+            </div>
+
+            <div class="form-group">
+              <label for="form-email" class="form-label">Email Address</label>
+              <input type="email" id="form-email" class="form-input" placeholder="name@company.com" required>
+            </div>
+
+            <div class="form-group">
+              <label for="form-message" class="form-label">Message / Transmission</label>
+              <textarea id="form-message" class="form-textarea" placeholder="Hello Ashraf, let's discuss an engineering role / collaboration..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn-primary" style="width:100%;justify-content:center;">
+              <span>SEND MESSAGE</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="22" y1="2" x2="11" y2="13"></line>
+                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+              </svg>
+            </button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       MULTI-COLUMN FOOTER
+       ======================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top-grid">
+        
+        <!-- Brand & Tagline -->
+        <div class="footer-col-brand">
+          <a href="#hero" class="brand-logo" style="width:fit-content;">
+            <div class="logo-badge">SMA</div>
+            <div class="logo-text">ASHRAF<span>.DEV</span></div>
+          </a>
+          <p class="footer-tagline">
+            "Architecting high-scale distributed systems and immersive web experiences."
+          </p>
+        </div>
+
+        <!-- Navigation -->
+        <div class="footer-col">
+          <div class="footer-col-heading">// NAVIGATION</div>
+          <ul class="footer-links-list">
+            <li class="footer-link-item"><a href="#hero">Home</a></li>
+            <li class="footer-link-item"><a href="#telemetry">Live Radar</a></li>
+            <li class="footer-link-item"><a href="#project">SmartCare App</a></li>
+            <li class="footer-link-item"><a href="#skills">Skills &amp; Stack</a></li>
+            <li class="footer-link-item"><a href="#about">About &amp; Philosophy</a></li>
+            <li class="footer-link-item"><a href="#education">Education</a></li>
+            <li class="footer-link-item"><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Live Networks -->
+        <div class="footer-col">
+          <div class="footer-col-heading">// NETWORKS</div>
+          <ul class="footer-links-list">
+            <li class="footer-link-item">
+              <a href="https://leetcode.com/u/Shaik_mohameed_Ashraf/" target="_blank" rel="noopener noreferrer">
+                LeetCode Profile ↗
+              </a>
+            </li>
+            <li class="footer-link-item">
+              <a href="https://github.com/Mohammed-Ashraf-Shaik" target="_blank" rel="noopener noreferrer">
+                GitHub Profile ↗
+              </a>
+            </li>
+            <li class="footer-link-item">
+              <a href="https://www.chess.com/member/ashumm" target="_blank" rel="noopener noreferrer">
+                Chess.com Stats ↗
+              </a>
+            </li>
+            <li class="footer-link-item">
+              <a href="https://smartcare-gprec.vercel.app" target="_blank" rel="noopener noreferrer">
+                SmartCare Web App ↗
+              </a>
+            </li>
+            <li class="footer-link-item">
+              <a href="Resume_Mohammed_Ashraf.docx" download>
+                Download CV (DOCX) ↗
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Direct Comms -->
+        <div class="footer-col">
+          <div class="footer-col-heading">// DIRECT</div>
+          <ul class="footer-links-list">
+            <li class="footer-link-item"><a href="mailto:ashubasha52@gmail.com">ashubasha52@gmail.com</a></li>
+            <li class="footer-link-item"><a href="tel:+918500543154">+91 8500543154</a></li>
+            <li class="footer-link-item" style="color:var(--text-muted);font-size:0.88rem;">Nandyal, AP, India</li>
+            <li class="footer-link-item" style="margin-top:0.5rem;">
+              <button class="btn-cli" data-open-terminal title="Open CLI Developer Terminal">
+                <span>OPEN CLI TERMINAL (~_)</span>
+              </button>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="footer-bottom-bar">
+        <div class="text-muted font-mono" style="font-size:0.82rem;">
+          © 2026 <span style="color:#ffffff;font-weight:600;">SHAIK MOHAMMED ASHRAF</span>. BUILT WITH THREE.JS &amp; MODERN WEB STANDARDS.
+        </div>
+        <a href="#hero" class="btn-back-to-top" title="Back to top">
+          <span>BACK TO TOP</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="18 15 12 9 6 15"></polyline>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </footer>
 
   <!-- ========================================================================
        DEVELOPER TERMINAL [CLI MODE] MODAL
@@ -1284,20 +998,20 @@
           <div class="t-dot yellow"></div>
           <div class="t-dot green"></div>
         </div>
-        <div class="terminal-title">ashraf@cyber-core:~ [CLI_MODE]</div>
+        <div class="terminal-title">ashraf@terminal:~ [CLI_MODE]</div>
         <button id="terminal-close" class="terminal-close-btn" aria-label="Close Terminal">&times;</button>
       </div>
 
       <div class="terminal-body">
         <div class="terminal-output" id="terminal-output">
           <div class="terminal-line info">=====================================================</div>
-          <div class="terminal-line info">SHAIK MOHAMMED ASHRAF // DEVELOPER TERMINAL v2.5</div>
-          <div class="terminal-line info">Type <span class="text-cyan font-mono" style="font-weight:bold;">help</span> to inspect system command registry.</div>
+          <div class="terminal-line info">SHAIK MOHAMMED ASHRAF // DEVELOPER TERMINAL v3.0</div>
+          <div class="terminal-line info">Type <span style="color:var(--accent-cyan);font-weight:bold;">help</span> to inspect available commands.</div>
           <div class="terminal-line info">=====================================================</div>
         </div>
 
         <div class="terminal-input-row">
-          <span class="terminal-prompt">ashraf@cyber:~$</span>
+          <span class="terminal-prompt">ashraf@dev:~$</span>
           <input type="text" id="terminal-input" class="terminal-input" autofocus autocomplete="off" spellcheck="false">
         </div>
       </div>
@@ -1307,13 +1021,10 @@
   <!-- Three.js CDN -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
-  <!-- Custom Scripts -->
+  <!-- Core Scripts -->
   <script src="js/audio-fx.js"></script>
   <script src="js/three-scene.js"></script>
-  <script src="js/skill-galaxy.js"></script>
-  <script src="js/tilt-card.js"></script>
   <script src="js/live-stats.js"></script>
-  <script src="js/inventory-bag.js"></script>
   <script src="js/terminal.js"></script>
   <script src="js/main.js"></script>
 
