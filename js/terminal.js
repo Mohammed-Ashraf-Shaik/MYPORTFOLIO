@@ -299,10 +299,10 @@
     const drops = new Array(columns).fill(1);
 
     matrixInterval = setInterval(() => {
-      ctx.fillStyle = 'rgba(8, 10, 16, 0.15)';
+      ctx.fillStyle = 'rgba(15, 11, 8, 0.15)';
       ctx.fillRect(0, 0, matrixCanvas.width, matrixCanvas.height);
 
-      ctx.fillStyle = '#00f5ff';
+      ctx.fillStyle = '#f59e0b';
       ctx.font = `${fontSize}px monospace`;
 
       for (let i = 0; i < drops.length; i++) {

@@ -1,6 +1,6 @@
 /**
  * Main Application Orchestrator & UI Micro-Interactions
- * Shaik Mohammed Ashraf // 3D Cyber Portfolio
+ * Shaik Mohammed Ashraf // Vintage Brown Developer Portfolio
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!audioToggleBtn) return;
     if (isMuted) {
       audioToggleBtn.innerHTML = `
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <line x1="1" y1="1" x2="23" y2="23"></line>
           <path d="M9 9v3a3 3 0 0 0 5.12 2.12M15 9.34V4a3 3 0 0 0-5.94-.6"></path>
           <path d="M17 16.95A7 7 0 0 1 5 12v-2m14 0v2a7 7 0 0 1-.11 1.23"></path>
@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
       audioToggleBtn.classList.remove('active');
     } else {
       audioToggleBtn.innerHTML = `
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
           <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
         </svg>
@@ -114,19 +114,40 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!toast) {
       toast = document.createElement('div');
       toast.id = 'cyber-toast';
-      toast.className = 'cyber-toast';
+      toast.style.cssText = `
+        position: fixed;
+        bottom: 84px;
+        right: 24px;
+        background: #1c140e;
+        border: 1px solid var(--border-brass);
+        color: #faf5ee;
+        padding: 0.65rem 1.25rem;
+        border-radius: 8px;
+        font-family: var(--font-mono);
+        font-size: 0.8rem;
+        z-index: 10000;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.8);
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        transition: all 0.3s ease;
+        opacity: 0;
+        transform: translateY(10px);
+      `;
       document.body.appendChild(toast);
     }
 
     toast.innerHTML = `
-      <span style="color:var(--neon-cyan);font-weight:bold;">// SYSTEM</span>
+      <span style="color:var(--accent-amber);font-weight:bold;">// ASHRAF.DEV</span>
       <span>${msg}</span>
     `;
 
-    toast.classList.add('show');
+    toast.style.opacity = '1';
+    toast.style.transform = 'translateY(0)';
     clearTimeout(toast.timeout);
     toast.timeout = setTimeout(() => {
-      toast.classList.remove('show');
+      toast.style.opacity = '0';
+      toast.style.transform = 'translateY(10px)';
     }, 2800);
   }
 
@@ -140,7 +161,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const message = document.getElementById('form-message').value;
 
       if (!name || !email || !message) {
-        showToast('PLEASE FILL ALL PROTOCOL FIELDS');
+        showToast('PLEASE FILL ALL TRANSMISSION FIELDS');
         return;
       }
 
@@ -150,16 +171,16 @@ document.addEventListener('DOMContentLoaded', () => {
       setTimeout(() => {
         showToast('MESSAGE SENT DIRECTLY TO ASHRAF!');
         contactForm.reset();
-        // Fallback open mailto
         const mailtoLink = `mailto:ashubasha52@gmail.com?subject=Contact from ${encodeURIComponent(name)}&body=${encodeURIComponent(message)}%0A%0AFrom: ${encodeURIComponent(email)}`;
         window.location.href = mailtoLink;
       }, 900);
     });
   }
 
-  // 7. Active Navigation Spy via IntersectionObserver
+  // 7. Active Navigation Spy via IntersectionObserver (Header & Bottom Dock)
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('.nav-link');
+  const dockItems = document.querySelectorAll('.dock-item');
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
@@ -170,6 +191,13 @@ document.addEventListener('DOMContentLoaded', () => {
             link.classList.add('active');
           } else {
             link.classList.remove('active');
+          }
+        });
+        dockItems.forEach((item) => {
+          if (item.getAttribute('href') === `#${id}`) {
+            item.classList.add('active');
+          } else {
+            item.classList.remove('active');
           }
         });
       }
@@ -194,37 +222,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 9. Interactive Audio Event Listeners on standard UI elements
-  document.querySelectorAll('a, button, .skill-pill, .metric-card, .bag-slot-btn').forEach((el) => {
+  // 9. Interactive Audio Event Listeners
+  document.querySelectorAll('a, button, .skill-pill, .metric-tile, .dock-item, .tactile-badge').forEach((el) => {
     el.addEventListener('mouseenter', () => {
       if (window.cyberAudio) window.cyberAudio.playHover();
     });
   });
-
-  // 10. Kinetic 3D Name Monolith Mouse Parallax & Sound
-  const nameMonolith = document.getElementById('kinetic-name-monolith');
-  if (nameMonolith) {
-    const title = nameMonolith.querySelector('.kinetic-name-title');
-    nameMonolith.addEventListener('mousemove', (e) => {
-      const rect = nameMonolith.getBoundingClientRect();
-      const x = (e.clientX - rect.left) / rect.width - 0.5;
-      const y = (e.clientY - rect.top) / rect.height - 0.5;
-      if (title) {
-        title.style.transform = `rotateY(${x * 18}deg) rotateX(${-y * 14}deg) translateZ(18px)`;
-      }
-    });
-
-    nameMonolith.addEventListener('mouseleave', () => {
-      if (title) {
-        title.style.transform = 'rotateY(0deg) rotateX(0deg) translateZ(0px)';
-      }
-    });
-
-    nameMonolith.addEventListener('click', () => {
-      if (window.cyberAudio) window.cyberAudio.playItemPick();
-      nameMonolith.classList.add('pulse-active');
-      setTimeout(() => nameMonolith.classList.remove('pulse-active'), 600);
-    });
-  }
 });
-
