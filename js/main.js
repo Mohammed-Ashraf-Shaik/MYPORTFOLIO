@@ -223,9 +223,30 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // 9. Interactive Audio Event Listeners
-  document.querySelectorAll('a, button, .skill-pill, .metric-tile, .dock-item, .tactile-badge').forEach((el) => {
+  document.querySelectorAll('a, button, .skill-pill, .metric-tile, .dock-item, .tactile-badge, .tactile-link-badge').forEach((el) => {
     el.addEventListener('mouseenter', () => {
       if (window.cyberAudio) window.cyberAudio.playHover();
     });
   });
+
+  // 10. Kinetic 3D Name Visual Monolith Parallax
+  const nameMonolith = document.getElementById('name-visual-monolith');
+  if (nameMonolith) {
+    nameMonolith.addEventListener('mousemove', (e) => {
+      const rect = nameMonolith.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width - 0.5;
+      const y = (e.clientY - rect.top) / rect.height - 0.5;
+      nameMonolith.style.transform = `rotateY(${x * 14}deg) rotateX(${-y * 10}deg) translateZ(12px)`;
+    });
+
+    nameMonolith.addEventListener('mouseleave', () => {
+      nameMonolith.style.transform = 'rotateY(0deg) rotateX(0deg) translateZ(0px)';
+    });
+
+    nameMonolith.addEventListener('click', () => {
+      if (window.cyberAudio && typeof window.cyberAudio.playItemPick === 'function') {
+        window.cyberAudio.playItemPick();
+      }
+    });
+  }
 });

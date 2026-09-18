@@ -378,28 +378,102 @@ body {
   100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(245, 158, 11, 0); }
 }
 
-/* Editorial Hero Title: SHAIK MOHAMMED ASHRAF */
+/* ==========================================================================
+   MIND-BLOWING NAME VISUALS: THE ARCHITECTURAL MONOLITH
+   ========================================================================== */
+.name-visual-monolith {
+  position: relative;
+  margin-bottom: 1.5rem;
+  perspective: 1000px;
+}
+
+.monolith-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.65rem;
+}
+
+.monolith-code {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--accent-amber);
+  background: rgba(245, 158, 11, 0.12);
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  padding: 0.2rem 0.55rem;
+  border-radius: 4px;
+  letter-spacing: 1px;
+}
+
+.monolith-line {
+  height: 1px;
+  width: 45px;
+  background: linear-gradient(90deg, var(--accent-amber), transparent);
+}
+
+.monolith-status {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--accent-brass);
+}
+
 .editorial-name-title {
   font-family: var(--font-display);
-  font-size: clamp(2.8rem, 5.8vw, 4.8rem);
+  font-size: clamp(3rem, 6.2vw, 5.2rem);
   font-weight: 900;
-  line-height: 1.05;
+  line-height: 1;
   letter-spacing: -0.035em;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
   text-transform: uppercase;
+  position: relative;
+  text-shadow: 
+    0 1px 0 #b77e3f,
+    0 2px 0 #7f5539,
+    0 3px 0 #5c3b1e,
+    0 4px 0 #3a2412,
+    0 8px 24px rgba(0, 0, 0, 0.7);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.editorial-name-title:hover {
+  transform: translateY(-2px);
 }
 
 .editorial-name-title .name-first {
   display: block;
   color: #faf5ee;
+  letter-spacing: -0.02em;
 }
 
 .editorial-name-title .name-accent {
   display: block;
-  background: linear-gradient(135deg, #fef3c7 0%, #f59e0b 50%, #d97706 100%);
+  background: linear-gradient(135deg, #ffffff 0%, #fef3c7 25%, #f59e0b 60%, #d97706 90%, #b45309 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-shadow: 0 0 35px rgba(245, 158, 11, 0.25);
+  filter: drop-shadow(0 0 30px rgba(245, 158, 11, 0.35));
+  position: relative;
+}
+
+.name-signature-flourish {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-top: 0.5rem;
+}
+
+.flourish-handwriting {
+  font-family: var(--font-hand);
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: var(--accent-brass);
+  letter-spacing: 0.5px;
+}
+
+.flourish-svg-stroke {
+  width: 280px;
+  height: 16px;
+  opacity: 0.85;
 }
 
 .hero-role-wrapper {
@@ -668,6 +742,67 @@ body {
 }
 
 /* ==========================================================================
+   TACTILE LINK BADGES (Top-Right beside Ashraf's photo - like DSA Lover)
+   ========================================================================== */
+.hero-tactile-links {
+  position: absolute;
+  top: -12px;
+  right: -98px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  z-index: 15;
+}
+
+.tactile-link-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.38rem 0.85rem;
+  border-radius: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, background 0.25s ease;
+  white-space: nowrap;
+}
+
+.tactile-link-badge:hover {
+  transform: scale(1.12) translateY(-2px) !important;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.75);
+}
+
+.badge-link-linkedin {
+  background: #0077b5;
+  color: #ffffff;
+  border: 1px solid #005f93;
+  transform: rotate(3deg);
+}
+
+.badge-link-github {
+  background: #241b14;
+  color: #faf5ee;
+  border: 1px solid var(--border-brass);
+  transform: rotate(-2.5deg);
+}
+
+.badge-link-leetcode {
+  background: #f59e0b;
+  color: #1a1107;
+  border: 1px solid #d97706;
+  transform: rotate(2deg);
+}
+
+.badge-link-chess {
+  background: #c2410c;
+  color: #faf5ee;
+  border: 1px solid #9a3412;
+  transform: rotate(-2deg);
+}
+
+/* ==========================================================================
    METRICS BANNER STRIP
    ========================================================================== */
 .metrics-strip {
@@ -828,6 +963,82 @@ body {
   display: flex;
   align-items: center;
   gap: 1rem;
+}
+
+/* Chess Player Profile Avatar with Ashraf's Photo */
+.chess-player-avatar-box {
+  position: relative;
+  width: 54px;
+  height: 54px;
+  flex-shrink: 0;
+}
+
+.chess-avatar-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center 20%;
+  border: 2px solid var(--accent-amber);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.6), 0 0 16px rgba(245, 158, 11, 0.3);
+  display: block;
+}
+
+.chess-crown-badge {
+  position: absolute;
+  top: -10px;
+  right: -6px;
+  font-size: 1.15rem;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.8));
+  animation: float-crown 2.5s ease-in-out infinite alternate;
+}
+
+@keyframes float-crown {
+  0% { transform: translateY(0) rotate(0deg); }
+  100% { transform: translateY(-3px) rotate(6deg); }
+}
+
+.chess-verified-dot {
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #10b981;
+  border: 2px solid #1c140e;
+  box-shadow: 0 0 6px #10b981;
+}
+
+.chess-meta-sub {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 0.35rem;
+}
+
+.chess-bullet-tag {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--accent-brass);
+  background: rgba(183, 126, 63, 0.12);
+  border: 1px solid var(--border-brass);
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+}
+
+.chess-player-title-badge {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 800;
+  background: #c2410c;
+  color: #ffffff;
+  padding: 0.15rem 0.45rem;
+  border-radius: 3px;
+  letter-spacing: 0.5px;
+  vertical-align: middle;
+  margin-left: 0.4rem;
 }
 
 .tr-icon {
@@ -1092,6 +1303,149 @@ body {
   font-family: var(--font-mono);
   font-size: 0.72rem;
   color: var(--accent-amber);
+}
+
+/* ==========================================================================
+   ENHANCED GITHUB PROFILE BANNER & PINNED REPOSITORIES
+   ========================================================================== */
+.gh-card-profile-banner {
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+  padding: 1.1rem 1.3rem;
+  background: rgba(28, 20, 15, 0.75);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  margin-bottom: 1.25rem;
+}
+
+.gh-banner-avatar {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--border-brass);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  flex-shrink: 0;
+}
+
+.gh-banner-meta {
+  flex: 1;
+}
+
+.gh-banner-name {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #faf5ee;
+}
+
+.gh-banner-login {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--accent-amber);
+}
+
+.gh-banner-bio {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  font-style: italic;
+}
+
+.gh-pinned-repos-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+}
+
+.gh-pinned-repo-card {
+  padding: 0.85rem 1.1rem;
+  background: rgba(18, 13, 10, 0.7);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  color: var(--text-primary);
+  transition: var(--transition-fast);
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.gh-pinned-repo-card:hover {
+  border-color: var(--accent-amber);
+  background: rgba(183, 126, 63, 0.15);
+  transform: translateX(4px);
+}
+
+.gh-repo-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.gh-repo-title {
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--accent-cream);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.gh-repo-badge {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  padding: 0.1rem 0.45rem;
+  border-radius: 9999px;
+  background: rgba(245, 158, 11, 0.15);
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  color: var(--accent-amber);
+}
+
+.gh-repo-desc {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+.gh-repo-footer {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+}
+
+.lang-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 0.3rem;
+}
+.lang-dot.js { background: #f7df1e; }
+.lang-dot.webgl { background: #d97706; }
+.lang-dot.java { background: #b07219; }
+
+/* Real GitHub SVG Contribution Chart Container */
+.gh-real-chart-box {
+  background: rgba(18, 13, 10, 0.85);
+  border: 1px solid var(--border-brass);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+  margin-top: 1rem;
+  overflow-x: auto;
+}
+
+.gh-real-chart-img {
+  width: 100%;
+  min-width: 680px;
+  display: block;
+  filter: invert(0.88) hue-rotate(170deg) contrast(1.2) brightness(0.95);
+  mix-blend-mode: screen;
 }
 
 /* Chess Record Pills */
@@ -2049,6 +2403,14 @@ body {
     flex-direction: row;
     justify-content: center;
     margin-top: 1.5rem;
+    flex-wrap: wrap;
+  }
+  .hero-tactile-links {
+    position: static;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 1rem;
+    flex-wrap: wrap;
   }
   .tr-grid {
     grid-template-columns: 1fr;

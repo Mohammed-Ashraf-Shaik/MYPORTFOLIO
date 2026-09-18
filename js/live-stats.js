@@ -378,6 +378,11 @@
         if (winPercentElem) winPercentElem.textContent = `${winPercent}% WIN RATE (${totalGames.toLocaleString()} GAMES) • LEGEND LEAGUE`;
       }
 
+      if (profile.avatar) {
+        const avatarElem = document.getElementById('chess-avatar-img');
+        if (avatarElem) avatarElem.src = profile.avatar;
+      }
+
       if (statusElem) {
         statusElem.textContent = 'LIVE NOW';
         statusElem.classList.add('live-active');
