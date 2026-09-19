@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let roleIndex = 0;
   let charIndex = 0;
   let isDeleting = false;
-  const roleElem = document.getElementById('hero-role-text');
+  const roleElem = document.getElementById('typewriter-role') || document.getElementById('hero-role-text');
 
   function typeRole() {
     if (!roleElem) return;

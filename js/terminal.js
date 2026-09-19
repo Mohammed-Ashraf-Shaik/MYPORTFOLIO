@@ -132,11 +132,10 @@
 
     skills: () => `
 <div class="terminal-line success">// TECH ARSENAL //</div>
-<div class="terminal-line">  • <span class="text-cyan">Languages:</span>      Python, Java, JavaScript (ES6+), HTML5, CSS3</div>
-<div class="terminal-line">  • <span class="text-cyan">Frontend:</span>       Vite, Modular CSS Architecture, Three.js, Responsive UI</div>
-<div class="terminal-line">  • <span class="text-cyan">Backend:</span>        MongoDB, RESTful APIs, Node runtime</div>
-<div class="terminal-line">  • <span class="text-cyan">Algorithms:</span>     Arrays, Sliding Window, Two Pointers, Binary Search, Trees, Graphs, Hashing</div>
-<div class="terminal-line">  • <span class="text-cyan">Tools & Vision:</span> OpenCV (Computer Vision), Git, GitHub, Figma, Vercel</div>
+<div class="terminal-line">  • <span class="text-cyan">Languages:</span>      JavaScript (ES6+), HTML5, CSS3, C++, Python</div>
+<div class="terminal-line">  • <span class="text-cyan">Tools &amp; Deploy:</span> Vite, Git, GitHub, Vercel Edge</div>
+<div class="terminal-line">  • <span class="text-cyan">AI Partners:</span>     Google Antigravity, Gemini, ChatGPT</div>
+<div class="terminal-line">  • <span class="text-cyan">Algorithms:</span>     Arrays, Two Pointers, Binary Search, Sliding Window, Trees, Graphs</div>
 `,
 
     projects: () => `
@@ -183,7 +182,7 @@
 <div class="terminal-line">  • Email:    <a href="mailto:ashubasha52@gmail.com" style="color:#00f5ff;">ashubasha52@gmail.com</a></div>
 <div class="terminal-line">  • Phone:    <a href="tel:+918500543154" style="color:#00f5ff;">+91 8500543154</a></div>
 <div class="terminal-line">  • GitHub:   <a href="https://github.com/Mohammed-Ashraf-Shaik" target="_blank" style="color:#00f5ff;">github.com/Mohammed-Ashraf-Shaik</a></div>
-<div class="terminal-line">  • LinkedIn: <a href="https://linkedin.com/in/mohammed-ashraf-shaik" target="_blank" style="color:#00f5ff;">linkedin.com/in/mohammed-ashraf-shaik</a></div>
+<div class="terminal-line">  • LinkedIn: <a href="https://www.linkedin.com/in/mohammad-ashraf-shaik/" target="_blank" style="color:#00f5ff;">linkedin.com/in/mohammad-ashraf-shaik</a></div>
 <div class="terminal-line">  • X / Twitter: <a href="https://x.com/ashraf_m_shaik" target="_blank" style="color:#00f5ff;">x.com/ashraf_m_shaik</a></div>
 `,
 
