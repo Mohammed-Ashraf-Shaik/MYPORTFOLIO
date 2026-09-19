@@ -406,7 +406,7 @@
                 <span style="color:var(--accent-amber);font-weight:700;">●</span> GitHub Annual Contributions (Live Sync)
               </div>
               <div class="text-secondary font-mono" style="font-size:0.75rem;">
-                Total: <strong id="gh-total-commits-text" class="count-up-num" data-target="180" data-suffix="+" style="color:#ffffff;">0</strong> contributions | Active: <strong id="gh-active-weeks-text" class="count-up-num" data-target="48" style="color:#ffffff;">0</strong> weeks
+                Total: <strong id="gh-total-commits-text" class="count-up-num" data-target="180" data-suffix="+" style="color:var(--text-primary);">0</strong> contributions | Active: <strong id="gh-active-weeks-text" class="count-up-num" data-target="48" style="color:var(--text-primary);">0</strong> weeks
               </div>
             </div>
 
@@ -424,46 +424,96 @@
               <div class="tr-icon lc">⚡</div>
               <div>
                 <div class="tr-title">LeetCode Live Pulse &amp; Mastery</div>
-                <div class="tr-user">@Shaik_mohameed_Ashraf</div>
+                <div class="tr-user">@Shaik_mohameed_Ashraf • Competitive Programmer</div>
               </div>
             </div>
-            <div style="display:flex;align-items:center;gap:0.75rem;">
-              <a href="https://leetcode.com/u/Shaik_mohameed_Ashraf/" target="_blank" rel="noopener noreferrer" class="btn-primary" style="padding:0.5rem 1.1rem;font-size:0.8rem;white-space:nowrap;">
-                <span>FOLLOW LEETCODE ↗</span>
-              </a>
-              <div class="tr-sync-pill" id="leetcode-sync-status">SYNCING API...</div>
+            <div class="tr-sync-pill" id="leetcode-sync-status">SYNCING API...</div>
+          </div>
+
+          <!-- Profile Overview Banner (matching GitHub style) -->
+          <div class="gh-card-profile-banner">
+            <img src="PROFILEPIC.jpg" alt="LeetCode Avatar" class="gh-banner-avatar">
+            <div class="gh-banner-meta">
+              <div class="gh-banner-name">Shaik_mohameed_Ashraf</div>
+              <div class="gh-banner-login">@Shaik_mohameed_Ashraf • <span style="color:var(--accent-brass);">⚡ DSA Enthusiast</span></div>
+              <div class="gh-banner-bio" id="leetcode-bio-text">"Solving problems daily to sharpen algorithmic thinking and competitive edge."</div>
             </div>
+            <a href="https://leetcode.com/u/Shaik_mohameed_Ashraf/" target="_blank" rel="noopener noreferrer" class="btn-primary" style="padding:0.5rem 1.1rem;font-size:0.8rem;white-space:nowrap;">
+              <span>FOLLOW LEETCODE ↗</span>
+            </a>
           </div>
 
           <div class="tr-grid">
-            <div class="metric-panel">
-              <div class="mp-hero-val count-up-num" id="leetcode-total-val" data-target="128">0</div>
-              <div class="lc-stats-breakdown">
-                <span>Easy: <b id="leetcode-easy-val" class="count-up-num" data-target="87" style="color:#10b981;">0</b></span>
-                <span>Med: <b id="leetcode-med-val" class="count-up-num" data-target="37" style="color:#f59e0b;">0</b></span>
-                <span>Hard: <b id="leetcode-hard-val" class="count-up-num" data-target="4" style="color:#ef4444;">0</b></span>
-              </div>
-              <div class="multi-seg-bar">
-                <div class="bar-seg easy" id="lc-bar-easy" style="width: 68%;"></div>
-                <div class="bar-seg med" id="lc-bar-med" style="width: 29%;"></div>
-                <div class="bar-seg hard" id="lc-bar-hard" style="width: 3%;"></div>
-              </div>
-              <div class="text-secondary font-mono" id="leetcode-recent-problem" style="font-size:0.75rem;margin-top:0.6rem;">
-                RECENT: Subarray Sum Equals K (Java)
-              </div>
-            </div>
-
+            <!-- Left: Live Numerical Metrics (matching GitHub's repos/followers/commits split) -->
             <div class="metric-panel">
               <div class="mp-split">
                 <div>
+                  <div class="mp-hero-val count-up-num" id="leetcode-total-val" data-target="128">0</div>
+                  <div class="text-muted font-mono" style="font-size:0.75rem;">Problems Solved</div>
+                </div>
+                <div class="mp-split-divider"></div>
+                <div>
                   <div class="mp-hero-val count-up-num" id="leetcode-rank-val" data-target="1347751">0</div>
-                  <div class="text-muted font-mono" style="font-size:0.75rem;">Global Standing</div>
+                  <div class="text-muted font-mono" style="font-size:0.75rem;">Global Rank</div>
                 </div>
                 <div class="mp-split-divider"></div>
                 <div>
                   <div class="mp-hero-val count-up-num" style="color:var(--accent-amber);" id="leetcode-contest-val" data-target="1460">0</div>
                   <div class="text-muted font-mono" style="font-size:0.75rem;">Contest Rating</div>
                 </div>
+              </div>
+              <div style="margin-top:1.1rem;padding-top:0.85rem;border-top:1px solid var(--border-subtle);font-size:0.82rem;font-family:var(--font-mono);color:var(--accent-brass);">
+                ⚡ ALGORITHMIC SPRINT • DAILY PROBLEM SOLVING ACTIVE
+              </div>
+            </div>
+
+            <!-- Right: Problem Breakdown Panel (matching GitHub's pinned repos style) -->
+            <div class="metric-panel">
+              <div class="text-muted font-mono" style="font-size:0.75rem;margin-bottom:0.65rem;color:var(--accent-amber);display:flex;justify-content:space-between;">
+                <span>DIFFICULTY BREAKDOWN</span>
+                <span>3 TIERS</span>
+              </div>
+              <div class="gh-pinned-repos-grid">
+                <div class="gh-pinned-repo-card" style="cursor:default;">
+                  <div class="gh-repo-card-top">
+                    <span class="gh-repo-title">🟢 Easy Problems</span>
+                    <span class="gh-repo-badge" style="color:#10b981;border-color:rgba(16,185,129,0.35);background:rgba(16,185,129,0.15);">Solved</span>
+                  </div>
+                  <div class="gh-repo-desc"><b id="leetcode-easy-val" class="count-up-num" data-target="87" style="color:#10b981;">0</b> / ~800 • Foundation & Pattern Recognition</div>
+                  <div class="gh-repo-footer">
+                    <span><span class="lang-dot" style="background:#10b981;"></span>Arrays, Strings, Math</span>
+                    <span>68%</span>
+                  </div>
+                </div>
+
+                <div class="gh-pinned-repo-card" style="cursor:default;">
+                  <div class="gh-repo-card-top">
+                    <span class="gh-repo-title">🟡 Medium Problems</span>
+                    <span class="gh-repo-badge" style="color:#f59e0b;border-color:rgba(245,158,11,0.35);background:rgba(245,158,11,0.15);">Solved</span>
+                  </div>
+                  <div class="gh-repo-desc"><b id="leetcode-med-val" class="count-up-num" data-target="37" style="color:#f59e0b;">0</b> / ~1700 • DP, Graphs, Trees</div>
+                  <div class="gh-repo-footer">
+                    <span><span class="lang-dot" style="background:#f59e0b;"></span>Binary Search, BFS/DFS</span>
+                    <span>29%</span>
+                  </div>
+                </div>
+
+                <div class="gh-pinned-repo-card" style="cursor:default;">
+                  <div class="gh-repo-card-top">
+                    <span class="gh-repo-title">🔴 Hard Problems</span>
+                    <span class="gh-repo-badge" style="color:#ef4444;border-color:rgba(239,68,68,0.35);background:rgba(239,68,68,0.15);">Solved</span>
+                  </div>
+                  <div class="gh-repo-desc"><b id="leetcode-hard-val" class="count-up-num" data-target="4" style="color:#ef4444;">0</b> / ~800 • Advanced Algorithms</div>
+                  <div class="gh-repo-footer">
+                    <span><span class="lang-dot" style="background:#ef4444;"></span>Segment Trees, DP Opt</span>
+                    <span>3%</span>
+                  </div>
+                </div>
+              </div>
+              <div class="multi-seg-bar" style="margin-top:1rem;">
+                <div class="bar-seg easy" id="lc-bar-easy" style="width: 68%;"></div>
+                <div class="bar-seg med" id="lc-bar-med" style="width: 29%;"></div>
+                <div class="bar-seg hard" id="lc-bar-hard" style="width: 3%;"></div>
               </div>
               <a href="https://leetcode.com/u/Shaik_mohameed_Ashraf/" target="_blank" rel="noopener noreferrer" class="btn-card-action">
                 <span>VIEW LEETCODE PROFILE ↗</span>
@@ -475,10 +525,10 @@
           <div class="heatmap-block">
             <div class="heatmap-block-header">
               <div>
-                <span style="color:var(--accent-amber);font-weight:700;">●</span> 1-Year Algorithmic Submissions Grid
+                <span style="color:var(--accent-amber);font-weight:700;">●</span> LeetCode Annual Submissions (Live Sync)
               </div>
               <div class="text-secondary font-mono" style="font-size:0.75rem;">
-                Total: <strong id="lc-total-subs-text" class="count-up-num" data-target="265" style="color:#ffffff;">0</strong> submissions | Active: <strong id="lc-active-days-text" class="count-up-num" data-target="61" style="color:#ffffff;">0</strong> days
+                Total: <strong id="lc-total-subs-text" class="count-up-num" data-target="265" data-suffix="+" style="color:var(--text-primary);">0</strong> submissions | Active: <strong id="lc-active-days-text" class="count-up-num" data-target="61" style="color:var(--text-primary);">0</strong> days
               </div>
             </div>
 
