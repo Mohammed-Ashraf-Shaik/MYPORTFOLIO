@@ -359,13 +359,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const modeBtn = document.getElementById('theme-mode-btn');
     const modeSymbol = document.getElementById('theme-mode-symbol');
 
-    // 12.1 Restore saved Color Theme
-    const savedColor = localStorage.getItem('ashraf_color_theme') || 'brown';
-    applyColorTheme(savedColor, false);
+    // 12.1 Always ensure default is the signature Vintage Brown & Espresso Dark mode whenever opened on any device
+    try {
+      localStorage.removeItem('ashraf_color_theme');
+      localStorage.removeItem('ashraf_theme_mode');
+    } catch (e) {}
 
-    // 12.2 Restore saved Light/Dark Mode
-    const savedMode = localStorage.getItem('ashraf_theme_mode') || 'dark';
-    applyThemeMode(savedMode, false);
+    // Always start with Brown & Dark mode by default
+    applyColorTheme('brown', false);
+    applyThemeMode('dark', false);
 
     // Toggle Palette Popover on Click
     if (paletteBtn && popover) {
@@ -400,7 +402,6 @@ document.addEventListener('DOMContentLoaded', () => {
       } else {
         document.documentElement.setAttribute('data-color-theme', themeName);
       }
-      localStorage.setItem('ashraf_color_theme', themeName);
 
       swatchBtns.forEach((b) => {
         if (b.getAttribute('data-color') === themeName) {
@@ -435,11 +436,10 @@ document.addEventListener('DOMContentLoaded', () => {
       } else {
         document.documentElement.removeAttribute('data-theme-mode');
         if (modeSymbol) {
-          modeSymbol.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-moon"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>';
+          modeSymbol.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-moon"><path d="M12 3a6 6 0 0 0 9 9 9 0 1 1-9-9Z"/></svg>';
         }
         if (modeBtn) modeBtn.title = 'Switch to Light Mode (Parchment)';
       }
-      localStorage.setItem('ashraf_theme_mode', mode);
 
       // Dispatch event to 3D WebGL Scene
       window.dispatchEvent(new CustomEvent('themeModeChanged', { detail: { mode } }));
@@ -520,7 +520,7 @@ document.addEventListener('DOMContentLoaded', () => {
       cyclePaletteBtn.addEventListener('click', (e) => {
         e.stopPropagation();
         const themes = ['brown', 'blue', 'red', 'white'];
-        const currentTheme = localStorage.getItem('ashraf_color_theme') || 'brown';
+        const currentTheme = document.documentElement.getAttribute('data-color-theme') || 'brown';
         const currentIndex = themes.indexOf(currentTheme);
         const nextTheme = themes[(currentIndex + 1) % themes.length];
 

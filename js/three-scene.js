@@ -553,8 +553,8 @@
     // =========================================================================
     // 6. THEME PALETTE & LIGHT/DARK MODE SYNCHRONIZATION
     // =========================================================================
-    let currentActiveMode = localStorage.getItem('ashraf_theme_mode') || 'dark';
-    let currentActiveTheme = localStorage.getItem('ashraf_color_theme') || 'brown';
+    let currentActiveMode = 'dark';
+    let currentActiveTheme = 'brown';
 
     function applySceneTheme(theme) {
       currentActiveTheme = theme;
@@ -570,7 +570,7 @@
         snowflakeMat.color.setHex(isLight ? 0x475569 : 0xe2e8f0);
         dirLight2.color.setHex(isLight ? 0x64748b : 0xcbd5e1);
       } else {
-        // Vintage Brown / Warm Amber & Antique Bronze
+        // Vintage Brown / Warm Amber & Antique Bronze (Default for all devices)
         snowflakeMat.color.setHex(isLight ? 0xb45309 : 0xf59e0b);
         dirLight2.color.setHex(isLight ? 0x92400e : 0xf59e0b);
       }
@@ -596,14 +596,8 @@
       applySceneTheme(currentActiveTheme);
     }
 
-    // Initialize initial colors and mode
-    updateSnowflakeColors(currentActiveMode === 'light', currentActiveTheme);
-    if (currentActiveMode === 'light') {
-      applySceneMode('light');
-    }
-    if (currentActiveTheme !== 'brown') {
-      applySceneTheme(currentActiveTheme);
-    }
+    // Initialize initial colors and mode: Always default brown
+    updateSnowflakeColors(false, 'brown');
 
     window.addEventListener('colorThemeChanged', (e) => {
       const theme = e.detail?.theme || 'brown';
