@@ -177,34 +177,32 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 7. Active Navigation Spy via IntersectionObserver (Header & Bottom Dock)
+  // 7. Active Navigation Spy via Scroll Position (Header & Bottom Dock)
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('.nav-link');
   const dockItems = document.querySelectorAll('.dock-item');
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        const id = entry.target.getAttribute('id');
-        navLinks.forEach((link) => {
-          if (link.getAttribute('href') === `#${id}`) {
-            link.classList.add('active');
-          } else {
-            link.classList.remove('active');
-          }
-        });
-        dockItems.forEach((item) => {
-          if (item.getAttribute('href') === `#${id}`) {
-            item.classList.add('active');
-          } else {
-            item.classList.remove('active');
-          }
-        });
+  function updateActiveNavSpy() {
+    const scrollPos = window.scrollY + 220;
+    let currentId = 'hero';
+
+    sections.forEach((sec) => {
+      const top = sec.offsetTop;
+      if (scrollPos >= top) {
+        currentId = sec.getAttribute('id');
       }
     });
-  }, { threshold: 0.35 });
 
-  sections.forEach((sec) => observer.observe(sec));
+    navLinks.forEach((link) => {
+      link.classList.toggle('active', link.getAttribute('href') === `#${currentId}`);
+    });
+    dockItems.forEach((item) => {
+      item.classList.toggle('active', item.getAttribute('href') === `#${currentId}`);
+    });
+  }
+
+  window.addEventListener('scroll', updateActiveNavSpy, { passive: true });
+  updateActiveNavSpy();
 
   // 8. Mobile Menu Toggle & Click Outside Handler
   const mobileToggle = document.getElementById('mobile-menu-btn');
