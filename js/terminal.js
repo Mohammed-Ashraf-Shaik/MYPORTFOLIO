@@ -73,7 +73,8 @@
 <div class="terminal-line info">SYSTEM UTILITIES & COMMAND REGISTRY:</div>
 <div class="terminal-line">  <span class="text-cyan">bio</span>         - About Shaik Mohammed Ashraf & philosophy</div>
 <div class="terminal-line">  <span class="text-cyan">skills</span>      - Engineering stack & core competencies</div>
-<div class="terminal-line">  <span class="text-cyan">projects</span>    - Featured flagship project (SmartCare Web App)</div>
+<div class="terminal-line">  <span class="text-cyan">projects</span>    - Flagship production deployments</div>
+<div class="terminal-line">  <span class="text-cyan">portfolio</span>   - Launch official live Vercel portfolio [myportfolio-ashrafm.vercel.app]</div>
 <div class="terminal-line">  <span class="text-cyan">dsa</span>         - Algorithmic problem solving & pattern toolkit</div>
 <div class="terminal-line">  <span class="text-cyan">leetcode</span>    - Live LeetCode real-time stats & rank</div>
 <div class="terminal-line">  <span class="text-cyan">github</span>      - Live GitHub repos & contributions</div>
@@ -139,8 +140,16 @@
 `,
 
     projects: () => `
-<div class="terminal-line success">// FLAGSHIP PRODUCTION SYSTEM //</div>
-<div class="terminal-line">★ <span class="text-cyan">SmartCare – Smart Healthcare Management Web App</span></div>
+<div class="terminal-line success">// FLAGSHIP PRODUCTION SYSTEMS //</div>
+<div class="terminal-line">★ <span class="text-cyan">1. Interactive 3D Cyber Portfolio &amp; Spatial Inventory</span></div>
+<div class="terminal-line">   Status:    <span style="color:#10b981;">LIVE PRODUCTION [v2.5]</span></div>
+<div class="terminal-line">   Category:  Personal Dossier / Spatial WebGL Experience</div>
+<div class="terminal-line">   Stack:     HTML5, CSS3, JavaScript (ES6+), Three.js, Vercel Edge</div>
+<div class="terminal-line">   Overview:  Interactive 3D Dossier featuring live GitHub, LeetCode, and Chess telemetry, custom CRT terminal, and retro-futuristic HUD.</div>
+<div class="terminal-line">   Live URL:  <a href="https://myportfolio-ashrafm.vercel.app/" target="_blank" style="color:#00f5ff;text-decoration:underline;">https://myportfolio-ashrafm.vercel.app/</a></div>
+<div class="terminal-line">   GitHub:    <a href="https://github.com/Mohammed-Ashraf-Shaik/MYPORTFOLIO" target="_blank" style="color:#a855f7;text-decoration:underline;">github.com/Mohammed-Ashraf-Shaik/MYPORTFOLIO</a></div>
+<br>
+<div class="terminal-line">★ <span class="text-cyan">2. SmartCare – Smart Healthcare Management Web App</span></div>
 <div class="terminal-line">   Status:    <span style="color:#10b981;">LIVE PRODUCTION [v1.0]</span></div>
 <div class="terminal-line">   Category:  Full-Stack Web Engineering / Healthcare Portal</div>
 <div class="terminal-line">   Stack:     HTML5, CSS3, JavaScript (ES6+), Vite, Vercel Edge</div>
@@ -148,6 +157,16 @@
 <div class="terminal-line">   Live URL:  <a href="https://smartcare-gprec.vercel.app" target="_blank" style="color:#00f5ff;text-decoration:underline;">https://smartcare-gprec.vercel.app</a></div>
 <div class="terminal-line">   GitHub:    <a href="https://github.com/Mohammed-Ashraf-Shaik/smart-care-app" target="_blank" style="color:#a855f7;text-decoration:underline;">github.com/Mohammed-Ashraf-Shaik/smart-care-app</a></div>
 `,
+
+    portfolio: () => {
+      window.open('https://myportfolio-ashrafm.vercel.app/', '_blank');
+      return `
+<div class="terminal-line success">// LIVE PRODUCTION PORTFOLIO //</div>
+<div class="terminal-line">Redirecting to official live deployment:</div>
+<div class="terminal-line">  • <span class="text-cyan">Live Vercel URL:</span> <a href="https://myportfolio-ashrafm.vercel.app/" target="_blank" style="color:#00f5ff;text-decoration:underline;">https://myportfolio-ashrafm.vercel.app/</a></div>
+<div class="terminal-line">  • <span class="text-cyan">Source Code:</span>     <a href="https://github.com/Mohammed-Ashraf-Shaik/MYPORTFOLIO" target="_blank" style="color:#a855f7;text-decoration:underline;">github.com/Mohammed-Ashraf-Shaik/MYPORTFOLIO</a></div>
+`;
+    },
 
     dsa: () => `
 <div class="terminal-line success">// ALGORITHMIC FOUNDATION //</div>
