@@ -694,8 +694,8 @@ body {
 /* Tactile Badges Group */
 .hero-tactile-badges {
   position: absolute;
-  bottom: -22px;
-  left: -20px;
+  top: -12px;
+  right: -24px;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
