@@ -450,6 +450,96 @@ document.addEventListener('DOMContentLoaded', () => {
 
   setupThemeSystem();
 
+  // =========================================================================
+  // 13. Interactive Cartoon Cat Mascot & Color Palette Guide
+  // =========================================================================
+  function setupCatMascotGuide() {
+    const catContainer = document.getElementById('cat-mascot-container');
+    const actionBubble = document.getElementById('cat-action-bubble');
+    const bubbleClose = document.getElementById('cat-bubble-close');
+    const openPaletteBtn = document.getElementById('cat-open-palette-btn');
+    const paletteBtn = document.getElementById('theme-palette-btn');
+    const palettePopover = document.getElementById('theme-palette-popover');
+    const modeBtn = document.getElementById('theme-mode-btn');
+
+    if (!catContainer) return;
+
+    function triggerGuideAction(e) {
+      if (e) e.stopPropagation();
+
+      // Play cheerful audio tone if sound is online
+      if (window.cyberAudio && typeof window.cyberAudio.playItemPick === 'function') {
+        window.cyberAudio.playItemPick();
+      }
+
+      // Show cat speech bubble
+      if (actionBubble) {
+        actionBubble.classList.add('visible');
+      }
+
+      // Pulsing spotlight highlight on the HUD palette button & mode toggle
+      if (paletteBtn) {
+        paletteBtn.classList.remove('cat-spotlight-pulse');
+        void paletteBtn.offsetWidth;
+        paletteBtn.classList.add('cat-spotlight-pulse');
+      }
+      if (modeBtn) {
+        modeBtn.classList.remove('cat-spotlight-pulse');
+        void modeBtn.offsetWidth;
+        modeBtn.classList.add('cat-spotlight-pulse');
+      }
+
+      // Automatically open the color palette popover so the user sees swatches immediately!
+      if (palettePopover) {
+        palettePopover.classList.add('active');
+      }
+
+      // Show toast guidance
+      showToast('🎨 Click the paint palette or moon symbol to explore themes & light mode!');
+
+      // If user has scrolled down, smooth scroll back up to HUD header
+      if (window.scrollY > 220) {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }
+
+    catContainer.addEventListener('click', (e) => {
+      // Don't re-trigger if clicking inside the open bubble buttons
+      if (e.target.closest('#cat-action-bubble')) return;
+      triggerGuideAction(e);
+    });
+
+    catContainer.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        triggerGuideAction(e);
+      }
+    });
+
+    if (openPaletteBtn) {
+      openPaletteBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        triggerGuideAction(e);
+      });
+    }
+
+    if (bubbleClose) {
+      bubbleClose.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (actionBubble) actionBubble.classList.remove('visible');
+      });
+    }
+
+    // Close cat bubble on document click outside
+    document.addEventListener('click', (e) => {
+      if (actionBubble && !catContainer.contains(e.target)) {
+        actionBubble.classList.remove('visible');
+      }
+    });
+  }
+
+  setupCatMascotGuide();
+
   // Initialize Lucide icons if available
   if (window.lucide && typeof window.lucide.createIcons === 'function') {
     window.lucide.createIcons();
