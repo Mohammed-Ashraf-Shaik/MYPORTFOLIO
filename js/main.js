@@ -206,19 +206,38 @@ document.addEventListener('DOMContentLoaded', () => {
 
   sections.forEach((sec) => observer.observe(sec));
 
-  // 8. Mobile Menu Toggle
+  // 8. Mobile Menu Toggle & Click Outside Handler
   const mobileToggle = document.getElementById('mobile-menu-btn');
   const navLinksContainer = document.querySelector('.nav-links');
   if (mobileToggle && navLinksContainer) {
-    mobileToggle.addEventListener('click', () => {
-      navLinksContainer.classList.toggle('mobile-open');
+    mobileToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = navLinksContainer.classList.toggle('mobile-open');
+      mobileToggle.classList.toggle('active', isOpen);
+      if (isOpen) {
+        mobileToggle.innerHTML = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>';
+      } else {
+        mobileToggle.innerHTML = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>';
+      }
       if (window.cyberAudio) window.cyberAudio.playClick();
     });
 
     navLinksContainer.querySelectorAll('.nav-link').forEach((link) => {
       link.addEventListener('click', () => {
         navLinksContainer.classList.remove('mobile-open');
+        mobileToggle.classList.remove('active');
+        mobileToggle.innerHTML = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>';
       });
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!navLinksContainer.contains(e.target) && !mobileToggle.contains(e.target)) {
+        if (navLinksContainer.classList.contains('mobile-open')) {
+          navLinksContainer.classList.remove('mobile-open');
+          mobileToggle.classList.remove('active');
+          mobileToggle.innerHTML = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>';
+        }
+      }
     });
   }
 
