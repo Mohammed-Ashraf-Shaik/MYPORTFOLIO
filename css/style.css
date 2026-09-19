@@ -742,64 +742,34 @@ body {
 }
 
 /* ==========================================================================
-   TACTILE LINK BADGES (Top-Right beside Ashraf's photo - like DSA Lover)
+   STAMP SOCIAL ICON ROW (Integrated into Stamp Card below caption)
    ========================================================================== */
-.hero-tactile-links {
-  position: absolute;
-  top: -12px;
-  right: -98px;
+.stamp-social-row {
   display: flex;
-  flex-direction: column;
-  gap: 0.55rem;
-  z-index: 15;
-}
-
-.tactile-link-badge {
-  display: inline-flex;
   align-items: center;
-  gap: 0.45rem;
-  padding: 0.38rem 0.85rem;
-  border-radius: 6px;
-  font-family: var(--font-mono);
-  font-size: 0.78rem;
-  font-weight: 700;
+  justify-content: center;
+  gap: 0.65rem;
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px dashed rgba(183, 126, 63, 0.3);
+}
+
+.stamp-social-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-decoration: none;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5);
-  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, background 0.25s ease;
-  white-space: nowrap;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.35);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
+  border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
-.tactile-link-badge:hover {
-  transform: scale(1.12) translateY(-2px) !important;
-  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.75);
-}
-
-.badge-link-linkedin {
-  background: #0077b5;
-  color: #ffffff;
-  border: 1px solid #005f93;
-  transform: rotate(3deg);
-}
-
-.badge-link-github {
-  background: #241b14;
-  color: #faf5ee;
-  border: 1px solid var(--border-brass);
-  transform: rotate(-2.5deg);
-}
-
-.badge-link-leetcode {
-  background: #f59e0b;
-  color: #1a1107;
-  border: 1px solid #d97706;
-  transform: rotate(2deg);
-}
-
-.badge-link-chess {
-  background: #c2410c;
-  color: #faf5ee;
-  border: 1px solid #9a3412;
-  transform: rotate(-2deg);
+.stamp-social-icon:hover {
+  transform: translateY(-4px) scale(1.15);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
 }
 
 /* ==========================================================================
