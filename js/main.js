@@ -457,27 +457,24 @@ document.addEventListener('DOMContentLoaded', () => {
     const catContainer = document.getElementById('cat-mascot-container');
     const actionBubble = document.getElementById('cat-action-bubble');
     const bubbleClose = document.getElementById('cat-bubble-close');
-    const openPaletteBtn = document.getElementById('cat-open-palette-btn');
+    const cyclePaletteBtn = document.getElementById('cat-cycle-palette-btn');
+    const toggleModeBtn = document.getElementById('cat-toggle-mode-btn');
     const paletteBtn = document.getElementById('theme-palette-btn');
-    const palettePopover = document.getElementById('theme-palette-popover');
     const modeBtn = document.getElementById('theme-mode-btn');
 
     if (!catContainer) return;
 
-    function triggerGuideAction(e) {
-      if (e) e.stopPropagation();
+    function openCatBubble() {
+      if (actionBubble) {
+        actionBubble.classList.add('visible');
+      }
+      catContainer.classList.add('bubble-open');
 
-      // Play cheerful audio tone if sound is online
       if (window.cyberAudio && typeof window.cyberAudio.playItemPick === 'function') {
         window.cyberAudio.playItemPick();
       }
 
-      // Show cat speech bubble
-      if (actionBubble) {
-        actionBubble.classList.add('visible');
-      }
-
-      // Pulsing spotlight highlight on the HUD palette button & mode toggle
+      // Spotlight pulse on HUD icons to show the user where they are
       if (paletteBtn) {
         paletteBtn.classList.remove('cat-spotlight-pulse');
         void paletteBtn.offsetWidth;
@@ -488,52 +485,87 @@ document.addEventListener('DOMContentLoaded', () => {
         void modeBtn.offsetWidth;
         modeBtn.classList.add('cat-spotlight-pulse');
       }
-
-      // Automatically open the color palette popover so the user sees swatches immediately!
-      if (palettePopover) {
-        palettePopover.classList.add('active');
-      }
-
-      // Show toast guidance
-      showToast('🎨 Click the paint palette or moon symbol to explore themes & light mode!');
-
-      // If user has scrolled down, smooth scroll back up to HUD header
-      if (window.scrollY > 220) {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      }
     }
 
+    function closeCatBubble() {
+      if (actionBubble) {
+        actionBubble.classList.remove('visible');
+      }
+      catContainer.classList.remove('bubble-open');
+    }
+
+    // Toggle bubble on cat click
     catContainer.addEventListener('click', (e) => {
-      // Don't re-trigger if clicking inside the open bubble buttons
+      // Ignore clicks inside the speech bubble
       if (e.target.closest('#cat-action-bubble')) return;
-      triggerGuideAction(e);
+      
+      if (actionBubble && actionBubble.classList.contains('visible')) {
+        closeCatBubble();
+      } else {
+        openCatBubble();
+      }
     });
 
     catContainer.addEventListener('keydown', (e) => {
       if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault();
-        triggerGuideAction(e);
+        if (actionBubble && actionBubble.classList.contains('visible')) {
+          closeCatBubble();
+        } else {
+          openCatBubble();
+        }
       }
     });
 
-    if (openPaletteBtn) {
-      openPaletteBtn.addEventListener('click', (e) => {
+    // Cycle palettes directly from the cat's speech bubble!
+    if (cyclePaletteBtn) {
+      cyclePaletteBtn.addEventListener('click', (e) => {
         e.stopPropagation();
-        triggerGuideAction(e);
+        const themes = ['brown', 'blue', 'red', 'white'];
+        const currentTheme = localStorage.getItem('ashraf_color_theme') || 'brown';
+        const currentIndex = themes.indexOf(currentTheme);
+        const nextTheme = themes[(currentIndex + 1) % themes.length];
+
+        const targetSwatch = document.querySelector(`.swatch-btn[data-color="${nextTheme}"]`);
+        if (targetSwatch) {
+          targetSwatch.click();
+        } else if (paletteBtn) {
+          paletteBtn.click();
+        }
+
+        // Highlight HUD palette button
+        if (paletteBtn) {
+          paletteBtn.classList.remove('cat-spotlight-pulse');
+          void paletteBtn.offsetWidth;
+          paletteBtn.classList.add('cat-spotlight-pulse');
+        }
+      });
+    }
+
+    // Toggle Light / Dark mode directly from the cat's speech bubble!
+    if (toggleModeBtn) {
+      toggleModeBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (modeBtn) {
+          modeBtn.click();
+          modeBtn.classList.remove('cat-spotlight-pulse');
+          void modeBtn.offsetWidth;
+          modeBtn.classList.add('cat-spotlight-pulse');
+        }
       });
     }
 
     if (bubbleClose) {
       bubbleClose.addEventListener('click', (e) => {
         e.stopPropagation();
-        if (actionBubble) actionBubble.classList.remove('visible');
+        closeCatBubble();
       });
     }
 
     // Close cat bubble on document click outside
     document.addEventListener('click', (e) => {
       if (actionBubble && !catContainer.contains(e.target)) {
-        actionBubble.classList.remove('visible');
+        closeCatBubble();
       }
     });
   }
