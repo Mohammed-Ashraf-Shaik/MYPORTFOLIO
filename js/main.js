@@ -568,6 +568,13 @@ document.addEventListener('DOMContentLoaded', () => {
         closeCatBubble();
       }
     });
+
+    // Auto-close cat bubble if user scrolls down away from the hero section
+    window.addEventListener('scroll', () => {
+      if (actionBubble && actionBubble.classList.contains('visible') && window.scrollY > 380) {
+        closeCatBubble();
+      }
+    }, { passive: true });
   }
 
   setupCatMascotGuide();
