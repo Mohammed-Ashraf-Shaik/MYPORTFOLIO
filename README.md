@@ -1,103 +1,153 @@
-# SHAIK MOHAMMED ASHRAF // 3D Cyber-Quantum Portfolio & Spatial Inventory
+# SHAIK MOHAMMED ASHRAF // Modern Architectural Portfolio & Live Telemetry
 
-> **Architecting high-scale distributed systems and immersive web experiences.**
+> **Full-Stack Software Engineer, Competitive Programmer, and Systems Builder.**  
+> Designing high-performance web experiences with WebGL, live telemetry, and modern UI engineering.
 
-[![GitHub](https://img.shields.io/badge/GitHub-Mohammed--Ashraf--Shaik-00f5ff?style=flat&logo=github)](https://github.com/Mohammed-Ashraf-Shaik)
-[![LeetCode](https://img.shields.io/badge/LeetCode-Shaik__mohameed__Ashraf-ffa116?style=flat&logo=leetcode)](https://leetcode.com/u/Shaik_mohameed_Ashraf/)
-[![Chess.com](https://img.shields.io/badge/Chess.com-ashumm-7fa650?style=flat&logo=chess.com)](https://www.chess.com/member/ashumm)
-[![License: MIT](https://img.shields.io/badge/License-MIT-a855f7.svg)](LICENSE)
-
-An extraordinary, high-performance personal portfolio built with a **3D Dimensional Bag Spatial Inventory Architecture**, featuring zero-scroll spatial navigation, interactive 3D WebGL visuals powered by Three.js, real-time live telemetry APIs (LeetCode, GitHub, Chess.com), an interactive developer CLI terminal, and a museum-grade 3D kinetic liquid-chrome typography centerpiece.
-
----
-
-## ✨ Features & Architecture
-
-### 🎒 1. 3D "Dimensional Bag" Spatial Inventory Architecture (Zero-Scroll)
-- **Cinematic Full-Viewport Experience**: Replaced traditional vertical page scrolling with an interactive 3D spatial inventory system.
-- **Procedural 3D Cyber-Bag (Three.js)**: Features geometric cybernetic panels, glowing neon contours, orbital dimensional rings, and an interactive opening hatch.
-- **7 Pullable Relic Modules**:
-  1. `[01] ID_CORE` – Neural Identity, 3D Kinetic Name Monolith, 1080x1080 Hologram, Bio, Role Typewriter, and Metric Badges.
-  2. `[02] RADAR_DATA` – Live Telemetry Radar (Dynamic 52-week LeetCode submission heatmap calendar, GitHub repos, Chess.com live ratings).
-  3. `[03] GALAXY_ORB` – Interactive 3D Skill Constellation Canvas & 4 domain technical cards.
-  4. `[04] FLAGSHIP_CHIP` – SmartCare Healthcare Management Web App Spotlight (interactive mockup, live demo & repo links).
-  5. `[05] NEURAL_DNA` – Engineering Philosophy, Spoken Languages, and Architecture Core Pillars.
-  6. `[06] CHRONO_LEDGER` – Academic Trajectory (B.Tech GPREC 8.78 CGPA, Intermediate 94.3%, SSC 90.5%).
-  7. `[07] UPLINK_COMMS` – Direct Transmission Comms, Copy Email/Phone buttons, and Social Channels.
-- **Keyboard & Touch Controls**:
-  - Keys `1` through `7`: Instantly extract relics.
-  - `ESC` or `B`: Pack active relic back into the 3D Bag / Toggle Panoramic 3D Bag Overview.
-  - `←` / `A` & `→` / `D`: Cycle through relics.
-  - **3D Raycasting**: Click directly on the orbiting 3D relic orbs to draw them out!
-
-### 💎 2. 3D Kinetic Liquid-Chrome Name Centerpiece
-- **Prismatic Liquid-Chrome Typographic Sheen**: Multi-stop gradient with dynamic continuous traveling chrome light shimmer.
-- **3D Mouse-Parallax Depth**: Interactive real-time tilt (`rotateY`, `rotateX`, `translateZ`) as the cursor moves across the name.
-- **HUD Coordinate Trackers**: Laser-etched HUD telemetry `[SMA // COORD: 15.478°N, 78.483°E  ● SYSTEM_ONLINE]`.
-- **Quantum Laser Beam & Traveling Spark**: Animated laser underline beam with particle spark trail.
-
-### 📊 3. Autonomous Real-Time Telemetry Radar
-- **LeetCode Dynamic 1-Year Submission Calendar**: 52-week x 7-day grid rendering activity intensity levels (lvl-1 to lvl-4) with live API synchronization.
-- **GitHub Live Sync**: Displays public repo counts, follower counts, and active repository chips.
-- **Chess.com Live Tracking**: Fetches rapid rating, peak rating, tactics rating, total win/loss/draw record, and win-rate gauge.
-
-### 🏥 4. Flagship Spotlight: SmartCare Healthcare Management System
-- Production-deployed healthcare platform ([Live Web App](https://smartcare-gprec.vercel.app)).
-- Interactive browser screen mockup preview with live operational indicators.
-
-### 💻 5. Interactive Developer CLI Terminal (`CLI_MODE`)
-- Full-screen futuristic developer shell accessible via hotkey `~` or the top HUD button.
-- Matrix digital rain canvas backdrop.
-- Supported commands: `help`, `bio`, `skills`, `projects`, `dsa`, `leetcode`, `github`, `chess`, `edu`, `contact`, `resume`, `matrix`, `clear`, `exit`.
-
-### 🔊 6. Procedural Web Audio API Sound Synthesizer
-- Zero-external-asset procedural audio generation:
-  - Futuristic item extraction chimes (`playItemPick()`)
-  - Bag containment tones (`playItemPack()`)
-  - Hologram clicks and hover hums
-  - Interactive mute/unmute toggle
+[![Live Portfolio](https://img.shields.io/badge/Live%20Demo-myportfolio--ashrafm.vercel.app-00f5ff?style=for-the-badge&logo=vercel)](https://myportfolio-ashrafm.vercel.app/)
+[![GitHub](https://img.shields.io/badge/GitHub-Mohammed--Ashraf--Shaik-181717?style=for-the-badge&logo=github)](https://github.com/Mohammed-Ashraf-Shaik)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Mohammad--Ashraf--Shaik-0077b5?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/mohammad-ashraf-shaik/)
+[![LeetCode](https://img.shields.io/badge/LeetCode-Shaik__mohameed__Ashraf-ffa116?style=for-the-badge&logo=leetcode)](https://leetcode.com/u/Shaik_mohameed_Ashraf/)
+[![Chess.com](https://img.shields.io/badge/Chess.com-ashumm-7fa650?style=for-the-badge&logo=chess.com)](https://www.chess.com/member/ashumm)
 
 ---
 
-## 🛠️ Tech Stack
+## 🌟 Overview
 
-- **Graphics & 3D**: Three.js (r128), WebGL, Canvas 2D
-- **Frontend Architecture**: Modern Semantic HTML5, Modular Cyber-Glass CSS3, Vanilla JavaScript (ES6+)
-- **Typography**: Plus Jakarta Sans, Inter, JetBrains Mono
-- **APIs**: LeetCode REST API, GitHub Public REST API, Chess.com Public API
-- **Audio Engine**: Web Audio API (Synthesizer)
-- **Deployment**: Vercel Edge / Static CDN
+An award-winning, high-performance personal portfolio built with an **Architectural Vintage Dossier aesthetic**, featuring:
+- **3D Three.js WebGL Snowflake Engine** with procedural snowflake crystals and ambient snow particles that react dynamically to theme changes.
+- **Dynamic 4-Palette Theme Engine & Dark/Light Mode** (Vintage Amber, Cobalt Blue, Crimson Red, Platinum White) with synchronized CSS custom properties.
+- **Interactive Living Vector Kitten Mascot** that blinks, breathes, waves on hover, and guides visitors through palette transformations.
+- **Autonomous Real-Time Telemetry Radar** with live API integration for GitHub, LeetCode, and Chess.com with theme-reactive vector progression charts.
+- **Flagship Project Spotlight: SmartCare** — production-deployed hospital workflow management web application.
+- **Interactive Developer CLI Terminal (`Ctrl + ~`)** with full-screen CRT phosphor Matrix digital rain.
+- **Floating Bottom Quick Dock** with active scroll-spy navigation.
 
 ---
 
-## 🚀 Running Locally
+## 🚀 Key Features
 
-Clone the repository and launch any static HTTP server:
+### 1. 🏛️ Architectural Vintage Dossier & Postage Stamp Portrait
+- **Editorial Typography**: Pairing *Plus Jakarta Sans*, *Syne*, and *Caveat* handwritten cursive signatures with *JetBrains Mono*.
+- **Tactile Postage Stamp Portrait**: Perforated serrated-edge stamp frame with vintage brass pin mount and kraft paper tape detailing.
+- **Custom Social Links**: LinkedIn, GitHub, LeetCode, and Chess.com with custom Chess Pawn icon.
+
+### 2. 🐱 Living Animated Kitten Mascot Companion
+- **Pure Vector Animation**: Modeled after a white Persian kitten with fluffy cheek tufts, pink inner ears, and a forehead ribbon bow.
+- **Lifelike Idle Motion**:
+  - Natural periodic eye blinking (`@keyframes catEyeBlink`) with liquid anime highlights.
+  - Gentle idle breathing and body bobbing (`@keyframes catLivingBreathe`).
+  - Subtle ear micro-twitches and swishing tail.
+- **Hover & Click Reactions**:
+  - Hovering causes the kitten's eyes to widen with excitement while its **right paw raises up off the frame to wave (`@keyframes pawWaveAction`)**, revealing pink toe beans.
+  - Clicking triggers an interactive speech dialogue box with direct buttons to cycle color themes and toggle light/dark modes.
+
+### 3. 🎨 4-Palette Color System & Dark/Light Modes
+- **Theme Palettes**:
+  - **Vintage Brown (Default)**: Warm espresso, amber gold, and brass.
+  - **Cobalt Blue**: Deep ultramarine and neon cyan.
+  - **Crimson Red**: Dark ruby scarlet and crimson embers.
+  - **Platinum White**: Crisp monochrome grayscale and ice silver.
+- **Mode Toggle**: Seamless switching between **Espresso Dark Mode** and **Parchment Light Mode**, instantly recalculating contrasts, text colors, and 3D WebGL lighting.
+
+### 4. ❄️ 3D WebGL Snowflake Crystal System (Three.js)
+- Procedurally generated 3D snowflake geometry featuring hexagonal branch nodes and dendritic crystal arms.
+- Real-time dynamic lighting and directional spotlights that update colors to match the active theme.
+- Persistent viewport positioning that remains stable during scroll.
+
+### 5. 📊 Real-Time Autonomous Telemetry Radar
+- **GitHub Live Contributions**: Public repo counts, live follower stats, and real-time 52-week contribution matrix.
+- **LeetCode Algorithmic Mastery**: Live problem counts (128+ solved), Easy/Medium/Hard breakdown, global contest ranking (#1.3M+), and annual submission heatmap.
+- **Chess.com Tactical Radar & Dynamic SVG Chart**:
+  - Rapid rating (1216+), Tactics rating (1461+), match record (1,116+ wins).
+  - Fully reactive inline vector progression chart utilizing CSS custom properties for instant palette synchronization.
+
+### 6. 🏥 Flagship Spotlight: SmartCare Healthcare Management System
+- Production-deployed full-stack healthcare platform ([Live Web App](https://smartcare-gprec.vercel.app)).
+- Archival blueprint layout, live status badges, interactive browser mockup, and direct GitHub repository links.
+
+### 7. 💻 Interactive Developer Terminal (`CLI_MODE`)
+- Retro CRT amber-phosphor developer terminal with falling Matrix digital rain canvas.
+- Global hotkey `Ctrl + ~`, top bar `CLI` button, and bottom dock launcher.
+- **Commands**:
+  - `help` — View available commands
+  - `skills` — Inspect technical skills and tools
+  - `leetcode` — Fetch live LeetCode stats
+  - `chess` — Fetch live Chess.com ratings and match record
+  - `github` — Fetch GitHub repo statistics
+  - `projects` — Deep-dive into SmartCare architecture
+  - `dsa` — Algorithmic problem-solving patterns
+  - `edu` — Academic trajectory and credentials
+  - `resume` — Direct CV download
+  - `contact` — Direct transmission channels
+  - `matrix` — Toggle Matrix digital rain canvas
+  - `clear` / `exit` — Clear buffer or close modal
+
+### 8. 🧭 Floating Bottom Quick Navigation Dock
+- Glassmorphic floating dock with smooth scroll shortcuts:
+  - `Dossier` (Home / Hero)
+  - `Live Radar` (true spinning radar scanner icon)
+  - `SmartCare` (Healthcare app)
+  - `Arsenal` (Tech skills)
+  - `Milestones` (Education)
+  - `Contact` (Communication)
+  - `Terminal` (CLI launcher)
+- Precise scroll spy that accurately tracks tall sections without premature activations.
+
+---
+
+## 🛠️ Tech Arsenal
+
+| Category | Technologies & Tools |
+| :--- | :--- |
+| **Languages** | JavaScript (ES6+), HTML5, CSS3, C++, Python |
+| **Libraries & 3D** | Three.js (r128), WebGL, Canvas 2D, Lucide Icons |
+| **Build & Tooling** | Vite, Git, GitHub, Vercel Edge |
+| **AI Workflows** | Google Antigravity, Gemini, ChatGPT |
+| **Audio** | Web Audio API (Synthesizer Sound Effects) |
+
+---
+
+## 🎓 Education & Milestones
+
+- **B.Tech in Computer Science & Engineering**  
+  *G. Pulla Reddy Engineering College (GPREC), Kurnool* (2024–2028)  
+  **Score: CGPA 8.78**
+- **Intermediate (MPC)**  
+  *Nucleus Jr College, BIEAP* (2022–2024)  
+  **Score: 94.3%**
+- **10th Standard (SSC)**  
+  *GVR EM School* (2021–2022)  
+  **Score: 90.5% (543 / 600)**
+
+---
+
+## ⚡ Getting Started Locally
+
+Clone the repository and launch a local web server:
 
 ```bash
-# Clone repository
+# 1. Clone the repository
 git clone https://github.com/Mohammed-Ashraf-Shaik/MYPORTFOLIO.git
 
-# Enter project directory
+# 2. Navigate to the project directory
 cd MYPORTFOLIO
 
-# Start local server with Python
+# 3. Start a local server (Python 3)
 python -m http.server 5500
 ```
 
-Open `http://localhost:5500` in your modern web browser.
+Open `http://localhost:5500` in any modern web browser.
 
 ---
 
-## 👨‍💻 Author
+## 📬 Contact & Connect
 
-**Shaik Mohammed Ashraf**
-- Full-Stack Software Engineer & DSA Lover
-- GitHub: [@Mohammed-Ashraf-Shaik](https://github.com/Mohammed-Ashraf-Shaik)
-- LeetCode: [@Shaik_mohameed_Ashraf](https://leetcode.com/u/Shaik_mohameed_Ashraf/)
-- Chess.com: [@ashumm](https://www.chess.com/member/ashumm)
-- Email: [ashubasha52@gmail.com](mailto:ashubasha52@gmail.com)
+- **Email**: [ashubasha52@gmail.com](mailto:ashubasha52@gmail.com)
+- **LinkedIn**: [linkedin.com/in/mohammad-ashraf-shaik/](https://www.linkedin.com/in/mohammad-ashraf-shaik/)
+- **GitHub**: [github.com/Mohammed-Ashraf-Shaik](https://github.com/Mohammed-Ashraf-Shaik)
+- **LeetCode**: [leetcode.com/u/Shaik_mohameed_Ashraf/](https://leetcode.com/u/Shaik_mohameed_Ashraf/)
+- **Chess.com**: [chess.com/member/ashumm](https://www.chess.com/member/ashumm)
 
 ---
 
-© 2026 Shaik Mohammed Ashraf. Built with Three.js & Cyber-Quantum Architecture.
+© 2026 **Shaik Mohammed Ashraf**. Crafted with Three.js, WebGL & Modern Web Standards.
