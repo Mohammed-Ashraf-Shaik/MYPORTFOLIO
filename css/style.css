@@ -1709,100 +1709,7 @@ body {
   font-weight: 600;
 }
 
-/* ==========================================================================
-   ABOUT & MINDSET (Editorial Dossier)
-   ========================================================================== */
-.about-grid {
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 3.5rem;
-}
 
-.about-p {
-  font-size: 1.05rem;
-  color: var(--text-secondary);
-  line-height: 1.8;
-  margin-bottom: 1.25rem;
-}
-
-.about-p strong {
-  color: var(--text-primary);
-  font-weight: 600;
-}
-
-.languages-spoken-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-md);
-  padding: 1.25rem;
-  margin-top: 2rem;
-}
-
-.lang-title {
-  font-family: var(--font-mono);
-  font-size: 0.8rem;
-  color: var(--accent-amber);
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-bottom: 0.85rem;
-}
-
-.lang-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
-}
-
-.lang-tag {
-  padding: 0.35rem 0.8rem;
-  border-radius: var(--radius-sm);
-  background: rgba(18, 13, 10, 0.6);
-  border: 1px solid var(--border-subtle);
-  font-size: 0.85rem;
-  color: var(--text-primary);
-}
-
-.lang-tag span {
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  color: var(--accent-brass);
-}
-
-.about-pillars-col {
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
-}
-
-.about-pillar-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-md);
-  padding: 1.5rem;
-  transition: var(--transition-fast);
-}
-
-.about-pillar-card:hover {
-  border-color: var(--border-brass);
-  transform: translateX(4px);
-}
-
-.pillar-title {
-  font-family: var(--font-display);
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: var(--text-primary);
-  margin-bottom: 0.5rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.pillar-desc {
-  font-size: 0.9rem;
-  color: var(--text-muted);
-  line-height: 1.6;
-}
 
 /* ==========================================================================
    ACADEMIC MILESTONES & TIMELINE (Vintage Ledger)
@@ -2366,9 +2273,6 @@ body {
   .skills-quad-grid {
     grid-template-columns: 1fr;
   }
-  .about-grid {
-    grid-template-columns: 1fr;
-  }
   .contact-grid {
     grid-template-columns: 1fr;
   }
@@ -2789,15 +2693,13 @@ body {
 [data-theme-mode="light"] .telemetry-row-card,
 [data-theme-mode="light"] .smartcare-spotlight-card,
 [data-theme-mode="light"] .skill-category-card,
-[data-theme-mode="light"] .about-pillar-card,
 [data-theme-mode="light"] .timeline-card,
 [data-theme-mode="light"] .contact-quick-tile,
 [data-theme-mode="light"] .contact-form-card,
 [data-theme-mode="light"] .metric-tile,
 [data-theme-mode="light"] .metric-panel,
 [data-theme-mode="light"] .gh-card-profile-banner,
-[data-theme-mode="light"] .gh-pinned-repo-card,
-[data-theme-mode="light"] .languages-spoken-card {
+[data-theme-mode="light"] .gh-pinned-repo-card {
   background: rgba(255, 255, 255, 0.85);
   box-shadow: 0 6px 20px rgba(46, 32, 22, 0.08);
   border-color: rgba(183, 126, 63, 0.3);
@@ -2806,7 +2708,6 @@ body {
 [data-theme-mode="light"] .gh-repo-chip,
 [data-theme-mode="light"] .flagship-feat-item,
 [data-theme-mode="light"] .flagship-tech-pill,
-[data-theme-mode="light"] .lang-tag,
 [data-theme-mode="light"] .skill-pill {
   background: rgba(244, 236, 223, 0.7);
   border-color: rgba(183, 126, 63, 0.25);
