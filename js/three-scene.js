@@ -220,92 +220,159 @@
     scene.add(snowfall);
 
     // =========================================================================
-    // 3. KINETIC 3D CRYSTALLINE SNOWFLAKE CENTERPIECE
+    // 3. RYAN KING ART 3D METALLIC GOLD SNOWFLAKE CENTERPIECE
+    // (Accurate recreation of Sketchfab fd080903544e47b4a2a86ff3dabe3efa - Row 3 Middle)
     // =========================================================================
     const snowflakeGroup = new THREE.Group();
-    snowflakeGroup.position.set(13, 2, -4);
+    snowflakeGroup.position.set(13, 0.5, -4);
+    snowflakeGroup.scale.set(0.75, 0.75, 0.75);
     scene.add(snowflakeGroup);
 
-    // 3.1 Central Faceted Ice Core (Dodecahedron with Wireframe)
-    const coreGeo = new THREE.OctahedronGeometry(2.6, 1);
-    const coreMat = new THREE.MeshBasicMaterial({
+    // Dynamic scene lighting for metallic highlights matching reference renders
+    const ambientLight = new THREE.AmbientLight(0xfffbeb, 0.75);
+    scene.add(ambientLight);
+
+    const dirLight1 = new THREE.DirectionalLight(0xffffff, 1.8);
+    dirLight1.position.set(20, 30, 25);
+    scene.add(dirLight1);
+
+    const dirLight2 = new THREE.DirectionalLight(0xf59e0b, 1.1);
+    dirLight2.position.set(-25, -15, 15);
+    scene.add(dirLight2);
+
+    // Warm Golden Brass Metallic Shader matching user screenshots (media_1789816339054/068)
+    const snowflakeMat = new THREE.MeshStandardMaterial({
       color: 0xf59e0b,
-      wireframe: false,
-      transparent: true,
-      opacity: 0.75
+      metalness: 0.82,
+      roughness: 0.28,
+      wireframe: false
     });
-    const coreMesh = new THREE.Mesh(coreGeo, coreMat);
-    snowflakeGroup.add(coreMesh);
 
-    const coreWire = new THREE.LineSegments(
-      new THREE.EdgesGeometry(coreGeo),
-      new THREE.LineBasicMaterial({ color: 0xfff8e7, transparent: true, opacity: 0.95 })
-    );
-    coreMesh.add(coreWire);
+    // 3.1 Central 12-Pointed Extruded Star Hub (Solid flat center, no middle diamond)
+    const starShape = new THREE.Shape();
+    const numStarPoints = 12;
+    const rStarOuter = 3.3;
+    const rStarInner = 1.95;
+    for (let i = 0; i < numStarPoints * 2; i++) {
+      const angle = (i * Math.PI) / numStarPoints;
+      const r = (i % 2 === 0) ? rStarOuter : rStarInner;
+      const x = Math.sin(angle) * r;
+      const y = Math.cos(angle) * r;
+      if (i === 0) starShape.moveTo(x, y);
+      else starShape.lineTo(x, y);
+    }
+    starShape.closePath();
 
-    // 3.2 6 Symmetrical 3D Snowflake Dendrite Arms
-    const armsGroup = new THREE.Group();
-    snowflakeGroup.add(armsGroup);
+    const starExtrudeSettings = {
+      depth: 0.75,
+      bevelEnabled: true,
+      bevelSegments: 2,
+      steps: 1,
+      bevelSize: 0.06,
+      bevelThickness: 0.06
+    };
+    const starGeo = new THREE.ExtrudeGeometry(starShape, starExtrudeSettings);
+    starGeo.center();
+    const centerStarMesh = new THREE.Mesh(starGeo, snowflakeMat);
+    snowflakeGroup.add(centerStarMesh);
 
-    const shaftMat = new THREE.MeshBasicMaterial({ color: 0xd4a373, transparent: true, opacity: 0.85 });
-    const branchMat = new THREE.MeshBasicMaterial({ color: 0xf59e0b, transparent: true, opacity: 0.8 });
-    const tipMat = new THREE.MeshBasicMaterial({ color: 0xffffff, wireframe: true, transparent: true, opacity: 0.95 });
+    // 3.2 Helper function to build 3D rectangular extruded struts connecting any 2 points in XY plane
+    function create3DStrut(p1, p2, width = 0.38, depth = 0.75) {
+      const dx = p2.x - p1.x;
+      const dy = p2.y - p1.y;
+      const len = Math.hypot(dx, dy);
+      const angle = Math.atan2(dy, dx);
 
-    for (let i = 0; i < 6; i++) {
-      const angle = (i * Math.PI) / 3;
-      const arm = new THREE.Group();
-      arm.rotation.z = angle;
-
-      // Main Crystal Shaft
-      const shaftGeo = new THREE.CylinderGeometry(0.12, 0.07, 13, 6);
-      const shaft = new THREE.Mesh(shaftGeo, shaftMat);
-      shaft.position.y = 6.5;
-      arm.add(shaft);
-
-      // Primary Lower Branchlets (Left & Right)
-      const b1Left = new THREE.Mesh(new THREE.CylinderGeometry(0.08, 0.05, 3.4, 5), branchMat);
-      b1Left.position.set(-1.2, 5.2, 0);
-      b1Left.rotation.z = Math.PI / 4;
-      arm.add(b1Left);
-
-      const b1Right = new THREE.Mesh(new THREE.CylinderGeometry(0.08, 0.05, 3.4, 5), branchMat);
-      b1Right.position.set(1.2, 5.2, 0);
-      b1Right.rotation.z = -Math.PI / 4;
-      arm.add(b1Right);
-
-      // Secondary Upper Branchlets (Left & Right)
-      const b2Left = new THREE.Mesh(new THREE.CylinderGeometry(0.07, 0.04, 2.6, 5), branchMat);
-      b2Left.position.set(-0.95, 9.0, 0);
-      b2Left.rotation.z = Math.PI / 4;
-      arm.add(b2Left);
-
-      const b2Right = new THREE.Mesh(new THREE.CylinderGeometry(0.07, 0.04, 2.6, 5), branchMat);
-      b2Right.position.set(0.95, 9.0, 0);
-      b2Right.rotation.z = -Math.PI / 4;
-      arm.add(b2Right);
-
-      // Faceted Diamond Crystal Tip
-      const tipGeo = new THREE.OctahedronGeometry(0.7, 0);
-      const tip = new THREE.Mesh(tipGeo, tipMat);
-      tip.position.y = 13.2;
-      arm.add(tip);
-
-      armsGroup.add(arm);
+      const geo = new THREE.BoxGeometry(len, width, depth);
+      const mesh = new THREE.Mesh(geo, snowflakeMat);
+      mesh.position.set((p1.x + p2.x) / 2, (p1.y + p2.y) / 2, 0);
+      mesh.rotation.z = angle;
+      return mesh;
     }
 
-    // 3.3 Concentric Celestial Frost Rings
-    const ring1Geo = new THREE.TorusGeometry(9.2, 0.05, 8, 80);
-    const ring1Mat = new THREE.MeshBasicMaterial({ color: 0xd97706, transparent: true, opacity: 0.45 });
-    const ring1 = new THREE.Mesh(ring1Geo, ring1Mat);
-    ring1.rotation.x = Math.PI / 3;
-    snowflakeGroup.add(ring1);
+    // 3.3 6 Radial Sectors with Identical Snowflake Arms & Nested Diamond Lattice
+    const strutWidth = 0.38;
+    const extrusionDepth = 0.75;
 
-    const ring2Geo = new THREE.TorusGeometry(13.2, 0.05, 8, 80);
-    const ring2Mat = new THREE.MeshBasicMaterial({ color: 0xb77e3f, transparent: true, opacity: 0.35 });
-    const ring2 = new THREE.Mesh(ring2Geo, ring2Mat);
-    ring2.rotation.y = Math.PI / 4;
-    ring2.rotation.z = Math.PI / 6;
-    snowflakeGroup.add(ring2);
+    for (let k = 0; k < 6; k++) {
+      const sectorAngle = (k * Math.PI) / 3;
+      const sectorGroup = new THREE.Group();
+      sectorGroup.rotation.z = sectorAngle;
+
+      // 1. Main Radial Shaft (Spine) extending from hub (R=2.8) to tip (R=15.8)
+      const shaftLen = 15.8 - 2.8;
+      const shaftMesh = new THREE.Mesh(
+        new THREE.BoxGeometry(0.44, shaftLen, extrusionDepth),
+        snowflakeMat
+      );
+      shaftMesh.position.set(0, 2.8 + shaftLen / 2, 0);
+      sectorGroup.add(shaftMesh);
+
+      // 2. Outer Branch Pair 1 at R = 11.2 (pointing forward at 45 deg)
+      const b1Len = 3.5;
+      const b1Y = 11.2;
+      const b1Left = new THREE.Mesh(new THREE.BoxGeometry(0.36, b1Len, extrusionDepth), snowflakeMat);
+      b1Left.position.set(- (b1Len / 2) * Math.sin(Math.PI / 4), b1Y + (b1Len / 2) * Math.cos(Math.PI / 4), 0);
+      b1Left.rotation.z = Math.PI / 4;
+      sectorGroup.add(b1Left);
+
+      const b1Right = new THREE.Mesh(new THREE.BoxGeometry(0.36, b1Len, extrusionDepth), snowflakeMat);
+      b1Right.position.set((b1Len / 2) * Math.sin(Math.PI / 4), b1Y + (b1Len / 2) * Math.cos(Math.PI / 4), 0);
+      b1Right.rotation.z = -Math.PI / 4;
+      sectorGroup.add(b1Right);
+
+      // 3. Outer Branch Pair 2 at R = 13.6 (pointing forward at 45 deg)
+      const b2Len = 3.1;
+      const b2Y = 13.6;
+      const b2Left = new THREE.Mesh(new THREE.BoxGeometry(0.36, b2Len, extrusionDepth), snowflakeMat);
+      b2Left.position.set(- (b2Len / 2) * Math.sin(Math.PI / 4), b2Y + (b2Len / 2) * Math.cos(Math.PI / 4), 0);
+      b2Left.rotation.z = Math.PI / 4;
+      sectorGroup.add(b2Left);
+
+      const b2Right = new THREE.Mesh(new THREE.BoxGeometry(0.36, b2Len, extrusionDepth), snowflakeMat);
+      b2Right.position.set((b2Len / 2) * Math.sin(Math.PI / 4), b2Y + (b2Len / 2) * Math.cos(Math.PI / 4), 0);
+      b2Right.rotation.z = -Math.PI / 4;
+      sectorGroup.add(b2Right);
+
+      // 4. Nested Diamond Web and Chevrons between this arm (0 deg) and adjacent arm (60 deg)
+      // Attachment points along Arm 0 (along Y axis):
+      const ptA0 = { x: 0, y: 4.4 };
+      const ptB0 = { x: 0, y: 7.6 };
+
+      // Attachment points along Arm 1 (at 60 deg):
+      const cos60 = Math.cos(Math.PI / 3);
+      const sin60 = Math.sin(Math.PI / 3);
+      const ptA1 = { x: 4.4 * sin60, y: 4.4 * cos60 };
+      const ptB1 = { x: 7.6 * sin60, y: 7.6 * cos60 };
+
+      // Midpoints along 30 deg axis:
+      const cos30 = Math.cos(Math.PI / 6);
+      const sin30 = Math.sin(Math.PI / 6);
+      // Inner diamond peak:
+      const rMidInner = 6.1;
+      const ptJ1 = { x: rMidInner * sin30, y: rMidInner * cos30 };
+
+      // Outer chevron peak:
+      const rMidOuter = 9.9;
+      const ptJ2 = { x: rMidOuter * sin30, y: rMidOuter * cos30 };
+
+      // Strut 4.1: Lower diamond arm 0
+      sectorGroup.add(create3DStrut(ptA0, ptJ1, strutWidth, extrusionDepth));
+      // Strut 4.2: Lower diamond arm 1
+      sectorGroup.add(create3DStrut(ptJ1, ptA1, strutWidth, extrusionDepth));
+
+      // Strut 4.3: Upper diamond arm 0
+      sectorGroup.add(create3DStrut(ptB0, ptJ1, strutWidth, extrusionDepth));
+      // Strut 4.4: Upper diamond arm 1
+      sectorGroup.add(create3DStrut(ptJ1, ptB1, strutWidth, extrusionDepth));
+
+      // Strut 4.5: Outer chevron arm 0
+      sectorGroup.add(create3DStrut(ptB0, ptJ2, strutWidth, extrusionDepth));
+      // Strut 4.6: Outer chevron arm 1
+      sectorGroup.add(create3DStrut(ptJ2, ptB1, strutWidth, extrusionDepth));
+
+      snowflakeGroup.add(sectorGroup);
+    }
 
     // =========================================================================
     // 4. TACTILE DRAG & INTERACTION PHYSICS
@@ -430,14 +497,11 @@
       snowflakeGroup.rotation.z = elapsedTime * 0.08;
       snowflakeGroup.rotation.y += 0.004;
 
-      ring1.rotation.z = elapsedTime * 0.15;
-      ring2.rotation.z = -elapsedTime * 0.18;
-
       // Smooth return to unit scale after click pulse
       snowflakeGroup.scale.lerp(new THREE.Vector3(1, 1, 1), 0.06);
 
-      // Subtle float wave + natural parallax exit as user scrolls down past Hero section
-      snowflakeGroup.position.y = 2 + Math.sin(elapsedTime * 1.1) * 0.7 - (scrollY * 0.022);
+      // Subtle float wave — stays visible at all scroll depths
+      snowflakeGroup.position.y = 0.5 + Math.sin(elapsedTime * 1.1) * 0.7;
 
       // Responsive position
       if (window.innerWidth < 900) {
@@ -497,30 +561,18 @@
       const isLight = currentActiveMode === 'light';
 
       if (theme === 'blue') {
-        coreMat.color.setHex(isLight ? 0x0284c7 : 0x38bdf8);
-        shaftMat.color.setHex(isLight ? 0x0369a1 : 0x0284c7);
-        branchMat.color.setHex(isLight ? 0x0284c7 : 0x0ea5e9);
-        ring1Mat.color.setHex(isLight ? 0x075985 : 0x38bdf8);
-        ring2Mat.color.setHex(isLight ? 0x0369a1 : 0x7dd3fc);
+        snowflakeMat.color.setHex(isLight ? 0x0284c7 : 0x38bdf8);
+        dirLight2.color.setHex(isLight ? 0x0369a1 : 0x38bdf8);
       } else if (theme === 'red') {
-        coreMat.color.setHex(isLight ? 0xdc2626 : 0xf87171);
-        shaftMat.color.setHex(isLight ? 0xb91c1c : 0xdc2626);
-        branchMat.color.setHex(isLight ? 0xdc2626 : 0xef4444);
-        ring1Mat.color.setHex(isLight ? 0x991b1b : 0xf87171);
-        ring2Mat.color.setHex(isLight ? 0xb91c1c : 0xfca5a5);
+        snowflakeMat.color.setHex(isLight ? 0xdc2626 : 0xf87171);
+        dirLight2.color.setHex(isLight ? 0xb91c1c : 0xf87171);
       } else if (theme === 'white') {
-        coreMat.color.setHex(isLight ? 0x334155 : 0xffffff);
-        shaftMat.color.setHex(isLight ? 0x475569 : 0xe2e8f0);
-        branchMat.color.setHex(isLight ? 0x334155 : 0xcbd5e1);
-        ring1Mat.color.setHex(isLight ? 0x1e293b : 0xffffff);
-        ring2Mat.color.setHex(isLight ? 0x475569 : 0xf8fafc);
+        snowflakeMat.color.setHex(isLight ? 0x475569 : 0xe2e8f0);
+        dirLight2.color.setHex(isLight ? 0x64748b : 0xcbd5e1);
       } else {
         // Vintage Brown / Warm Amber & Antique Bronze
-        coreMat.color.setHex(isLight ? 0xb45309 : 0xf59e0b);
-        shaftMat.color.setHex(isLight ? 0x92400e : 0xd4a373);
-        branchMat.color.setHex(isLight ? 0xb45309 : 0xf59e0b);
-        ring1Mat.color.setHex(isLight ? 0x78350f : 0xd97706);
-        ring2Mat.color.setHex(isLight ? 0x92400e : 0xb77e3f);
+        snowflakeMat.color.setHex(isLight ? 0xb45309 : 0xf59e0b);
+        dirLight2.color.setHex(isLight ? 0x92400e : 0xf59e0b);
       }
 
       updateSnowflakeColors(isLight, theme);

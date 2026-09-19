@@ -1562,7 +1562,7 @@ body {
 }
 
 .chess-kpi-card {
-  background: rgba(26, 18, 13, 0.7);
+  background: var(--bg-card);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
   padding: 1rem 1.15rem;
@@ -1574,7 +1574,7 @@ body {
 
 .chess-kpi-card:hover {
   transform: translateY(-2px);
-  border-color: #81b64c;
+  border-color: var(--accent-amber);
 }
 
 .chess-kpi-card.highlight-gold {
@@ -1601,10 +1601,10 @@ body {
   width: 100%;
   overflow: hidden;
   border-radius: 10px;
-  background: #0d1117;
+  background: var(--bg-card);
   padding: 0.5rem;
   margin-bottom: 1rem;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--border-subtle);
 }
 
 .chess-svg-graph {
@@ -1633,22 +1633,22 @@ body {
   width: 100%;
   padding: 0.85rem 1.25rem;
   border-radius: var(--radius-md);
-  background: rgba(129, 182, 76, 0.12);
-  border: 1.5px solid #81b64c;
-  color: #81b64c;
+  background: rgba(217, 119, 6, 0.1);
+  border: 1.5px solid var(--accent-amber);
+  color: var(--accent-amber);
   font-family: var(--font-sans);
   font-weight: 700;
   font-size: 0.88rem;
   text-decoration: none;
   transition: all 0.2s ease;
-  box-shadow: 0 4px 15px rgba(129, 182, 76, 0.15);
+  box-shadow: 0 4px 15px rgba(217, 119, 6, 0.15);
 }
 
 .btn-chess-dashboard:hover {
-  background: #81b64c;
-  color: #0d1117;
+  background: var(--accent-amber);
+  color: #1a1107;
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(129, 182, 76, 0.35);
+  box-shadow: 0 8px 24px rgba(217, 119, 6, 0.35);
 }
 
 @media (max-width: 768px) {
@@ -1693,19 +1693,19 @@ body {
 }
 
 [data-theme-mode="light"] .chess-graph-wrapper {
-  background: #161b22;
-  border-color: rgba(183, 126, 63, 0.25);
+  background: rgba(245, 235, 210, 0.6);
+  border-color: rgba(183, 126, 63, 0.3);
 }
 
 [data-theme-mode="light"] .btn-chess-dashboard {
-  background: rgba(129, 182, 76, 0.12);
-  border-color: #65a30d;
-  color: #3f6212;
+  background: rgba(180, 83, 9, 0.1);
+  border-color: #b45309;
+  color: #92400e;
   font-weight: 700;
 }
 
 [data-theme-mode="light"] .btn-chess-dashboard:hover {
-  background: #65a30d;
+  background: #b45309;
   color: #ffffff;
 }
 
