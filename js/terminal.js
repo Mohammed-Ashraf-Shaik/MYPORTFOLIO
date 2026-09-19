@@ -71,21 +71,51 @@
   const COMMANDS = {
     help: () => `
 <div class="terminal-line info">SYSTEM UTILITIES & COMMAND REGISTRY:</div>
-<div class="terminal-line">  <span class="text-cyan">bio</span>         - About Shaik Mohammed Ashraf & philosophy</div>
-<div class="terminal-line">  <span class="text-cyan">skills</span>      - Engineering stack & core competencies</div>
-<div class="terminal-line">  <span class="text-cyan">projects</span>    - Flagship production deployments</div>
-<div class="terminal-line">  <span class="text-cyan">portfolio</span>   - Launch official live Vercel portfolio [myportfolio-ashrafm.vercel.app]</div>
-<div class="terminal-line">  <span class="text-cyan">dsa</span>         - Algorithmic problem solving & pattern toolkit</div>
-<div class="terminal-line">  <span class="text-cyan">leetcode</span>    - Live LeetCode real-time stats & rank</div>
-<div class="terminal-line">  <span class="text-cyan">github</span>      - Live GitHub repos & contributions</div>
-<div class="terminal-line">  <span class="text-cyan">chess</span>       - Live Chess.com ratings (Rapid, Blitz, Tactics)</div>
-<div class="terminal-line">  <span class="text-cyan">edu</span>         - Academic credentials & milestones</div>
-<div class="terminal-line">  <span class="text-cyan">contact</span>     - Direct communication channels & links</div>
-<div class="terminal-line">  <span class="text-cyan">resume</span>      - Download / inspect official CV</div>
-<div class="terminal-line">  <span class="text-cyan">matrix</span>      - Initialize Digital Rain protocol</div>
-<div class="terminal-line">  <span class="text-cyan">clear</span>       - Wipe terminal output buffer</div>
-<div class="terminal-line">  <span class="text-cyan">exit</span>        - Close terminal HUD</div>
+<div class="terminal-line">  <span class="text-cyan">bio</span>           - About Shaik Mohammed Ashraf & philosophy</div>
+<div class="terminal-line">  <span class="text-cyan">skills</span>        - Engineering stack & core competencies</div>
+<div class="terminal-line">  <span class="text-cyan">projects</span>      - Flagship production deployments</div>
+<div class="terminal-line">  <span class="text-cyan">portfolio</span>     - Launch official live Vercel portfolio [myportfolio-ashrafm.vercel.app]</div>
+<div class="terminal-line">  <span class="text-cyan">dsa</span>           - Algorithmic problem solving & pattern toolkit</div>
+<div class="terminal-line">  <span class="text-cyan">leetcode</span>      - Live LeetCode real-time stats & rank</div>
+<div class="terminal-line">  <span class="text-cyan">github</span>        - Live GitHub repos & contributions</div>
+<div class="terminal-line">  <span class="text-cyan">chess</span>         - Live Chess.com ratings (Rapid, Blitz, Tactics)</div>
+<div class="terminal-line">  <span class="text-cyan">edu</span>           - Academic credentials & milestones</div>
+<div class="terminal-line">  <span class="text-cyan">contact</span>       - Direct communication channels & links</div>
+<div class="terminal-line">  <span class="text-cyan">transmissions</span> - View submission details & incoming message logs</div>
+<div class="terminal-line">  <span class="text-cyan">resume</span>        - Download / inspect official CV</div>
+<div class="terminal-line">  <span class="text-cyan">matrix</span>        - Initialize Digital Rain protocol</div>
+<div class="terminal-line">  <span class="text-cyan">clear</span>         - Wipe terminal output buffer</div>
+<div class="terminal-line">  <span class="text-cyan">exit</span>          - Close terminal HUD</div>
 `,
+
+    transmissions: () => {
+      let stored = [];
+      try {
+        stored = JSON.parse(localStorage.getItem('ashraf_transmissions') || '[]');
+      } catch (e) {}
+
+      if (!stored || stored.length === 0) {
+        return `
+<div class="terminal-line info">// TRANSMISSION LOGS //</div>
+<div class="terminal-line text-muted">No stored submission transmissions found in local session. All transmissions are sent directly to ashubasha52@gmail.com!</div>
+`;
+      }
+
+      let logHTML = `<div class="terminal-line success">// INCOMING TRANSMISSION LOGS (${stored.length} Total) //</div>`;
+      stored.forEach((item, index) => {
+        logHTML += `
+<div class="terminal-line" style="margin-top:8px;padding-top:4px;border-top:1px dashed var(--border-subtle);">
+  <span class="text-cyan">#${index + 1}</span> | <strong>${escapeHTML(item.name)}</strong> (${escapeHTML(item.email)}) <span class="text-muted">[${escapeHTML(item.timestamp)}]</span>
+</div>
+<div class="terminal-line" style="color:#f59e0b;padding-left:12px;">"${escapeHTML(item.message)}"</div>
+`;
+      });
+      return logHTML;
+    },
+
+    messages: function() {
+      return COMMANDS.transmissions();
+    },
 
     chess: () => {
       const stats = window.latestChessStats || { rapid: 1216, rapidPeak: 1232, record: { win: 1116, loss: 977, draw: 78 }, tactics: 1461, league: 'Legend' };

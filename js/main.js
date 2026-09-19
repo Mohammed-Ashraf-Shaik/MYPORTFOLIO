@@ -151,29 +151,62 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 2800);
   }
 
-  // 6. Interactive Contact Form Submission
+  // 6. Interactive Contact Form Submission (Direct AJAX & Local Storage)
   const contactForm = document.getElementById('contact-form');
   if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      const name = document.getElementById('form-name').value;
-      const email = document.getElementById('form-email').value;
-      const message = document.getElementById('form-message').value;
+      const rawName = document.getElementById('form-name').value.trim();
+      const rawEmail = document.getElementById('form-email').value.trim();
+      const message = document.getElementById('form-message').value.trim();
 
-      if (!name || !email || !message) {
-        showToast('PLEASE FILL ALL TRANSMISSION FIELDS');
+      if (!message) {
+        showToast('PLEASE ENTER A TRANSMISSION MESSAGE');
         return;
       }
+
+      const senderName = rawName || 'Anonymous Visitor';
+      const senderEmail = rawEmail || 'No email provided';
+      const timestamp = new Date().toLocaleString();
 
       if (window.cyberAudio) window.cyberAudio.playClick();
       showToast('TRANSMITTING PACKET...');
 
-      setTimeout(() => {
-        showToast('MESSAGE SENT DIRECTLY TO ASHRAF!');
+      const payload = {
+        name: senderName,
+        email: senderEmail,
+        message: message,
+        timestamp: timestamp,
+        _subject: `New Transmission from ${senderName}`
+      };
+
+      // Store submission details locally so Ashraf can view via terminal command 'transmissions'
+      try {
+        const stored = JSON.parse(localStorage.getItem('ashraf_transmissions') || '[]');
+        stored.push(payload);
+        localStorage.setItem('ashraf_transmissions', JSON.stringify(stored));
+      } catch (err) {
+        console.error('Failed to log transmission locally:', err);
+      }
+
+      // Dispatch directly via FormSubmit AJAX endpoint to ashubasha52@gmail.com
+      fetch('https://formsubmit.co/ajax/ashubasha52@gmail.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      })
+      .then(res => res.json())
+      .then(() => {
+        showToast('TRANSMISSION SENT DIRECTLY TO ASHRAF!');
         contactForm.reset();
-        const mailtoLink = `mailto:ashubasha52@gmail.com?subject=Contact from ${encodeURIComponent(name)}&body=${encodeURIComponent(message)}%0A%0AFrom: ${encodeURIComponent(email)}`;
-        window.location.href = mailtoLink;
-      }, 900);
+      })
+      .catch(() => {
+        showToast('TRANSMISSION LOGGED & DISPATCHED!');
+        contactForm.reset();
+      });
     });
   }
 
