@@ -366,6 +366,10 @@
         if (winBar) winBar.style.width = `${winPercent}%`;
         const winPercentElem = document.getElementById('chess-winrate-text');
         if (winPercentElem) winPercentElem.textContent = `${winPercent}% WIN RATE (${totalGames.toLocaleString()} GAMES) • LEGEND LEAGUE`;
+        const winrateHeaderElem = document.getElementById('chess-winrate-header-text');
+        if (winrateHeaderElem) winrateHeaderElem.textContent = `${winPercent}%`;
+        const totalGamesElem = document.getElementById('chess-total-games-text');
+        if (totalGamesElem) totalGamesElem.textContent = `${totalGames.toLocaleString()}+`;
       }
 
       if (profile.avatar) {

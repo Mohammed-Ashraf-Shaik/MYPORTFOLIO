@@ -455,6 +455,24 @@ body {
   position: relative;
 }
 
+.name-initial {
+  display: inline-block;
+  color: #ef4444;
+  background: linear-gradient(135deg, #ff6b6b 0%, #ef4444 50%, #b91c1c 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 2px 14px rgba(239, 68, 68, 0.65));
+  text-shadow: none;
+  font-weight: 900;
+  position: relative;
+  transition: filter 0.3s ease, transform 0.2s ease;
+}
+
+.name-initial:hover {
+  filter: drop-shadow(0 0 20px rgba(239, 68, 68, 0.9));
+  transform: scale(1.04);
+}
+
 .name-signature-flourish {
   display: flex;
   flex-direction: column;
@@ -1386,7 +1404,83 @@ body {
   border-top: 1px solid var(--border-subtle);
 }
 
-/* Chess Record Pills */
+/* Chess Unified Live Dashboard */
+.tr-icon.chess {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.2) 0%, rgba(217, 119, 6, 0.25) 100%);
+  color: var(--accent-amber);
+  border: 1px solid rgba(245, 158, 11, 0.35);
+}
+
+.chess-real-chart-box {
+  padding: 1.5rem;
+}
+
+.chess-live-dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.chess-stats-trio {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.chess-stat-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 1.1rem 1.25rem;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.chess-stat-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent-brass);
+}
+
+.chess-stat-card.highlight {
+  background: rgba(245, 158, 11, 0.06);
+  border-color: rgba(245, 158, 11, 0.35);
+}
+
+.csc-label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.35rem;
+}
+
+.csc-value {
+  font-family: var(--font-display);
+  font-size: 1.85rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1.1;
+  margin-bottom: 0.25rem;
+}
+
+.chess-stat-card.highlight .csc-value {
+  color: var(--accent-amber);
+}
+
+.csc-sub {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-dim);
+}
+
+.chess-record-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
 .chess-record-pills {
   display: flex;
   gap: 0.6rem;
@@ -1416,6 +1510,58 @@ body {
   background: rgba(212, 163, 115, 0.15);
   border: 1px solid rgba(212, 163, 115, 0.35);
   color: var(--accent-brass);
+}
+
+.chess-record-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.25rem;
+}
+
+.chess-link-sub {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  color: var(--accent-brass);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.chess-link-sub:hover {
+  color: var(--accent-amber);
+}
+
+[data-theme-mode="light"] .chess-stat-card {
+  background: #faf6f0;
+  border-color: rgba(183, 126, 63, 0.25);
+}
+
+[data-theme-mode="light"] .chess-stat-card.highlight {
+  background: rgba(245, 158, 11, 0.08);
+  border-color: rgba(183, 126, 63, 0.45);
+}
+
+[data-theme-mode="light"] .csc-value {
+  color: #120e0a;
+}
+
+[data-theme-mode="light"] .chess-stat-card.highlight .csc-value {
+  color: #b45309;
+}
+
+[data-theme-mode="light"] .csc-label {
+  color: #4e3826;
+}
+
+[data-theme-mode="light"] .csc-sub {
+  color: #6b503b;
+}
+
+[data-theme-mode="light"] .chess-link-sub {
+  color: #b45309;
 }
 
 /* ==========================================================================
@@ -1784,61 +1930,84 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.badge-keras {
-  background: #d32f2f;
+.badge-webgl {
+  background: #4338ca;
   color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.25);
 }
 
-.badge-k-box {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 18px;
-  height: 18px;
-  background: #ffffff;
-  color: #d32f2f;
-  font-size: 0.72rem;
-  font-weight: 900;
-  border-radius: 3px;
-  margin-right: 2px;
-}
-
-.badge-langchain {
-  background: #1c3b31;
+.badge-modcss {
+  background: #0f766e;
   color: #ffffff;
-  border: 1px solid #2e594b;
+  border: 1px solid rgba(255, 255, 255, 0.25);
 }
 
-.badge-rag {
-  background: #e91e63;
+.badge-responsive {
+  background: #b45309;
   color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.25);
 }
 
-.badge-multiagent {
+.badge-restapi {
   background: #1d4ed8;
   color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.badge-prompt {
-  background: #facc15;
-  color: #0f172a;
-  font-weight: 800;
-  border: 1px solid rgba(0, 0, 0, 0.15);
-}
-
-.badge-ghactions {
-  background: #2563eb;
-  color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.25);
 }
 
 .badge-jwt {
-  background: #000000;
+  background: #831843;
   color: #ffffff;
   border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.badge-algo-sw {
+  background: #9a3412;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.badge-algo-tp {
+  background: #be123c;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.badge-algo-bs {
+  background: #0284c7;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.badge-algo-tree {
+  background: #047857;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.badge-algo-graph {
+  background: #7c3aed;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.badge-algo-dsa {
+  background: #d97706;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.tech-tile.tile-threejs {
+  background: #000000;
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.tech-tile.tile-opencv {
+  background: #ffffff;
+}
+
+.tech-tile.tile-vercel {
+  background: #000000;
+  border-color: rgba(255, 255, 255, 0.2);
 }
 
 
@@ -2775,19 +2944,18 @@ body {
     font-size: 0.68rem;
   }
 
-  /* Chess Row on Mobile */
-  .chess-player-avatar-box {
-    width: 48px;
-    height: 48px;
+  /* Chess Unified Row on Mobile */
+  .chess-stats-trio {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
   }
 
-  .chess-meta-sub {
-    gap: 0.35rem;
+  .chess-stat-card {
+    padding: 0.9rem 1rem;
   }
 
-  .chess-bullet-tag {
-    font-size: 0.68rem;
-    padding: 0.12rem 0.4rem;
+  .chess-record-pills {
+    flex-wrap: wrap;
   }
 
   /* SmartCare Spotlight */
@@ -3478,6 +3646,13 @@ body {
   filter: none;
 }
 
+[data-theme-mode="light"] .name-initial {
+  background: linear-gradient(135deg, #b91c1c 0%, #dc2626 50%, #991b1b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 2px 8px rgba(185, 28, 28, 0.35));
+}
+
 [data-theme-mode="light"] .flourish-handwriting {
   color: #854d0e;
   font-weight: 700;
@@ -3652,16 +3827,11 @@ body {
   box-shadow: 0 8px 18px rgba(46, 32, 22, 0.12), 0 0 10px rgba(180, 83, 9, 0.2);
 }
 
-[data-theme-mode="light"] .tech-tile.tile-aws {
-  background: #232f3e;
-}
-
-[data-theme-mode="light"] .tech-tile.tile-github {
+[data-theme-mode="light"] .tech-tile.tile-github,
+[data-theme-mode="light"] .tech-tile.tile-threejs,
+[data-theme-mode="light"] .tech-tile.tile-vercel {
   background: #181c24;
-}
-
-[data-theme-mode="light"] .tech-tile.tile-express {
-  background: #1e1e1e;
+  border-color: rgba(0, 0, 0, 0.2);
 }
 
 [data-theme-mode="light"] .icon-dark-invert {
@@ -3929,5 +4099,49 @@ body {
 
 [data-theme-mode="light"] .btn-primary {
   color: #120e0a;
+}
+
+[data-theme-mode="light"][data-color-theme="red"] .btn-primary,
+[data-theme-mode="light"][data-color-theme="blue"] .btn-primary {
+  color: #ffffff;
+}
+
+[data-theme-mode="light"][data-color-theme="white"] .btn-primary {
+  color: #0f172a;
+}
+
+/* Light mode icon styling */
+[data-theme-mode="light"] .tr-icon {
+  background: #f4ecdf;
+  border-color: rgba(183, 126, 63, 0.4);
+}
+
+[data-theme-mode="light"] .tr-icon.gh {
+  color: #120e0a;
+}
+
+[data-theme-mode="light"] .tr-icon.lc {
+  color: #b45309;
+}
+
+[data-theme-mode="light"] .tr-icon.chess {
+  color: #b45309;
+}
+
+/* Footer bottom bar contrast in light mode */
+[data-theme-mode="light"] .footer-bottom-bar .text-muted {
+  color: #4e3826;
+}
+
+[data-theme-mode="light"] .btn-back-to-top {
+  color: #120e0a;
+  border-color: rgba(183, 126, 63, 0.45);
+  background: #f4ecdf;
+}
+
+[data-theme-mode="light"] .btn-back-to-top:hover {
+  background: #ebe3d5;
+  color: #000000;
+  border-color: #b45309;
 }
 

@@ -1,7 +1,6 @@
 /**
- * Three.js Interactive 3D Vintage Centerpiece
- * Antique Brass Kinetic Polyhedron & Floating Golden Embers
- * Shaik Mohammed Ashraf // Vintage Brown Developer Portfolio
+ * Three.js Interactive 3D Kinetic Snowflake & Cosmic Snowfall
+ * Shaik Mohammed Ashraf // Portfolio Visual Engine
  */
 
 (function () {
@@ -17,7 +16,7 @@
   function initScene() {
     if (typeof THREE === 'undefined') return;
 
-    // Scene, Camera, Renderer
+    // 1. Scene, Camera, Renderer
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
     camera.position.set(0, 0, 36);
@@ -29,131 +28,202 @@
     container.appendChild(renderer.domElement);
 
     // =========================================================================
-    // 1. FLOATING GOLDEN EMBERS & VINTAGE DUST PARTICLES
+    // 2. PROCEDURAL 3D SNOWFLAKE PARTICLES (Cosmic Snowfall)
     // =========================================================================
-    const particleCount = 420;
+    function createSnowflakeTexture() {
+      const canvas = document.createElement('canvas');
+      canvas.width = 128;
+      canvas.height = 128;
+      const ctx = canvas.getContext('2d');
+      ctx.translate(64, 64);
+      ctx.strokeStyle = '#ffffff';
+      ctx.lineCap = 'round';
+      ctx.shadowBlur = 10;
+      ctx.shadowColor = 'rgba(255, 255, 255, 0.95)';
+
+      const arms = 6;
+      for (let a = 0; a < arms; a++) {
+        ctx.save();
+        ctx.rotate((a * Math.PI) / 3);
+
+        // Main crystal spine
+        ctx.lineWidth = 3.2;
+        ctx.beginPath();
+        ctx.moveTo(0, 0);
+        ctx.lineTo(0, -50);
+        ctx.stroke();
+
+        // Lower branchlets
+        ctx.lineWidth = 2.2;
+        ctx.beginPath();
+        ctx.moveTo(0, -20);
+        ctx.lineTo(-14, -32);
+        ctx.moveTo(0, -20);
+        ctx.lineTo(14, -32);
+
+        // Upper branchlets
+        ctx.moveTo(0, -35);
+        ctx.lineTo(-11, -44);
+        ctx.moveTo(0, -35);
+        ctx.lineTo(11, -44);
+        ctx.stroke();
+
+        // Crystal tip starlet
+        ctx.fillStyle = '#ffffff';
+        ctx.beginPath();
+        ctx.arc(0, -50, 2.8, 0, Math.PI * 2);
+        ctx.fill();
+
+        ctx.restore();
+      }
+
+      // Central hexagonal crystal core
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.95)';
+      ctx.beginPath();
+      ctx.arc(0, 0, 5.5, 0, Math.PI * 2);
+      ctx.fill();
+
+      return new THREE.CanvasTexture(canvas);
+    }
+
+    const snowflakeTexture = createSnowflakeTexture();
+
+    const particleCount = 480;
     const particleGeo = new THREE.BufferGeometry();
     const positions = new Float32Array(particleCount * 3);
-    const originalPositions = new Float32Array(particleCount * 3);
-    const colors = new Float32Array(particleCount * 3);
+    const velocities = new Float32Array(particleCount);
+    const swayAmps = new Float32Array(particleCount);
+    const swayFreqs = new Float32Array(particleCount);
+    const swayPhases = new Float32Array(particleCount);
+    const baseColors = new Float32Array(particleCount * 3);
 
-    // Warm Earth & Vintage Amber Palette
-    const colorAmber = new THREE.Color(0xf59e0b);    // Glowing Amber
-    const colorGold = new THREE.Color(0xd97706);     // Antique Gold
-    const colorBrass = new THREE.Color(0xb77e3f);    // Vintage Brass
+    const colorIce = new THREE.Color(0xffffff);
+    const colorAmberSnow = new THREE.Color(0xfef3c7);
+    const colorGoldSnow = new THREE.Color(0xfcd34d);
 
     for (let i = 0; i < particleCount; i++) {
-      const x = (Math.random() - 0.5) * 90;
-      const y = (Math.random() - 0.5) * 90;
-      const z = (Math.random() - 0.5) * 60;
+      positions[i * 3] = (Math.random() - 0.5) * 110;
+      positions[i * 3 + 1] = (Math.random() - 0.5) * 90;
+      positions[i * 3 + 2] = (Math.random() - 0.5) * 60;
 
-      positions[i * 3] = x;
-      positions[i * 3 + 1] = y;
-      positions[i * 3 + 2] = z;
-
-      originalPositions[i * 3] = x;
-      originalPositions[i * 3 + 1] = y;
-      originalPositions[i * 3 + 2] = z;
+      velocities[i] = 0.05 + Math.random() * 0.11;
+      swayAmps[i] = 0.4 + Math.random() * 0.8;
+      swayFreqs[i] = 0.8 + Math.random() * 1.5;
+      swayPhases[i] = Math.random() * Math.PI * 2;
 
       const pick = Math.random();
-      const col = pick < 0.45 ? colorAmber : pick < 0.78 ? colorGold : colorBrass;
-      colors[i * 3] = col.r;
-      colors[i * 3 + 1] = col.g;
-      colors[i * 3 + 2] = col.b;
+      const col = pick < 0.6 ? colorIce : pick < 0.85 ? colorAmberSnow : colorGoldSnow;
+      baseColors[i * 3] = col.r;
+      baseColors[i * 3 + 1] = col.g;
+      baseColors[i * 3 + 2] = col.b;
     }
 
     particleGeo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-    particleGeo.setAttribute('color', new THREE.BufferAttribute(colors, 3));
-
-    // Warm Golden Ember Texture
-    const canvas = document.createElement('canvas');
-    canvas.width = 64;
-    canvas.height = 64;
-    const ctx = canvas.getContext('2d');
-    const grad = ctx.createRadialGradient(32, 32, 0, 32, 32, 32);
-    grad.addColorStop(0, 'rgba(255, 250, 235, 1)');
-    grad.addColorStop(0.35, 'rgba(245, 158, 11, 0.85)');
-    grad.addColorStop(0.7, 'rgba(183, 126, 63, 0.4)');
-    grad.addColorStop(1, 'rgba(0, 0, 0, 0)');
-    ctx.fillStyle = grad;
-    ctx.fillRect(0, 0, 64, 64);
-    const pTexture = new THREE.CanvasTexture(canvas);
+    particleGeo.setAttribute('color', new THREE.BufferAttribute(baseColors, 3));
 
     const particleMat = new THREE.PointsMaterial({
-      size: 1.5,
-      map: pTexture,
+      size: 1.85,
+      map: snowflakeTexture,
       vertexColors: true,
       transparent: true,
-      opacity: 0.68,
+      opacity: 0.82,
       blending: THREE.AdditiveBlending,
       depthWrite: false
     });
 
-    const particles = new THREE.Points(particleGeo, particleMat);
-    scene.add(particles);
+    const snowfall = new THREE.Points(particleGeo, particleMat);
+    scene.add(snowfall);
 
     // =========================================================================
-    // 2. ANTIQUE BRASS & GOLD KINETIC POLYHEDRON
+    // 3. KINETIC 3D CRYSTALLINE SNOWFLAKE CENTERPIECE
     // =========================================================================
-    const artifactGroup = new THREE.Group();
-    artifactGroup.position.set(13, 2, -4);
-    scene.add(artifactGroup);
+    const snowflakeGroup = new THREE.Group();
+    snowflakeGroup.position.set(13, 2, -4);
+    scene.add(snowflakeGroup);
 
-    // 2.1 Outer Brass Cage (Icosahedron)
-    const outerGeo = new THREE.IcosahedronGeometry(7.5, 1);
-    const outerMat = new THREE.MeshBasicMaterial({
-      color: 0xd4a373,
-      wireframe: true,
-      transparent: true,
-      opacity: 0.38
-    });
-    const outerMesh = new THREE.Mesh(outerGeo, outerMat);
-    artifactGroup.add(outerMesh);
-
-    // 2.2 Middle Warm Amber Faceted Core (Octahedron)
-    const midGeo = new THREE.OctahedronGeometry(5.2, 0);
-    const midMat = new THREE.MeshBasicMaterial({
+    // 3.1 Central Faceted Ice Core (Dodecahedron with Wireframe)
+    const coreGeo = new THREE.OctahedronGeometry(2.6, 1);
+    const coreMat = new THREE.MeshBasicMaterial({
       color: 0xf59e0b,
-      wireframe: true,
+      wireframe: false,
       transparent: true,
-      opacity: 0.55
+      opacity: 0.75
     });
-    const midMesh = new THREE.Mesh(midGeo, midMat);
-    artifactGroup.add(midMesh);
+    const coreMesh = new THREE.Mesh(coreGeo, coreMat);
+    snowflakeGroup.add(coreMesh);
 
-    // 2.3 Inner Terracotta & Ivory Energy Nucleus
-    const innerGeo = new THREE.DodecahedronGeometry(2.8, 0);
-    const innerMat = new THREE.MeshBasicMaterial({
-      color: 0x9a3412,
-      transparent: true,
-      opacity: 0.82,
-      wireframe: false
-    });
-    const innerMesh = new THREE.Mesh(innerGeo, innerMat);
-    artifactGroup.add(innerMesh);
-
-    const innerWire = new THREE.LineSegments(
-      new THREE.EdgesGeometry(innerGeo),
-      new THREE.LineBasicMaterial({ color: 0xfff8e7, transparent: true, opacity: 0.9 })
+    const coreWire = new THREE.LineSegments(
+      new THREE.EdgesGeometry(coreGeo),
+      new THREE.LineBasicMaterial({ color: 0xfff8e7, transparent: true, opacity: 0.95 })
     );
-    innerMesh.add(innerWire);
+    coreMesh.add(coreWire);
 
-    // 2.4 Celestial Gyroscope Rings (Astrolabe Style)
-    const ring1Geo = new THREE.TorusGeometry(10.5, 0.06, 8, 80);
+    // 3.2 6 Symmetrical 3D Snowflake Dendrite Arms
+    const armsGroup = new THREE.Group();
+    snowflakeGroup.add(armsGroup);
+
+    const shaftMat = new THREE.MeshBasicMaterial({ color: 0xd4a373, transparent: true, opacity: 0.85 });
+    const branchMat = new THREE.MeshBasicMaterial({ color: 0xf59e0b, transparent: true, opacity: 0.8 });
+    const tipMat = new THREE.MeshBasicMaterial({ color: 0xffffff, wireframe: true, transparent: true, opacity: 0.95 });
+
+    for (let i = 0; i < 6; i++) {
+      const angle = (i * Math.PI) / 3;
+      const arm = new THREE.Group();
+      arm.rotation.z = angle;
+
+      // Main Crystal Shaft
+      const shaftGeo = new THREE.CylinderGeometry(0.12, 0.07, 13, 6);
+      const shaft = new THREE.Mesh(shaftGeo, shaftMat);
+      shaft.position.y = 6.5;
+      arm.add(shaft);
+
+      // Primary Lower Branchlets (Left & Right)
+      const b1Left = new THREE.Mesh(new THREE.CylinderGeometry(0.08, 0.05, 3.4, 5), branchMat);
+      b1Left.position.set(-1.2, 5.2, 0);
+      b1Left.rotation.z = Math.PI / 4;
+      arm.add(b1Left);
+
+      const b1Right = new THREE.Mesh(new THREE.CylinderGeometry(0.08, 0.05, 3.4, 5), branchMat);
+      b1Right.position.set(1.2, 5.2, 0);
+      b1Right.rotation.z = -Math.PI / 4;
+      arm.add(b1Right);
+
+      // Secondary Upper Branchlets (Left & Right)
+      const b2Left = new THREE.Mesh(new THREE.CylinderGeometry(0.07, 0.04, 2.6, 5), branchMat);
+      b2Left.position.set(-0.95, 9.0, 0);
+      b2Left.rotation.z = Math.PI / 4;
+      arm.add(b2Left);
+
+      const b2Right = new THREE.Mesh(new THREE.CylinderGeometry(0.07, 0.04, 2.6, 5), branchMat);
+      b2Right.position.set(0.95, 9.0, 0);
+      b2Right.rotation.z = -Math.PI / 4;
+      arm.add(b2Right);
+
+      // Faceted Diamond Crystal Tip
+      const tipGeo = new THREE.OctahedronGeometry(0.7, 0);
+      const tip = new THREE.Mesh(tipGeo, tipMat);
+      tip.position.y = 13.2;
+      arm.add(tip);
+
+      armsGroup.add(arm);
+    }
+
+    // 3.3 Concentric Celestial Frost Rings
+    const ring1Geo = new THREE.TorusGeometry(9.2, 0.05, 8, 80);
     const ring1Mat = new THREE.MeshBasicMaterial({ color: 0xd97706, transparent: true, opacity: 0.45 });
     const ring1 = new THREE.Mesh(ring1Geo, ring1Mat);
     ring1.rotation.x = Math.PI / 3;
-    artifactGroup.add(ring1);
+    snowflakeGroup.add(ring1);
 
-    const ring2Geo = new THREE.TorusGeometry(11.8, 0.06, 8, 80);
+    const ring2Geo = new THREE.TorusGeometry(13.2, 0.05, 8, 80);
     const ring2Mat = new THREE.MeshBasicMaterial({ color: 0xb77e3f, transparent: true, opacity: 0.35 });
     const ring2 = new THREE.Mesh(ring2Geo, ring2Mat);
     ring2.rotation.y = Math.PI / 4;
     ring2.rotation.z = Math.PI / 6;
-    artifactGroup.add(ring2);
+    snowflakeGroup.add(ring2);
 
     // =========================================================================
-    // 3. TACTILE DRAG & INTERACTION PHYSICS
+    // 4. TACTILE DRAG & INTERACTION PHYSICS
     // =========================================================================
     let isDragging = false;
     let previousMouseX = 0;
@@ -163,7 +233,7 @@
     const damping = 0.95;
 
     window.addEventListener('mousedown', (e) => {
-      if (e.target.closest('button, a, input, textarea, .telemetry-row-card, .smartcare-spotlight-card')) return;
+      if (e.target.closest('button, a, input, textarea, .telemetry-row-card, .smartcare-spotlight-card, .arsenal-board')) return;
       isDragging = true;
       previousMouseX = e.clientX;
       previousMouseY = e.clientY;
@@ -185,7 +255,7 @@
       isDragging = false;
     });
 
-    // Touch support
+    // Touch physics support
     window.addEventListener('touchstart', (e) => {
       if (e.target.closest('button, a, input, textarea')) return;
       if (e.touches.length === 1) {
@@ -211,15 +281,18 @@
       isDragging = false;
     });
 
-    // Cursor Parallax
+    // Cursor Parallax & Wind Currents
     let targetMouseX = 0;
     let targetMouseY = 0;
     let currentMouseX = 0;
     let currentMouseY = 0;
+    let windDrift = 0;
 
     window.addEventListener('mousemove', (e) => {
+      const prevTargetX = targetMouseX;
       targetMouseX = (e.clientX / window.innerWidth - 0.5) * 2;
       targetMouseY = -(e.clientY / window.innerHeight - 0.5) * 2;
+      windDrift = (targetMouseX - prevTargetX) * 0.4;
     });
 
     // Scroll parallax tracking
@@ -228,17 +301,17 @@
       scrollY = window.scrollY || window.pageYOffset;
     }, { passive: true });
 
-    // Click to pulse core
+    // Click to pulse snowflake
     window.addEventListener('click', (e) => {
       if (e.target.closest('button, a, input, textarea')) return;
-      innerMesh.scale.set(1.35, 1.35, 1.35);
+      snowflakeGroup.scale.set(1.22, 1.22, 1.22);
       if (window.cyberAudio && typeof window.cyberAudio.playClick === 'function') {
         window.cyberAudio.playClick();
       }
     });
 
     // =========================================================================
-    // 4. ANIMATION LOOP
+    // 5. ANIMATION LOOP: GENTLE SNOWFALL & CRYSTAL ROTATION
     // =========================================================================
     let clock = new THREE.Clock();
     let isVisible = true;
@@ -257,56 +330,64 @@
       currentMouseX += (targetMouseX - currentMouseX) * 0.04;
       currentMouseY += (targetMouseY - currentMouseY) * 0.04;
 
-      // Adjust camera with mouse & natural scroll
+      // Camera responds naturally to cursor & scroll
       camera.position.x = currentMouseX * 3;
       camera.position.y = currentMouseY * 2.5 - (scrollY * 0.012);
       camera.lookAt(0, -(scrollY * 0.012), 0);
 
-      // Apply drag inertia physics
-      artifactGroup.rotation.y += rotationVelocityY;
-      artifactGroup.rotation.x += rotationVelocityX;
-
+      // Inertia drag on snowflake sculpture
+      snowflakeGroup.rotation.y += rotationVelocityY;
+      snowflakeGroup.rotation.x += rotationVelocityX;
       rotationVelocityX *= damping;
       rotationVelocityY *= damping;
 
-      // Base idle rotations
-      outerMesh.rotation.y += 0.003;
-      outerMesh.rotation.x += 0.002;
-
-      midMesh.rotation.y -= 0.006;
-      midMesh.rotation.z += 0.004;
-
-      innerMesh.rotation.x += 0.01;
-      innerMesh.rotation.y += 0.012;
-
-      // Smooth return to scale after click pulse
-      innerMesh.scale.lerp(new THREE.Vector3(1, 1, 1), 0.08);
+      // Base idle rotations of the snowflake centerpiece
+      snowflakeGroup.rotation.z = elapsedTime * 0.08;
+      snowflakeGroup.rotation.y += 0.004;
 
       ring1.rotation.z = elapsedTime * 0.15;
-      ring2.rotation.z = -elapsedTime * 0.2;
+      ring2.rotation.z = -elapsedTime * 0.18;
+
+      // Smooth return to unit scale after click pulse
+      snowflakeGroup.scale.lerp(new THREE.Vector3(1, 1, 1), 0.06);
 
       // Subtle float wave
-      artifactGroup.position.y = 2 + Math.sin(elapsedTime * 1.2) * 0.8;
+      snowflakeGroup.position.y = 2 + Math.sin(elapsedTime * 1.1) * 0.7;
 
-      // Responsive position adjustment
+      // Responsive position
       if (window.innerWidth < 900) {
-        artifactGroup.position.x = 0;
-        artifactGroup.position.z = -12;
+        snowflakeGroup.position.x = 0;
+        snowflakeGroup.position.z = -14;
       } else {
-        artifactGroup.position.x = 13;
-        artifactGroup.position.z = -4;
+        snowflakeGroup.position.x = 13;
+        snowflakeGroup.position.z = -4;
       }
 
-      // Organic Golden Ember Drift
+      // =======================================================================
+      // Real 3D Snowfall Dynamics: Continuous Fall, Horizontal Sway & Wind
+      // =======================================================================
       const posAttr = particleGeo.attributes.position;
       const posArray = posAttr.array;
-      for (let i = 0; i < particleCount; i += 3) {
-        const ox = originalPositions[i];
-        const oy = originalPositions[i + 1];
-        posArray[i + 1] = oy + Math.sin(elapsedTime * 0.8 + ox * 0.05) * 1.5;
+
+      for (let i = 0; i < particleCount; i++) {
+        const idx = i * 3;
+        // Downward drift
+        posArray[idx + 1] -= velocities[i];
+
+        // Horizontal sinusoidal flutter + wind
+        posArray[idx] += Math.sin(elapsedTime * swayFreqs[i] + swayPhases[i]) * 0.035 + windDrift;
+
+        // Subtle depth drift
+        posArray[idx + 2] += Math.cos(elapsedTime * 0.5 + swayPhases[i]) * 0.01;
+
+        // Wrap around when falling below viewport
+        if (posArray[idx + 1] < -45) {
+          posArray[idx + 1] = 45;
+          posArray[idx] = (Math.random() - 0.5) * 110;
+        }
       }
       posAttr.needsUpdate = true;
-      particles.rotation.y = elapsedTime * 0.012;
+      windDrift *= 0.94; // Wind dissipates
 
       renderer.render(scene, camera);
     }
@@ -320,41 +401,42 @@
       renderer.setSize(window.innerWidth, window.innerHeight);
     });
 
-    // Color Theme Sync Handler (Blue, Red, White, Brown)
+    // =========================================================================
+    // 6. THEME PALETTE & LIGHT/DARK MODE SYNCHRONIZATION
+    // =========================================================================
     function applySceneTheme(theme) {
       if (theme === 'blue') {
-        outerMat.color.setHex(0x38bdf8);
-        midMat.color.setHex(0x0284c7);
-        innerMat.color.setHex(0x0369a1);
-        ring1Mat.color.setHex(0x0ea5e9);
+        coreMat.color.setHex(0x38bdf8);
+        shaftMat.color.setHex(0x0284c7);
+        branchMat.color.setHex(0x0ea5e9);
+        ring1Mat.color.setHex(0x38bdf8);
         ring2Mat.color.setHex(0x7dd3fc);
-        particleMat.opacity = 0.8;
+        particleMat.opacity = 0.88;
       } else if (theme === 'red') {
-        outerMat.color.setHex(0xf87171);
-        midMat.color.setHex(0xdc2626);
-        innerMat.color.setHex(0x991b1b);
-        ring1Mat.color.setHex(0xef4444);
+        coreMat.color.setHex(0xf87171);
+        shaftMat.color.setHex(0xdc2626);
+        branchMat.color.setHex(0xef4444);
+        ring1Mat.color.setHex(0xf87171);
         ring2Mat.color.setHex(0xfca5a5);
-        particleMat.opacity = 0.75;
-      } else if (theme === 'white') {
-        outerMat.color.setHex(0xe2e8f0);
-        midMat.color.setHex(0xffffff);
-        innerMat.color.setHex(0x64748b);
-        ring1Mat.color.setHex(0xcbd5e1);
-        ring2Mat.color.setHex(0xf8fafc);
         particleMat.opacity = 0.85;
+      } else if (theme === 'white') {
+        coreMat.color.setHex(0xffffff);
+        shaftMat.color.setHex(0xe2e8f0);
+        branchMat.color.setHex(0xcbd5e1);
+        ring1Mat.color.setHex(0xffffff);
+        ring2Mat.color.setHex(0xf8fafc);
+        particleMat.opacity = 0.92;
       } else {
-        // Default Vintage Brown
-        outerMat.color.setHex(0xd4a373);
-        midMat.color.setHex(0xf59e0b);
-        innerMat.color.setHex(0x9a3412);
+        // Default Warm Amber & Vintage Brass
+        coreMat.color.setHex(0xf59e0b);
+        shaftMat.color.setHex(0xd4a373);
+        branchMat.color.setHex(0xf59e0b);
         ring1Mat.color.setHex(0xd97706);
         ring2Mat.color.setHex(0xb77e3f);
-        particleMat.opacity = 0.68;
+        particleMat.opacity = 0.82;
       }
     }
 
-    // Apply stored theme on init
     const initialTheme = localStorage.getItem('ashraf_color_theme') || 'brown';
     if (initialTheme !== 'brown') {
       applySceneTheme(initialTheme);
@@ -365,15 +447,13 @@
       applySceneTheme(theme);
     });
 
-    // Light / Dark Mode Sync Handler
     function applySceneMode(mode) {
       if (mode === 'light') {
-        particleMat.opacity = 0.35;
+        particleMat.opacity = 0.45;
         particleMat.blending = THREE.NormalBlending;
       } else {
-        particleMat.opacity = 0.68;
+        particleMat.opacity = 0.82;
         particleMat.blending = THREE.AdditiveBlending;
-        // Re-apply color theme opacity overrides
         const currentTheme = localStorage.getItem('ashraf_color_theme') || 'brown';
         applySceneTheme(currentTheme);
       }
