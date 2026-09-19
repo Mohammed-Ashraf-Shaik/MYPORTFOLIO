@@ -364,5 +364,29 @@
       const theme = e.detail?.theme || 'brown';
       applySceneTheme(theme);
     });
+
+    // Light / Dark Mode Sync Handler
+    function applySceneMode(mode) {
+      if (mode === 'light') {
+        particleMat.opacity = 0.35;
+        particleMat.blending = THREE.NormalBlending;
+      } else {
+        particleMat.opacity = 0.68;
+        particleMat.blending = THREE.AdditiveBlending;
+        // Re-apply color theme opacity overrides
+        const currentTheme = localStorage.getItem('ashraf_color_theme') || 'brown';
+        applySceneTheme(currentTheme);
+      }
+    }
+
+    const initialMode = localStorage.getItem('ashraf_theme_mode') || 'dark';
+    if (initialMode === 'light') {
+      applySceneMode('light');
+    }
+
+    window.addEventListener('themeModeChanged', (e) => {
+      const mode = e.detail?.mode || 'dark';
+      applySceneMode(mode);
+    });
   }
 })();
