@@ -6,7 +6,7 @@
 [![Live Portfolio](https://img.shields.io/badge/Live%20Demo-myportfolio--ashrafm.vercel.app-00f5ff?style=for-the-badge&logo=vercel)](https://myportfolio-ashrafm.vercel.app/)
 [![GitHub](https://img.shields.io/badge/GitHub-Mohammed--Ashraf--Shaik-181717?style=for-the-badge&logo=github)](https://github.com/Mohammed-Ashraf-Shaik)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Mohammad--Ashraf--Shaik-0077b5?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/mohammad-ashraf-shaik/)
-[![LeetCode](https://img.shields.io/badge/LeetCode-Shaik__mohameed__Ashraf-ffa116?style=for-the-badge&logo=leetcode)](https://leetcode.com/u/Shaik_mohameed_Ashraf/)
+[![LeetCode](https://img.shields.io/badge/LeetCode-Shaik__mohammed__Ashraf-ffa116?style=for-the-badge&logo=leetcode)](https://leetcode.com/u/Shaik_mohammed_Ashraf/)
 [![Chess.com](https://img.shields.io/badge/Chess.com-ashumm-7fa650?style=for-the-badge&logo=chess.com)](https://www.chess.com/member/ashumm)
 
 ---
@@ -145,7 +145,7 @@ Open `http://localhost:5500` in any modern web browser.
 - **Email**: [ashubasha52@gmail.com](mailto:ashubasha52@gmail.com)
 - **LinkedIn**: [linkedin.com/in/mohammad-ashraf-shaik/](https://www.linkedin.com/in/mohammad-ashraf-shaik/)
 - **GitHub**: [github.com/Mohammed-Ashraf-Shaik](https://github.com/Mohammed-Ashraf-Shaik)
-- **LeetCode**: [leetcode.com/u/Shaik_mohameed_Ashraf/](https://leetcode.com/u/Shaik_mohameed_Ashraf/)
+- **LeetCode**: [leetcode.com/u/Shaik_mohammed_Ashraf/](https://leetcode.com/u/Shaik_mohammed_Ashraf/)
 - **Chess.com**: [chess.com/member/ashumm](https://www.chess.com/member/ashumm)
 
 ---

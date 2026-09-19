@@ -7,7 +7,7 @@
 (function () {
   // Config & Usernames
   const CONFIG = {
-    leetcodeUser: 'Shaik_mohameed_Ashraf',
+    leetcodeUser: 'Shaik_mohammed_Ashraf',
     githubUser: 'Mohammed-Ashraf-Shaik',
     chessUser: 'ashumm',
     refreshInterval: 120000 // 2 minutes

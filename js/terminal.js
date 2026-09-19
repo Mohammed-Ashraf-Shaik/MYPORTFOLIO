@@ -102,12 +102,12 @@
     leetcode: () => {
       const stats = window.latestLeetCodeStats || { totalSolved: 128, easy: 87, medium: 37, hard: 4, ranking: 1347751 };
       return `
-<div class="terminal-line success">// LEETCODE LIVE PULSE [@Shaik_mohameed_Ashraf] //</div>
+<div class="terminal-line success">// LEETCODE LIVE PULSE [@Shaik_mohammed_Ashraf] //</div>
 <div class="terminal-line">  • <span class="text-cyan">Total Solved:</span>    <strong>${stats.totalSolved}</strong> / 4,055 problems</div>
 <div class="terminal-line">  • <span class="text-cyan">Easy / Med / Hard:</span>  <span style="color:#00b8a3;">${stats.easy} Easy</span> | <span style="color:#ffc01e;">${stats.medium} Med</span> | <span style="color:#ff375f;">${stats.hard} Hard</span></div>
 <div class="terminal-line">  • <span class="text-cyan">Global Ranking:</span>  #${stats.ranking.toLocaleString()}</div>
 <div class="terminal-line">  • <span class="text-cyan">Contest Rating:</span>  1,460</div>
-<div class="terminal-line">  • <span class="text-cyan">Profile:</span>         <a href="https://leetcode.com/u/Shaik_mohameed_Ashraf/" target="_blank" style="color:#00f5ff;text-decoration:underline;">leetcode.com/u/Shaik_mohameed_Ashraf</a></div>
+<div class="terminal-line">  • <span class="text-cyan">Profile:</span>         <a href="https://leetcode.com/u/Shaik_mohammed_Ashraf/" target="_blank" style="color:#00f5ff;text-decoration:underline;">leetcode.com/u/Shaik_mohammed_Ashraf</a></div>
 `;
     },
 
