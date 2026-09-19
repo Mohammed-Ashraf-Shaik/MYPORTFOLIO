@@ -577,6 +577,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   setupCatMascotGuide();
 
+  // 12. Global Image Error Protection (Ensures zero broken images across all devices)
+  window.addEventListener('error', (e) => {
+    if (e.target && e.target.tagName === 'IMG') {
+      e.target.classList.add('img-load-failed');
+    }
+  }, true);
+
   // Initialize Lucide icons if available
   if (window.lucide && typeof window.lucide.createIcons === 'function') {
     window.lucide.createIcons();
