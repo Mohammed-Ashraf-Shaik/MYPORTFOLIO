@@ -1534,17 +1534,143 @@ body {
   color: var(--accent-amber);
 }
 
-[data-theme-mode="light"] .chess-stat-card {
-  background: #faf6f0;
-  border-color: rgba(183, 126, 63, 0.25);
+/* GitHub Profile Chess Integration Elements */
+.chess-live-badges-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin: 1.25rem 0 1.5rem;
 }
 
-[data-theme-mode="light"] .chess-stat-card.highlight {
+.chess-live-badges-row a {
+  display: inline-flex;
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.chess-live-badges-row a:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.1);
+}
+
+.chess-kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.chess-kpi-card {
+  background: rgba(26, 18, 13, 0.7);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.15rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.chess-kpi-card:hover {
+  transform: translateY(-2px);
+  border-color: #81b64c;
+}
+
+.chess-kpi-card.highlight-gold {
+  background: rgba(245, 158, 11, 0.08);
+  border-color: rgba(245, 158, 11, 0.35);
+}
+
+.kpi-card-label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-muted);
+}
+
+.kpi-card-val {
+  font-family: var(--font-mono);
+  font-size: 1.5rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.chess-graph-wrapper {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 10px;
+  background: #0d1117;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.chess-svg-graph {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 6px;
+  transition: transform 0.25s ease;
+}
+
+.chess-graph-wrapper a:hover .chess-svg-graph {
+  transform: scale(1.01);
+}
+
+.chess-dashboard-cta-row {
+  display: flex;
+  justify-content: center;
+  margin: 0.5rem 0 1.25rem;
+}
+
+.btn-chess-dashboard {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  width: 100%;
+  padding: 0.85rem 1.25rem;
+  border-radius: var(--radius-md);
+  background: rgba(129, 182, 76, 0.12);
+  border: 1.5px solid #81b64c;
+  color: #81b64c;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 0.88rem;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 15px rgba(129, 182, 76, 0.15);
+}
+
+.btn-chess-dashboard:hover {
+  background: #81b64c;
+  color: #0d1117;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(129, 182, 76, 0.35);
+}
+
+@media (max-width: 768px) {
+  .chess-kpi-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+[data-theme-mode="light"] .chess-stat-card,
+[data-theme-mode="light"] .chess-kpi-card {
+  background: #ffffff;
+  border-color: rgba(183, 126, 63, 0.3);
+}
+
+[data-theme-mode="light"] .chess-stat-card.highlight,
+[data-theme-mode="light"] .chess-kpi-card.highlight-gold {
   background: rgba(245, 158, 11, 0.08);
   border-color: rgba(183, 126, 63, 0.45);
 }
 
-[data-theme-mode="light"] .csc-value {
+[data-theme-mode="light"] .csc-value,
+[data-theme-mode="light"] .kpi-card-val {
   color: #120e0a;
 }
 
@@ -1552,8 +1678,10 @@ body {
   color: #b45309;
 }
 
-[data-theme-mode="light"] .csc-label {
+[data-theme-mode="light"] .csc-label,
+[data-theme-mode="light"] .kpi-card-label {
   color: #4e3826;
+  font-weight: 600;
 }
 
 [data-theme-mode="light"] .csc-sub {
@@ -1562,6 +1690,23 @@ body {
 
 [data-theme-mode="light"] .chess-link-sub {
   color: #b45309;
+}
+
+[data-theme-mode="light"] .chess-graph-wrapper {
+  background: #161b22;
+  border-color: rgba(183, 126, 63, 0.25);
+}
+
+[data-theme-mode="light"] .btn-chess-dashboard {
+  background: rgba(129, 182, 76, 0.12);
+  border-color: #65a30d;
+  color: #3f6212;
+  font-weight: 700;
+}
+
+[data-theme-mode="light"] .btn-chess-dashboard:hover {
+  background: #65a30d;
+  color: #ffffff;
 }
 
 /* ==========================================================================
@@ -2010,25 +2155,65 @@ body {
   border-color: rgba(255, 255, 255, 0.2);
 }
 
+/* AI Vibe Badges */
+.badge-antigravity {
+  background: #0d1117;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+.badge-antigravity:hover {
+  border-color: #818cf8;
+  box-shadow: 0 6px 18px rgba(129, 140, 248, 0.35);
+}
 
+.badge-gemini {
+  background: linear-gradient(135deg, #1d4ed8, #2563eb);
+  color: #ffffff;
+  border: 1px solid rgba(147, 197, 253, 0.35);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+}
+.badge-gemini:hover {
+  border-color: #93c5fd;
+  box-shadow: 0 6px 18px rgba(59, 130, 246, 0.5);
+}
+
+.badge-chatgpt {
+  background: #10a37f;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 4px 12px rgba(16, 163, 127, 0.25);
+}
+.badge-chatgpt:hover {
+  border-color: #34d399;
+  box-shadow: 0 6px 18px rgba(16, 163, 127, 0.5);
+}
 
 /* ==========================================================================
-   ACADEMIC MILESTONES & TIMELINE (Vintage Ledger)
+   ACADEMIC MILESTONES & TIMELINE (Compact Vintage Ledger)
    ========================================================================== */
+#education {
+  padding: 45px 0 55px;
+}
+
+#education .section-header {
+  margin-bottom: 2rem;
+}
+
 .timeline-container {
   display: flex;
   flex-direction: column;
-  gap: 1.75rem;
+  gap: 0.95rem;
   position: relative;
-  padding-left: 2rem;
+  padding-left: 1.6rem;
 }
 
 .timeline-container::before {
   content: '';
   position: absolute;
-  top: 15px;
-  bottom: 15px;
-  left: 7px;
+  top: 10px;
+  bottom: 10px;
+  left: 6px;
   width: 2px;
   background: linear-gradient(180deg, var(--accent-amber) 0%, var(--accent-bronze) 100%);
   opacity: 0.5;
@@ -2037,8 +2222,8 @@ body {
 .timeline-card {
   background: var(--bg-card);
   border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-lg);
-  padding: 2rem;
+  border-radius: var(--radius-md);
+  padding: 1.15rem 1.45rem;
   backdrop-filter: blur(16px);
   position: relative;
   transition: var(--transition-fast);
@@ -2047,14 +2232,14 @@ body {
 .timeline-card::before {
   content: '';
   position: absolute;
-  left: -2.35rem;
-  top: 2rem;
-  width: 14px;
-  height: 14px;
+  left: -1.95rem;
+  top: 1.35rem;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
   background: var(--accent-amber);
-  border: 3px solid var(--bg-primary);
-  box-shadow: 0 0 10px rgba(245, 158, 11, 0.6);
+  border: 2px solid var(--bg-primary);
+  box-shadow: 0 0 8px rgba(245, 158, 11, 0.6);
 }
 
 .timeline-card:hover {
@@ -2065,32 +2250,32 @@ body {
 .timeline-date-badge {
   display: inline-block;
   font-family: var(--font-mono);
-  font-size: 0.75rem;
+  font-size: 0.68rem;
   color: var(--accent-amber);
   font-weight: 700;
-  letter-spacing: 1px;
-  margin-bottom: 0.5rem;
+  letter-spacing: 0.8px;
+  margin-bottom: 0.25rem;
 }
 
 .timeline-title {
   font-family: var(--font-display);
-  font-size: 1.3rem;
+  font-size: 1.12rem;
   font-weight: 800;
   color: var(--text-primary);
-  margin-bottom: 0.35rem;
+  margin-bottom: 0.2rem;
 }
 
 .timeline-institution {
   font-family: var(--font-mono);
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   color: var(--accent-brass);
-  margin-bottom: 0.85rem;
+  margin-bottom: 0.45rem;
 }
 
 .timeline-desc {
-  font-size: 0.95rem;
+  font-size: 0.88rem;
   color: var(--text-muted);
-  line-height: 1.6;
+  line-height: 1.5;
 }
 
 /* ==========================================================================
@@ -3836,6 +4021,24 @@ body {
 
 [data-theme-mode="light"] .icon-dark-invert {
   filter: invert(1);
+}
+
+[data-theme-mode="light"] .badge-antigravity {
+  background: #1e293b;
+  color: #ffffff;
+  border-color: rgba(0, 0, 0, 0.2);
+}
+
+[data-theme-mode="light"] .badge-gemini {
+  background: #1d4ed8;
+  color: #ffffff;
+  border-color: rgba(29, 78, 216, 0.3);
+}
+
+[data-theme-mode="light"] .badge-chatgpt {
+  background: #0f766e;
+  color: #ffffff;
+  border-color: rgba(15, 118, 110, 0.3);
 }
 
 /* SmartCare Spotlight in Light Mode */

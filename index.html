@@ -138,11 +138,6 @@
           
           <!-- Mind-Blowing Visual Centerpiece for Name -->
           <div class="name-visual-monolith" id="name-visual-monolith">
-            <div class="monolith-eyebrow">
-              <div class="monolith-line"></div>
-              <span class="monolith-status">FULL-STACK SYSTEM ARCHITECT</span>
-            </div>
-
             <h1 class="editorial-name-title">
               <span class="name-first"><span class="name-initial">M</span>OHAMMED</span>
               <span class="name-accent"><span class="name-initial">A</span>SHRAF</span>
@@ -438,49 +433,78 @@
           <div class="heatmap-block">
             <div class="heatmap-block-header">
               <div>
-                <span style="color:var(--accent-amber);font-weight:700;">●</span> Chess.com Annual Performance &amp; Live Radar
+                <span style="color:var(--accent-amber);font-weight:700;">●</span> Chess.com Live Tracking &amp; Rating Progression
               </div>
               <div class="text-secondary font-mono" style="font-size:0.75rem;">
-                Total: <strong id="chess-total-games-text" class="count-up-num" data-target="2171" data-suffix="+" style="color:var(--text-primary);">2,171+</strong> matches | Win Rate: <strong id="chess-winrate-header-text" style="color:var(--text-primary);">52%</strong>
+                Total: <strong id="chess-total-games-text" class="count-up-num" data-target="2227" data-suffix="+" style="color:var(--text-primary);">2,227+</strong> matches | Win Rate: <strong id="chess-winrate-header-text" style="color:var(--text-primary);">52%</strong>
               </div>
             </div>
 
-            <!-- Chess Live Tracking Box (Matching GitHub Structure) -->
-            <div class="gh-real-chart-box chess-real-chart-box">
-              <div class="chess-live-dashboard">
-                <!-- 3 Elo Hero Metric Tiles -->
-                <div class="chess-stats-trio">
-                  <div class="chess-stat-card">
-                    <div class="csc-label">Rapid Elo Rating</div>
-                    <div class="csc-value count-up-num" id="chess-rapid-val" data-target="1216">0</div>
-                    <div class="csc-sub">Active Competitive</div>
-                  </div>
-                  <div class="chess-stat-card highlight">
-                    <div class="csc-label">All-Time Peak</div>
-                    <div class="csc-value count-up-num" id="chess-peak-val" data-target="1232">0</div>
-                    <div class="csc-sub">Top Tier Rating</div>
-                  </div>
-                  <div class="chess-stat-card">
-                    <div class="csc-label">Tactics Peak</div>
-                    <div class="csc-value count-up-num" id="chess-tactics-val" data-target="1461">0</div>
-                    <div class="csc-sub">Tactical Puzzles</div>
-                  </div>
-                </div>
+            <!-- Live Rating Badges Row (from GitHub Profile) -->
+            <div class="chess-live-badges-row">
+              <a href="https://www.chess.com/member/ashumm" target="_blank" rel="noopener noreferrer" title="View Chess.com Rapid Rating">
+                <img src="https://img.shields.io/badge/dynamic/json?style=for-the-badge&label=Rapid%20Rating&query=chess_rapid.last.rating&url=https%3A%2F%2Fapi.chess.com%2Fpub%2Fplayer%2Fashumm%2Fstats&logo=chess.com&logoColor=white&color=81b64c" alt="Chess.com Rapid Rating" loading="lazy">
+              </a>
+              <a href="https://www.chess.com/member/ashumm" target="_blank" rel="noopener noreferrer" title="View Chess.com Blitz Rating">
+                <img src="https://img.shields.io/badge/dynamic/json?style=for-the-badge&label=Blitz%20Rating&query=chess_blitz.last.rating&url=https%3A%2F%2Fapi.chess.com%2Fpub%2Fplayer%2Fashumm%2Fstats&logo=chess.com&logoColor=white&color=f7c04a" alt="Chess.com Blitz Rating" loading="lazy">
+              </a>
+              <a href="https://www.chess.com/member/ashumm" target="_blank" rel="noopener noreferrer" title="View Chess.com Bullet Rating">
+                <img src="https://img.shields.io/badge/dynamic/json?style=for-the-badge&label=Bullet%20Rating&query=chess_bullet.last.rating&url=https%3A%2F%2Fapi.chess.com%2Fpub%2Fplayer%2Fashumm%2Fstats&logo=chess.com&logoColor=white&color=e06c75" alt="Chess.com Bullet Rating" loading="lazy">
+              </a>
+              <a href="https://www.chess.com/member/ashumm" target="_blank" rel="noopener noreferrer" title="View Legend League Standing">
+                <img src="https://img.shields.io/badge/League-Legend-9b59b6?style=for-the-badge&logo=chess.com&logoColor=white" alt="Chess.com Legend League" loading="lazy">
+              </a>
+            </div>
 
-                <!-- Match Outcome Bar & Record Pills -->
-                <div class="chess-record-section">
-                  <div class="chess-record-pills">
-                    <span class="c-rec win"><b id="chess-wins-val" class="count-up-num" data-target="1116">0</b> Wins</span>
-                    <span class="c-rec loss"><b id="chess-losses-val" class="count-up-num" data-target="977">0</b> Losses</span>
-                    <span class="c-rec draw"><b id="chess-draws-val" class="count-up-num" data-target="78">0</b> Draws</span>
-                  </div>
-                  <div class="multi-seg-bar">
-                    <div class="bar-seg easy" id="chess-win-bar" style="width: 52%;"></div>
-                  </div>
-                  <div class="chess-record-footer">
-                    <span class="text-muted font-mono" id="chess-winrate-text" style="font-size:0.75rem;">52% WIN RATE (2,171+ MATCHES) • LEGEND LEAGUE</span>
-                    <a href="https://www.chess.com/member/ashumm" target="_blank" rel="noopener noreferrer" class="chess-link-sub">VIEW MATCH HISTORY ↗</a>
-                  </div>
+            <!-- Chess KPI Cards Grid (Matching Interactive Dashboard) -->
+            <div class="chess-kpi-grid">
+              <div class="chess-kpi-card">
+                <span class="kpi-card-label">Current Rapid Rating</span>
+                <span class="kpi-card-val count-up-num" id="chess-rapid-val" data-target="1216" style="color:#81b64c;">1,216</span>
+              </div>
+              <div class="chess-kpi-card highlight-gold">
+                <span class="kpi-card-label">All-Time Peak Rating</span>
+                <span class="kpi-card-val count-up-num" id="chess-peak-val" data-target="1232" style="color:#f1e05a;">1,232 🏆</span>
+              </div>
+              <div class="chess-kpi-card">
+                <span class="kpi-card-label">All-Time Rating Gain</span>
+                <span class="kpi-card-val" style="color:#58a6ff;">+978 📈</span>
+              </div>
+              <div class="chess-kpi-card">
+                <span class="kpi-card-label">Total Rapid Matches</span>
+                <span class="kpi-card-val count-up-num" id="chess-matches-kpi-val" data-target="2227" data-suffix="+" style="color:var(--text-primary);">2,227+</span>
+              </div>
+            </div>
+
+            <!-- Chess Live Tracking Box (Official Rating Progression Graph) -->
+            <div class="gh-real-chart-box chess-real-chart-box">
+              <div class="chess-graph-wrapper">
+                <a href="https://mohammed-ashraf-shaik.github.io/Mohammed-Ashraf-Shaik/" target="_blank" rel="noopener noreferrer" title="Click to open Live Interactive Dashboard with wave animation & tooltips">
+                  <img src="https://raw.githubusercontent.com/Mohammed-Ashraf-Shaik/Mohammed-Ashraf-Shaik/main/chess_rating_graph.svg?v=5" alt="Chess.com All-Time Rating Progression Graph" class="gh-real-chart-img chess-svg-graph" loading="lazy">
+                </a>
+              </div>
+
+              <!-- Interactive Dashboard CTA Link -->
+              <div class="chess-dashboard-cta-row">
+                <a href="https://mohammed-ashraf-shaik.github.io/Mohammed-Ashraf-Shaik/" target="_blank" rel="noopener noreferrer" class="btn-chess-dashboard">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-play"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                  <span>OPEN LIVE INTERACTIVE DASHBOARD (Scroll Waves &amp; Mouse Hover Tooltips) ↗</span>
+                </a>
+              </div>
+
+              <!-- Match Outcome Bar & Record Pills -->
+              <div class="chess-record-section">
+                <div class="chess-record-pills">
+                  <span class="c-rec win"><b id="chess-wins-val" class="count-up-num" data-target="1116">1,116</b> Wins</span>
+                  <span class="c-rec loss"><b id="chess-losses-val" class="count-up-num" data-target="977">977</b> Losses</span>
+                  <span class="c-rec draw"><b id="chess-draws-val" class="count-up-num" data-target="78">78</b> Draws</span>
+                </div>
+                <div class="multi-seg-bar">
+                  <div class="bar-seg easy" id="chess-win-bar" style="width: 52%;"></div>
+                </div>
+                <div class="chess-record-footer">
+                  <span class="text-muted font-mono" id="chess-winrate-text" style="font-size:0.75rem;">52% WIN RATE (2,227+ MATCHES) • LEGEND LEAGUE</span>
+                  <a href="https://www.chess.com/member/ashumm" target="_blank" rel="noopener noreferrer" class="chess-link-sub">VIEW PROFILE ON CHESS.COM ↗</a>
                 </div>
               </div>
             </div>
@@ -663,7 +687,7 @@
         </p>
       </div>
 
-      <!-- Unified Arsenal Board (Matching Reference Structure with Ashraf's Actual Skills) -->
+      <!-- Unified Arsenal Board (Matching Reference Structure with Ashraf's Exact Skills) -->
       <div class="arsenal-board">
         
         <!-- ROW 1: Languages -->
@@ -672,12 +696,6 @@
             <span class="arsenal-cat-badge">Languages</span>
           </div>
           <div class="arsenal-items">
-            <div class="tech-tile" title="Python">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="Python" loading="lazy">
-            </div>
-            <div class="tech-tile" title="Java">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg" alt="Java" loading="lazy">
-            </div>
             <div class="tech-tile" title="JavaScript (ES6+)">
               <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" alt="JavaScript" loading="lazy">
             </div>
@@ -687,102 +705,24 @@
             <div class="tech-tile" title="CSS3">
               <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" alt="CSS3" loading="lazy">
             </div>
-            <div class="tech-badge badge-sql" title="Structured Query Language">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/><path d="M3 12A9 3 0 0 0 21 12"/></svg>
-              <span>SQL / DB</span>
+            <div class="tech-tile" title="C++">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg" alt="C++" loading="lazy">
+            </div>
+            <div class="tech-tile" title="Python">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="Python" loading="lazy">
             </div>
           </div>
         </div>
 
-        <!-- ROW 2: Frontend & 3D -->
+        <!-- ROW 2: Tools & Platform -->
         <div class="arsenal-row">
           <div class="arsenal-category">
-            <span class="arsenal-cat-badge">Frontend &amp; 3D</span>
+            <span class="arsenal-cat-badge">Tools &amp; Platform</span>
           </div>
           <div class="arsenal-items">
-            <div class="tech-tile tile-threejs" title="Three.js 3D WebGL Library">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/threejs/threejs-original.svg" alt="Three.js" class="invert-light-preserve" loading="lazy">
-            </div>
-            <div class="tech-badge badge-webgl" title="WebGL &amp; HTML5 Canvas 2D">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m21.12 6.4-6.05-4.06a4.95 4.95 0 0 0-5.46 0L3.56 6.4a4.96 4.96 0 0 0-2.06 4.12v6.96c0 1.66.86 3.19 2.29 4.02l6.05 4.06a4.95 4.95 0 0 0 5.46 0l6.05-4.06a4.96 4.96 0 0 0 2.06-4.12v-6.96c0-1.66-.86-3.19-2.29-4.02Z"/><path d="m3.5 6.5 8.5 5.5 8.5-5.5"/><path d="M12 12v9.5"/></svg>
-              <span>WEBGL &amp; CANVAS</span>
-            </div>
             <div class="tech-tile" title="Vite Next-Gen Frontend Tooling">
               <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vitejs/vitejs-original.svg" alt="Vite" loading="lazy">
             </div>
-            <div class="tech-badge badge-modcss" title="Modular CSS Architecture &amp; Glassmorphism">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.74 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg>
-              <span>MODULAR CSS</span>
-            </div>
-            <div class="tech-badge badge-responsive" title="Responsive Mobile &amp; Desktop UI">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="12" x="3" y="4" rx="2"/><line x1="2" y1="20" x2="22" y2="20"/></svg>
-              <span>RESPONSIVE UI</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- ROW 3: Backend & Vision -->
-        <div class="arsenal-row">
-          <div class="arsenal-category">
-            <span class="arsenal-cat-badge">Backend &amp; Vision</span>
-          </div>
-          <div class="arsenal-items">
-            <div class="tech-tile" title="MongoDB NoSQL Database">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg" alt="MongoDB" loading="lazy">
-            </div>
-            <div class="tech-badge badge-restapi" title="RESTful API Design &amp; Integration">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
-              <span>RESTFUL APIS</span>
-            </div>
-            <div class="tech-tile tile-opencv" title="OpenCV Computer Vision Library">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/opencv/opencv-original.svg" alt="OpenCV" loading="lazy">
-            </div>
-            <div class="tech-badge badge-jwt" title="JWT &amp; Secure Token Authentication">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-              <span>JWT AUTH</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- ROW 4: Algorithms & DSA -->
-        <div class="arsenal-row">
-          <div class="arsenal-category">
-            <span class="arsenal-cat-badge">Algorithms &amp; DSA</span>
-          </div>
-          <div class="arsenal-items">
-            <div class="tech-badge badge-algo-sw" title="Sliding Window Algorithmic Pattern">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-              <span>SLIDING WINDOW</span>
-            </div>
-            <div class="tech-badge badge-algo-tp" title="Two Pointers Traversal Pattern">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="7 13 12 18 17 13"/><polyline points="7 6 12 11 17 6"/></svg>
-              <span>TWO POINTERS</span>
-            </div>
-            <div class="tech-badge badge-algo-bs" title="Binary Search in Search Spaces">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-              <span>BINARY SEARCH</span>
-            </div>
-            <div class="tech-badge badge-algo-tree" title="Binary Trees &amp; Binary Search Trees">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="5" r="3"/><circle cx="6" cy="19" r="3"/><circle cx="18" cy="19" r="3"/><path d="M12 8v4"/><path d="m8 16 4-4 4 4"/></svg>
-              <span>TREES &amp; BST</span>
-            </div>
-            <div class="tech-badge badge-algo-graph" title="Graph BFS &amp; DFS Traversals">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="5" cy="6" r="3"/><circle cx="19" cy="6" r="3"/><circle cx="12" cy="18" r="3"/><line x1="7.5" y1="7.5" x2="10.5" y2="15.5"/><line x1="16.5" y1="7.5" x2="13.5" y2="15.5"/><line x1="8" y1="6" x2="16" y2="6"/></svg>
-              <span>GRAPH BFS / DFS</span>
-            </div>
-            <div class="tech-badge badge-algo-dsa" title="Space-Time Big-O Optimization">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-              <span>SPACE-TIME (BIG-O)</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- ROW 5: DevOps & Tools -->
-        <div class="arsenal-row">
-          <div class="arsenal-category">
-            <span class="arsenal-cat-badge">DevOps &amp; Tools</span>
-          </div>
-          <div class="arsenal-items">
             <div class="tech-tile" title="Git Version Control">
               <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" alt="Git" loading="lazy">
             </div>
@@ -792,14 +732,30 @@
             <div class="tech-tile tile-vercel" title="Vercel Edge Deployment">
               <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vercel/vercel-original.svg" alt="Vercel" class="icon-dark-invert" loading="lazy">
             </div>
-            <div class="tech-tile" title="Figma UI/UX Prototyping">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg" alt="Figma" loading="lazy">
+          </div>
+        </div>
+
+        <!-- ROW 3: I Vibe With -->
+        <div class="arsenal-row">
+          <div class="arsenal-category">
+            <span class="arsenal-cat-badge">I Vibe With</span>
+          </div>
+          <div class="arsenal-items">
+            <div class="tech-badge badge-antigravity" title="Google Antigravity Advanced Agentic AI">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+              <span>ANTIGRAVITY</span>
             </div>
-            <div class="tech-tile" title="Postman API Testing">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postman/postman-original.svg" alt="Postman" loading="lazy">
+            <div class="tech-badge badge-gemini" title="Google Gemini Multimodal AI">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 24C12 17.3726 6.62742 12 0 12C6.62742 12 12 6.62742 12 0C12 6.62742 17.3726 12 24 12C17.3726 12 12 17.3726 12 24Z"/>
+              </svg>
+              <span>GEMINI</span>
             </div>
-            <div class="tech-tile" title="Visual Studio Code">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg" alt="VS Code" loading="lazy">
+            <div class="tech-badge badge-chatgpt" title="OpenAI ChatGPT">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M20.5 10.5c-.2-1.3-.9-2.5-2-3.3.3-.9.3-1.9 0-2.8-.5-1.2-1.5-2.1-2.7-2.5-1-.3-2.1-.2-3 .4-.8-.7-1.9-1-3-1-1.3.1-2.4.8-3.1 1.8-.9-.3-2-.2-2.9.3-1.1.7-1.8 1.8-2 3.1-.9.5-1.5 1.4-1.7 2.4-.2 1.1.1 2.2.8 3.1-.3.9-.3 1.9 0 2.8.5 1.2 1.5 2.1 2.7 2.5 1 .3 2.1.2 3-.4.8.7 1.9 1 3 1 1.3-.1 2.4-.8 3.1-1.8.9.3 2 .2 2.9-.3 1.1-.7 1.8-1.8 2-3.1.9-.5 1.5-1.4 1.7-2.4.2-1.1-.1-2.2-.8-3.1.3-.9.3-1.9 0-2.8z"/>
+              </svg>
+              <span>CHATGPT</span>
             </div>
           </div>
         </div>

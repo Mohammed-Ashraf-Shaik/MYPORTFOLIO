@@ -370,6 +370,8 @@
         if (winrateHeaderElem) winrateHeaderElem.textContent = `${winPercent}%`;
         const totalGamesElem = document.getElementById('chess-total-games-text');
         if (totalGamesElem) totalGamesElem.textContent = `${totalGames.toLocaleString()}+`;
+        const matchesKpiElem = document.getElementById('chess-matches-kpi-val');
+        if (matchesKpiElem) animateValue(matchesKpiElem, 0, totalGames);
       }
 
       if (profile.avatar) {
@@ -396,6 +398,7 @@
     animateValue(document.getElementById('chess-wins-val'), 0, DEFAULTS.chess.wins);
     animateValue(document.getElementById('chess-losses-val'), 0, DEFAULTS.chess.losses);
     animateValue(document.getElementById('chess-draws-val'), 0, DEFAULTS.chess.draws);
+    animateValue(document.getElementById('chess-matches-kpi-val'), 0, 2227);
     const winBar = document.getElementById('chess-win-bar');
     if (winBar) winBar.style.width = '52%';
     const statusElem = document.getElementById('chess-sync-status');

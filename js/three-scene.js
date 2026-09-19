@@ -30,65 +30,113 @@
     // =========================================================================
     // 2. PROCEDURAL 3D SNOWFLAKE PARTICLES (Cosmic Snowfall)
     // =========================================================================
-    function createSnowflakeTexture() {
+    // =========================================================================
+    // 2. PROCEDURAL 3D SNOWFLAKE PARTICLES (Realistic Multi-Layered Cosmic Snowfall)
+    // =========================================================================
+    function createRealisticSnowflakeTexture(isLightMode = false) {
       const canvas = document.createElement('canvas');
-      canvas.width = 128;
-      canvas.height = 128;
+      canvas.width = 256;
+      canvas.height = 256;
       const ctx = canvas.getContext('2d');
-      ctx.translate(64, 64);
-      ctx.strokeStyle = '#ffffff';
+      ctx.translate(128, 128);
+
+      const mainColor = isLightMode ? '#78350f' : '#ffffff';
+      const glowColor = isLightMode ? 'rgba(180, 83, 9, 0.45)' : 'rgba(255, 255, 255, 0.95)';
+      const coreFill = isLightMode ? '#92400e' : 'rgba(255, 255, 255, 0.98)';
+
+      ctx.strokeStyle = mainColor;
       ctx.lineCap = 'round';
-      ctx.shadowBlur = 10;
-      ctx.shadowColor = 'rgba(255, 255, 255, 0.95)';
+      ctx.shadowBlur = isLightMode ? 6 : 14;
+      ctx.shadowColor = glowColor;
 
       const arms = 6;
       for (let a = 0; a < arms; a++) {
         ctx.save();
         ctx.rotate((a * Math.PI) / 3);
 
-        // Main crystal spine
-        ctx.lineWidth = 3.2;
+        // Main primary crystal shaft
+        ctx.lineWidth = 4.8;
         ctx.beginPath();
         ctx.moveTo(0, 0);
-        ctx.lineTo(0, -50);
+        ctx.lineTo(0, -108);
         ctx.stroke();
 
-        // Lower branchlets
-        ctx.lineWidth = 2.2;
+        // Primary lower branchlets (60-deg angle)
+        ctx.lineWidth = 3.4;
         ctx.beginPath();
-        ctx.moveTo(0, -20);
-        ctx.lineTo(-14, -32);
-        ctx.moveTo(0, -20);
-        ctx.lineTo(14, -32);
+        ctx.moveTo(0, -40);
+        ctx.lineTo(-28, -66);
+        ctx.moveTo(0, -40);
+        ctx.lineTo(28, -66);
+        ctx.stroke();
+
+        // Secondary sub-pinnules branching off lower arms
+        ctx.lineWidth = 2.4;
+        ctx.beginPath();
+        ctx.moveTo(-14, -53);
+        ctx.lineTo(-24, -48);
+        ctx.moveTo(14, -53);
+        ctx.lineTo(24, -48);
+        ctx.stroke();
 
         // Upper branchlets
-        ctx.moveTo(0, -35);
-        ctx.lineTo(-11, -44);
-        ctx.moveTo(0, -35);
-        ctx.lineTo(11, -44);
+        ctx.lineWidth = 3.0;
+        ctx.beginPath();
+        ctx.moveTo(0, -74);
+        ctx.lineTo(-22, -92);
+        ctx.moveTo(0, -74);
+        ctx.lineTo(22, -92);
         ctx.stroke();
 
-        // Crystal tip starlet
-        ctx.fillStyle = '#ffffff';
+        // Near-tip micro-spurs
+        ctx.lineWidth = 2.0;
         ctx.beginPath();
-        ctx.arc(0, -50, 2.8, 0, Math.PI * 2);
+        ctx.moveTo(0, -94);
+        ctx.lineTo(-11, -103);
+        ctx.moveTo(0, -94);
+        ctx.lineTo(11, -103);
+        ctx.stroke();
+
+        // Crystal diamond starlet tip
+        ctx.fillStyle = mainColor;
+        ctx.beginPath();
+        ctx.arc(0, -108, 4.2, 0, Math.PI * 2);
         ctx.fill();
 
         ctx.restore();
       }
 
-      // Central hexagonal crystal core
-      ctx.fillStyle = 'rgba(255, 255, 255, 0.95)';
+      // Central faceted crystal hexagon
+      ctx.fillStyle = coreFill;
       ctx.beginPath();
-      ctx.arc(0, 0, 5.5, 0, Math.PI * 2);
+      for (let i = 0; i < 6; i++) {
+        const angle = (i * Math.PI) / 3;
+        const x = Math.cos(angle) * 15;
+        const y = Math.sin(angle) * 15;
+        if (i === 0) ctx.moveTo(x, y);
+        else ctx.lineTo(x, y);
+      }
+      ctx.closePath();
       ctx.fill();
+
+      // Inner core refraction star
+      ctx.strokeStyle = isLightMode ? '#ffffff' : '#f59e0b';
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      for (let i = 0; i < 6; i++) {
+        const angle = (i * Math.PI) / 3;
+        ctx.moveTo(0, 0);
+        ctx.lineTo(Math.cos(angle) * 11, Math.sin(angle) * 11);
+      }
+      ctx.stroke();
 
       return new THREE.CanvasTexture(canvas);
     }
 
-    const snowflakeTexture = createSnowflakeTexture();
+    const darkSnowflakeTexture = createRealisticSnowflakeTexture(false);
+    const lightSnowflakeTexture = createRealisticSnowflakeTexture(true);
 
-    const particleCount = 480;
+    const particleCount = 520;
     const particleGeo = new THREE.BufferGeometry();
     const positions = new Float32Array(particleCount * 3);
     const velocities = new Float32Array(particleCount);
@@ -97,36 +145,73 @@
     const swayPhases = new Float32Array(particleCount);
     const baseColors = new Float32Array(particleCount * 3);
 
-    const colorIce = new THREE.Color(0xffffff);
-    const colorAmberSnow = new THREE.Color(0xfef3c7);
-    const colorGoldSnow = new THREE.Color(0xfcd34d);
-
     for (let i = 0; i < particleCount; i++) {
-      positions[i * 3] = (Math.random() - 0.5) * 110;
-      positions[i * 3 + 1] = (Math.random() - 0.5) * 90;
-      positions[i * 3 + 2] = (Math.random() - 0.5) * 60;
+      positions[i * 3] = (Math.random() - 0.5) * 115;
+      positions[i * 3 + 1] = (Math.random() - 0.5) * 85;
+      // Spread depth from foreground to background for realistic perspective scale
+      positions[i * 3 + 2] = (Math.random() - 0.5) * 55;
 
-      velocities[i] = 0.05 + Math.random() * 0.11;
-      swayAmps[i] = 0.4 + Math.random() * 0.8;
-      swayFreqs[i] = 0.8 + Math.random() * 1.5;
+      velocities[i] = 0.045 + Math.random() * 0.095;
+      swayAmps[i] = 0.35 + Math.random() * 0.75;
+      swayFreqs[i] = 0.75 + Math.random() * 1.35;
       swayPhases[i] = Math.random() * Math.PI * 2;
-
-      const pick = Math.random();
-      const col = pick < 0.6 ? colorIce : pick < 0.85 ? colorAmberSnow : colorGoldSnow;
-      baseColors[i * 3] = col.r;
-      baseColors[i * 3 + 1] = col.g;
-      baseColors[i * 3 + 2] = col.b;
     }
 
     particleGeo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
     particleGeo.setAttribute('color', new THREE.BufferAttribute(baseColors, 3));
 
+    function updateSnowflakeColors(isLight, theme) {
+      const colAttr = particleGeo.attributes.color;
+      const colArray = colAttr.array;
+
+      let c1, c2, c3;
+      if (isLight) {
+        if (theme === 'blue') {
+          c1 = new THREE.Color(0x0369a1);
+          c2 = new THREE.Color(0x0284c7);
+          c3 = new THREE.Color(0x075985);
+        } else if (theme === 'red') {
+          c1 = new THREE.Color(0xb91c1c);
+          c2 = new THREE.Color(0xdc2626);
+          c3 = new THREE.Color(0x991b1b);
+        } else {
+          // High-contrast rich amber & antique bronze frost against parchment background
+          c1 = new THREE.Color(0x92400e);
+          c2 = new THREE.Color(0xb45309);
+          c3 = new THREE.Color(0x78350f);
+        }
+      } else {
+        if (theme === 'blue') {
+          c1 = new THREE.Color(0xffffff);
+          c2 = new THREE.Color(0x7dd3fc);
+          c3 = new THREE.Color(0x38bdf8);
+        } else if (theme === 'red') {
+          c1 = new THREE.Color(0xffffff);
+          c2 = new THREE.Color(0xfca5a5);
+          c3 = new THREE.Color(0xf87171);
+        } else {
+          c1 = new THREE.Color(0xffffff);
+          c2 = new THREE.Color(0xfef3c7);
+          c3 = new THREE.Color(0xfcd34d);
+        }
+      }
+
+      for (let i = 0; i < particleCount; i++) {
+        const pick = (i % 3);
+        const col = pick === 0 ? c1 : pick === 1 ? c2 : c3;
+        colArray[i * 3] = col.r;
+        colArray[i * 3 + 1] = col.g;
+        colArray[i * 3 + 2] = col.b;
+      }
+      colAttr.needsUpdate = true;
+    }
+
     const particleMat = new THREE.PointsMaterial({
-      size: 1.85,
-      map: snowflakeTexture,
+      size: 2.15,
+      map: darkSnowflakeTexture,
       vertexColors: true,
       transparent: true,
-      opacity: 0.82,
+      opacity: 0.85,
       blending: THREE.AdditiveBlending,
       depthWrite: false
     });
@@ -330,10 +415,10 @@
       currentMouseX += (targetMouseX - currentMouseX) * 0.04;
       currentMouseY += (targetMouseY - currentMouseY) * 0.04;
 
-      // Camera responds naturally to cursor & scroll
-      camera.position.x = currentMouseX * 3;
-      camera.position.y = currentMouseY * 2.5 - (scrollY * 0.012);
-      camera.lookAt(0, -(scrollY * 0.012), 0);
+      // Camera responds smoothly to mouse parallax without drifting away on scroll
+      camera.position.x = currentMouseX * 2.5;
+      camera.position.y = currentMouseY * 1.5;
+      camera.lookAt(0, 0, 0);
 
       // Inertia drag on snowflake sculpture
       snowflakeGroup.rotation.y += rotationVelocityY;
@@ -351,8 +436,8 @@
       // Smooth return to unit scale after click pulse
       snowflakeGroup.scale.lerp(new THREE.Vector3(1, 1, 1), 0.06);
 
-      // Subtle float wave
-      snowflakeGroup.position.y = 2 + Math.sin(elapsedTime * 1.1) * 0.7;
+      // Subtle float wave + natural parallax exit as user scrolls down past Hero section
+      snowflakeGroup.position.y = 2 + Math.sin(elapsedTime * 1.1) * 0.7 - (scrollY * 0.022);
 
       // Responsive position
       if (window.innerWidth < 900) {
@@ -380,10 +465,10 @@
         // Subtle depth drift
         posArray[idx + 2] += Math.cos(elapsedTime * 0.5 + swayPhases[i]) * 0.01;
 
-        // Wrap around when falling below viewport
-        if (posArray[idx + 1] < -45) {
-          posArray[idx + 1] = 45;
-          posArray[idx] = (Math.random() - 0.5) * 110;
+        // Wrap around continuously so snowfall is perpetual at any scroll depth
+        if (posArray[idx + 1] < -42) {
+          posArray[idx + 1] = 42;
+          posArray[idx] = (Math.random() - 0.5) * 115;
         }
       }
       posAttr.needsUpdate = true;
@@ -404,65 +489,74 @@
     // =========================================================================
     // 6. THEME PALETTE & LIGHT/DARK MODE SYNCHRONIZATION
     // =========================================================================
+    let currentActiveMode = localStorage.getItem('ashraf_theme_mode') || 'dark';
+    let currentActiveTheme = localStorage.getItem('ashraf_color_theme') || 'brown';
+
     function applySceneTheme(theme) {
+      currentActiveTheme = theme;
+      const isLight = currentActiveMode === 'light';
+
       if (theme === 'blue') {
-        coreMat.color.setHex(0x38bdf8);
-        shaftMat.color.setHex(0x0284c7);
-        branchMat.color.setHex(0x0ea5e9);
-        ring1Mat.color.setHex(0x38bdf8);
-        ring2Mat.color.setHex(0x7dd3fc);
-        particleMat.opacity = 0.88;
+        coreMat.color.setHex(isLight ? 0x0284c7 : 0x38bdf8);
+        shaftMat.color.setHex(isLight ? 0x0369a1 : 0x0284c7);
+        branchMat.color.setHex(isLight ? 0x0284c7 : 0x0ea5e9);
+        ring1Mat.color.setHex(isLight ? 0x075985 : 0x38bdf8);
+        ring2Mat.color.setHex(isLight ? 0x0369a1 : 0x7dd3fc);
       } else if (theme === 'red') {
-        coreMat.color.setHex(0xf87171);
-        shaftMat.color.setHex(0xdc2626);
-        branchMat.color.setHex(0xef4444);
-        ring1Mat.color.setHex(0xf87171);
-        ring2Mat.color.setHex(0xfca5a5);
-        particleMat.opacity = 0.85;
+        coreMat.color.setHex(isLight ? 0xdc2626 : 0xf87171);
+        shaftMat.color.setHex(isLight ? 0xb91c1c : 0xdc2626);
+        branchMat.color.setHex(isLight ? 0xdc2626 : 0xef4444);
+        ring1Mat.color.setHex(isLight ? 0x991b1b : 0xf87171);
+        ring2Mat.color.setHex(isLight ? 0xb91c1c : 0xfca5a5);
       } else if (theme === 'white') {
-        coreMat.color.setHex(0xffffff);
-        shaftMat.color.setHex(0xe2e8f0);
-        branchMat.color.setHex(0xcbd5e1);
-        ring1Mat.color.setHex(0xffffff);
-        ring2Mat.color.setHex(0xf8fafc);
-        particleMat.opacity = 0.92;
+        coreMat.color.setHex(isLight ? 0x334155 : 0xffffff);
+        shaftMat.color.setHex(isLight ? 0x475569 : 0xe2e8f0);
+        branchMat.color.setHex(isLight ? 0x334155 : 0xcbd5e1);
+        ring1Mat.color.setHex(isLight ? 0x1e293b : 0xffffff);
+        ring2Mat.color.setHex(isLight ? 0x475569 : 0xf8fafc);
       } else {
-        // Default Warm Amber & Vintage Brass
-        coreMat.color.setHex(0xf59e0b);
-        shaftMat.color.setHex(0xd4a373);
-        branchMat.color.setHex(0xf59e0b);
-        ring1Mat.color.setHex(0xd97706);
-        ring2Mat.color.setHex(0xb77e3f);
-        particleMat.opacity = 0.82;
+        // Vintage Brown / Warm Amber & Antique Bronze
+        coreMat.color.setHex(isLight ? 0xb45309 : 0xf59e0b);
+        shaftMat.color.setHex(isLight ? 0x92400e : 0xd4a373);
+        branchMat.color.setHex(isLight ? 0xb45309 : 0xf59e0b);
+        ring1Mat.color.setHex(isLight ? 0x78350f : 0xd97706);
+        ring2Mat.color.setHex(isLight ? 0x92400e : 0xb77e3f);
       }
+
+      updateSnowflakeColors(isLight, theme);
     }
 
-    const initialTheme = localStorage.getItem('ashraf_color_theme') || 'brown';
-    if (initialTheme !== 'brown') {
-      applySceneTheme(initialTheme);
+    function applySceneMode(mode) {
+      currentActiveMode = mode;
+      const isLight = mode === 'light';
+
+      if (isLight) {
+        particleMat.map = lightSnowflakeTexture;
+        particleMat.blending = THREE.NormalBlending;
+        particleMat.opacity = 0.85;
+      } else {
+        particleMat.map = darkSnowflakeTexture;
+        particleMat.blending = THREE.AdditiveBlending;
+        particleMat.opacity = 0.85;
+      }
+      particleMat.needsUpdate = true;
+
+      applySceneTheme(currentActiveTheme);
+    }
+
+    // Initialize initial colors and mode
+    updateSnowflakeColors(currentActiveMode === 'light', currentActiveTheme);
+    if (currentActiveMode === 'light') {
+      applySceneMode('light');
+    }
+    if (currentActiveTheme !== 'brown') {
+      applySceneTheme(currentActiveTheme);
     }
 
     window.addEventListener('colorThemeChanged', (e) => {
       const theme = e.detail?.theme || 'brown';
       applySceneTheme(theme);
     });
-
-    function applySceneMode(mode) {
-      if (mode === 'light') {
-        particleMat.opacity = 0.45;
-        particleMat.blending = THREE.NormalBlending;
-      } else {
-        particleMat.opacity = 0.82;
-        particleMat.blending = THREE.AdditiveBlending;
-        const currentTheme = localStorage.getItem('ashraf_color_theme') || 'brown';
-        applySceneTheme(currentTheme);
-      }
-    }
-
-    const initialMode = localStorage.getItem('ashraf_theme_mode') || 'dark';
-    if (initialMode === 'light') {
-      applySceneMode('light');
-    }
 
     window.addEventListener('themeModeChanged', (e) => {
       const mode = e.detail?.mode || 'dark';
