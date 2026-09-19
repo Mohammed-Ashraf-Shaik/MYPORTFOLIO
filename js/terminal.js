@@ -93,7 +93,7 @@
 <div class="terminal-line">  • <span class="text-cyan">Rapid Rating:</span>     <strong>${stats.rapid}</strong> (Peak: ${stats.rapidPeak})</div>
 <div class="terminal-line">  • <span class="text-cyan">Tactics Rating:</span>   <strong>${stats.tactics}</strong></div>
 <div class="terminal-line">  • <span class="text-cyan">Match Record:</span>     <span style="color:#10b981;">${stats.record.win} Wins</span> / <span style="color:#ef4444;">${stats.record.loss} Losses</span> / ${stats.record.draw} Draws</div>
-<div class="terminal-line">  • <span class="text-cyan">League Standing:</span>  🏆 ${stats.league}</div>
+<div class="terminal-line">  • <span class="text-cyan">League Standing:</span>  [LEGEND] ${stats.league}</div>
 <div class="terminal-line">  • <span class="text-cyan">Official Link:</span>    <a href="https://www.chess.com/member/ashumm" target="_blank" style="color:#00f5ff;text-decoration:underline;">chess.com/member/ashumm</a></div>
 `;
     },

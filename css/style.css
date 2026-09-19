@@ -691,55 +691,7 @@ body {
   margin-top: 3px;
 }
 
-/* Tactile Badges Group */
-.hero-tactile-badges {
-  position: absolute;
-  top: -12px;
-  right: -24px;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  z-index: 12;
-}
 
-.tactile-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  padding: 0.35rem 0.85rem;
-  border-radius: 6px;
-  font-family: var(--font-hand);
-  font-size: 1.15rem;
-  font-weight: 700;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-  transition: transform 0.2s ease;
-  user-select: none;
-}
-
-.tactile-badge:hover {
-  transform: scale(1.08) !important;
-}
-
-.badge-amber {
-  background: #f59e0b;
-  color: #1a1107;
-  transform: rotate(-3deg);
-  border: 1px solid #d97706;
-}
-
-.badge-parchment {
-  background: #ede0d4;
-  color: #3b281a;
-  border: 1px solid #b77e3f;
-  transform: rotate(2.5deg);
-}
-
-.badge-terracotta {
-  background: #c2410c;
-  color: #faf5ee;
-  transform: rotate(-1.5deg);
-  border: 1px solid #9a3412;
-}
 
 /* ==========================================================================
    STAMP SOCIAL ICON ROW (Integrated into Stamp Card below caption)
@@ -1707,6 +1659,10 @@ body {
 
 .sk-icon {
   font-size: 1.3rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-amber);
 }
 
 .sk-title {
@@ -1837,6 +1793,9 @@ body {
   font-weight: 700;
   color: var(--text-primary);
   margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .pillar-desc {
@@ -1961,6 +1920,10 @@ body {
 
 .cqt-icon {
   font-size: 1.4rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-amber);
 }
 
 .cqt-label {
@@ -2110,6 +2073,18 @@ body {
   color: #ffffff;
   transform: translateY(-4px) scale(1.1);
   box-shadow: 0 6px 16px rgba(217, 119, 6, 0.5);
+}
+
+.dock-item svg {
+  width: 18px;
+  height: 18px;
+  stroke: currentColor;
+  transition: transform 0.2s ease;
+}
+
+.dock-item:hover svg,
+.dock-item.active svg {
+  transform: scale(1.08);
 }
 
 /* Tooltip on hover */

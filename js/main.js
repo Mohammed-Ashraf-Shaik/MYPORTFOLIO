@@ -411,11 +411,15 @@ document.addEventListener('DOMContentLoaded', () => {
     function applyThemeMode(mode, notify = true) {
       if (mode === 'light') {
         document.documentElement.setAttribute('data-theme-mode', 'light');
-        if (modeSymbol) modeSymbol.textContent = '☀️';
+        if (modeSymbol) {
+          modeSymbol.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sun"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>';
+        }
         if (modeBtn) modeBtn.title = 'Switch to Dark Mode (Espresso)';
       } else {
         document.documentElement.removeAttribute('data-theme-mode');
-        if (modeSymbol) modeSymbol.textContent = '🌙';
+        if (modeSymbol) {
+          modeSymbol.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-moon"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>';
+        }
         if (modeBtn) modeBtn.title = 'Switch to Light Mode (Parchment)';
       }
       localStorage.setItem('ashraf_theme_mode', mode);
@@ -426,4 +430,9 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   setupThemeSystem();
+
+  // Initialize Lucide icons if available
+  if (window.lucide && typeof window.lucide.createIcons === 'function') {
+    window.lucide.createIcons();
+  }
 });

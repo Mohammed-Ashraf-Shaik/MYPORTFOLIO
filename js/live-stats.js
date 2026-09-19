@@ -101,8 +101,8 @@
           chip.rel = 'noopener noreferrer';
           chip.className = 'gh-repo-chip';
           chip.innerHTML = `
-            <span class="repo-name">📂 ${r.name}</span>
-            <span class="repo-meta">${r.language || 'Code'} • ★ ${r.stargazers_count || 0}</span>
+            <span class="repo-name"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:4px;"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/></svg>${r.name}</span>
+            <span class="repo-meta">${r.language || 'Code'} • <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" stroke="none" style="vertical-align:middle;margin-right:2px;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>${r.stargazers_count || 0}</span>
           `;
           repoContainer.appendChild(chip);
         });

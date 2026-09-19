@@ -23,8 +23,8 @@
   <!-- Stylesheet -->
   <link rel="stylesheet" href="css/style.css">
 
-  <!-- Favicon -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📜</text></svg>">
+  <!-- Favicon: Lucide Code Icon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%23f59e0b%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22><polyline points=%2216 18 22 12 16 6%22/><polyline points=%228 6 2 12 8 18%22/></svg>">
 </head>
 <body>
 
@@ -105,9 +105,11 @@
           </div>
         </div>
 
-        <!-- Light / Dark Mode Toggle with Moon Symbol -->
+        <!-- Light / Dark Mode Toggle with Lucide Moon Symbol -->
         <button id="theme-mode-btn" class="btn-hud-icon" title="Toggle Light / Dark Mode" aria-label="Toggle Light / Dark Mode">
-          <span id="theme-mode-symbol" class="theme-mode-symbol">🌙</span>
+          <span id="theme-mode-symbol" class="theme-mode-symbol">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-moon"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+          </span>
         </button>
 
         <!-- Mobile Menu Toggle -->
@@ -123,60 +125,61 @@
   </header>
 
   <!-- ========================================================================
-       HERO SECTION (Editorial Dossier, Perforated Stamp Portrait & Tactile Badges)
+       HERO SECTION (Vintage Dossier & Architectural Monolith)
        ======================================================================== -->
   <section id="hero" class="hero-section">
-    <!-- Subtle Giant Watermark Typography -->
+    <!-- Giant Subtle Watermark Background -->
     <div class="bg-watermark-text">ASHRAF</div>
 
     <div class="container">
       <div class="hero-grid">
         
-        <!-- Left: Identity, Bio & CTAs -->
-        <div class="hero-content-col">
-          <div class="hero-status-pill">
-            <span class="status-dot"></span>
-            <span>AVAILABLE FOR OPPORTUNITIES • NANDYAL, INDIA</span>
-          </div>
-
+        <!-- Left: Engineering Dossier Narrative -->
+        <div class="hero-dossier-col">
+          
           <!-- Mind-Blowing Visual Centerpiece for Name -->
           <div class="name-visual-monolith" id="name-visual-monolith">
+            <div class="monolith-eyebrow">
+              <div class="monolith-line"></div>
+              <span class="monolith-status">FULL-STACK SYSTEM ARCHITECT</span>
+            </div>
+
             <h1 class="editorial-name-title">
-              <span class="name-first">SHAIK MOHAMMED</span>
-              <span class="name-accent" data-text="ASHRAF">ASHRAF</span>
+              <span class="name-first">MOHAMMED</span>
+              <span class="name-accent">ASHRAF</span>
             </h1>
+
             <div class="name-signature-flourish">
-              <span class="flourish-handwriting">- If I were the villain, I wouldn't let the hero win.</span>
-              <svg class="flourish-svg-stroke" viewBox="0 0 320 20" fill="none">
-                <path d="M5 12C60 4 140 18 315 8" stroke="url(#goldStroke)" stroke-width="2.5" stroke-linecap="round"/>
+              <div class="flourish-handwriting">- If I were the villain, I wouldn't let the hero win.</div>
+              <svg class="flourish-svg-stroke" viewBox="0 0 280 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4 12C45 4 110 3 175 6C215 8 260 12 276 9" stroke="url(#goldStroke)" stroke-width="2.5" stroke-linecap="round"/>
                 <defs>
-                  <linearGradient id="goldStroke" x1="0" y1="0" x2="1" y2="0">
-                    <stop offset="0%" stop-color="#d97706" stop-opacity="0.2"/>
-                    <stop offset="50%" stop-color="#f59e0b" stop-opacity="0.9"/>
-                    <stop offset="100%" stop-color="#b77e3f" stop-opacity="0.3"/>
+                  <linearGradient id="goldStroke" x1="4" y1="8" x2="276" y2="8" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="#b45309" />
+                    <stop offset="50%" stop-color="#f59e0b" />
+                    <stop offset="100%" stop-color="#d97706" />
                   </linearGradient>
                 </defs>
               </svg>
             </div>
           </div>
 
+          <!-- Dynamic Typewriter Role Tagline -->
           <div class="hero-role-wrapper">
-            <span>&gt;&gt;</span>
-            <span id="hero-role-text">Full-Stack Software Engineer</span>
+            <span class="role-prefix">&gt; </span>
+            <span id="typewriter-role" class="typewriter-text">Competitive Programmer &amp; Full-Stack Builder</span>
             <span class="typewriter-cursor"></span>
           </div>
 
-          <p class="hero-tagline">
-            "Architecting high-scale distributed systems and immersive web experiences."
-          </p>
-
+          <!-- Bio Pitch -->
           <p class="hero-bio">
-            Computer Science undergraduate at GPREC Kurnool with a relentless drive for algorithmic elegance, clean code architecture, and high-performance engineering. Focused on understanding deep computational logic rather than rote memorization.
+            B.Tech Computer Science student at <strong>GPREC Kurnool (CGPA: 8.78)</strong>. Passionate problem solver with <strong>128+ LeetCode problems solved</strong>, 180+ GitHub contributions, and creator of the <strong>SmartCare</strong> hospital workflow application.
           </p>
 
+          <!-- Action CTA Group -->
           <div class="hero-cta-group">
-            <a href="#project" class="btn-primary">
-              <span>EXPLORE SMARTCARE</span>
+            <a href="#telemetry" class="btn-primary">
+              <span>EXPLORE LIVE RADAR</span>
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                 <line x1="5" y1="12" x2="19" y2="12"></line>
                 <polyline points="12 5 19 12 12 19"></polyline>
@@ -214,28 +217,21 @@
                 <div class="stamp-name-handwritten">Shaik Mohammed Ashraf</div>
               </div>
 
-              <!-- Social Links Row (Integrated into stamp card) -->
+              <!-- Social Links Row (Integrated into stamp card with Lucide icons) -->
               <div class="stamp-social-row">
                 <a href="https://linkedin.com/in/mohammed-ashraf-shaik" target="_blank" rel="noopener noreferrer" class="stamp-social-icon" title="LinkedIn" style="background:#0077b5;">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="#ffffff"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
                 </a>
                 <a href="https://github.com/Mohammed-Ashraf-Shaik" target="_blank" rel="noopener noreferrer" class="stamp-social-icon" title="GitHub" style="background:#241b14;">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="#ffffff"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
                 </a>
                 <a href="https://leetcode.com/u/Shaik_mohameed_Ashraf/" target="_blank" rel="noopener noreferrer" class="stamp-social-icon" title="LeetCode" style="background:#f59e0b;">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="#1a1107"><path d="M16.102 17.93l-2.697 2.607c-.466.467-1.111.662-1.823.662s-1.357-.195-1.824-.662l-4.332-4.363c-.467-.467-.702-1.15-.702-1.863s.235-1.357.702-1.824l4.319-4.38c.467-.467 1.125-.645 1.837-.645s1.357.195 1.823.662l2.697 2.606c.514.515 1.365.497 1.9-.038.535-.536.553-1.387.039-1.901l-2.609-2.636a5.214 5.214 0 0 0-3.84-1.46c-1.48 0-2.87.575-3.84 1.545l-4.32 4.38A5.44 5.44 0 0 0 2 14.343c0 1.481.584 2.871 1.554 3.841l4.333 4.364A5.44 5.44 0 0 0 11.727 24c1.48 0 2.87-.574 3.84-1.544l2.697-2.608c.515-.514.515-1.366 0-1.88-.515-.515-1.366-.515-1.88 0zM22.5 12h-9c-.828 0-1.5.672-1.5 1.5s.672 1.5 1.5 1.5h9c.828 0 1.5-.672 1.5-1.5s-.672-1.5-1.5-1.5z"/></svg>
                 </a>
                 <a href="https://www.chess.com/member/ashumm" target="_blank" rel="noopener noreferrer" class="stamp-social-icon" title="Chess.com" style="background:#c2410c;">
-                  <span style="font-size:0.85rem;">♟️</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-swords"><polyline points="14.5 17.5 3 6 3 3 6 3 17.5 14.5"/><line x1="13" y1="19" x2="19" y2="13"/><line x1="16" y1="16" x2="20" y2="20"/><line x1="19" y1="21" x2="21" y2="19"/><polyline points="14.5 6.5 18 3 21 3 21 6 17.5 9.5"/><line x1="5" y1="14" x2="9" y2="18"/><line x1="7" y1="17" x2="4" y2="20"/><line x1="3" y1="19" x2="5" y2="21"/></svg>
                 </a>
               </div>
-            </div>
-
-            <!-- Tactile Badges Group (Playful Sticky Notes) -->
-            <div class="hero-tactile-badges">
-              <span class="tactile-badge badge-amber">DSA LOVER 🧠</span>
-              <span class="tactile-badge badge-parchment">SmartCare Creator 🏥</span>
-              <span class="tactile-badge badge-terracotta">1216 Rapid ELO ♟️</span>
             </div>
           </div>
         </div>
@@ -301,7 +297,9 @@
         <div class="telemetry-row-card">
           <div class="tr-header">
             <div class="tr-platform">
-              <div class="tr-icon gh">🐙</div>
+              <div class="tr-icon gh">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+              </div>
               <div>
                 <div class="tr-title">GitHub Live Progress &amp; Contributions</div>
                 <div class="tr-user">@Mohammed-Ashraf-Shaik • Full-Stack Software Engineer</div>
@@ -315,7 +313,7 @@
             <img src="https://avatars.githubusercontent.com/u/248476293?v=4" alt="GitHub Avatar" class="gh-banner-avatar" onerror="this.src='PROFILEPIC.jpg'">
             <div class="gh-banner-meta">
               <div class="gh-banner-name">Mohammed_Ashraf_Shaik</div>
-              <div class="gh-banner-login">@Mohammed-Ashraf-Shaik • <span style="color:var(--accent-brass);">📍 India</span></div>
+              <div class="gh-banner-login">@Mohammed-Ashraf-Shaik • <span style="color:var(--accent-brass);"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;margin-right:2px;"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>India</span></div>
               <div class="gh-banner-bio" id="github-bio-text">"EXTROVERT, trying to build new things using current tech like ai tools etc..."</div>
             </div>
             <a href="https://github.com/Mohammed-Ashraf-Shaik" target="_blank" rel="noopener noreferrer" class="btn-primary" style="padding:0.5rem 1.1rem;font-size:0.8rem;white-space:nowrap;">
@@ -343,7 +341,7 @@
                 </div>
               </div>
               <div style="margin-top:1.1rem;padding-top:0.85rem;border-top:1px solid var(--border-subtle);font-size:0.82rem;font-family:var(--font-mono);color:var(--accent-brass);">
-                🔥 REPOSITORY SPRINT • REAL-TIME COMMITS ACTIVE
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;margin-right:4px;"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>REPOSITORY SPRINT • REAL-TIME COMMITS ACTIVE
               </div>
             </div>
 
@@ -356,33 +354,33 @@
               <div class="gh-pinned-repos-grid" id="github-recent-repos">
                 <a href="https://github.com/Mohammed-Ashraf-Shaik/smart-care-app" target="_blank" rel="noopener noreferrer" class="gh-pinned-repo-card">
                   <div class="gh-repo-card-top">
-                    <span class="gh-repo-title">📂 smart-care-app</span>
+                    <span class="gh-repo-title"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:4px;"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/></svg>smart-care-app</span>
                     <span class="gh-repo-badge">Production</span>
                   </div>
                   <div class="gh-repo-desc">Healthcare management portal for patient records &amp; doctor scheduling.</div>
                   <div class="gh-repo-footer">
                     <span><span class="lang-dot js"></span>JavaScript</span>
-                    <span>★ 1</span>
+                    <span><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" stroke="none" style="vertical-align:middle;margin-right:2px;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>1</span>
                     <span>Live App</span>
                   </div>
                 </a>
 
                 <a href="https://github.com/Mohammed-Ashraf-Shaik/MYPORTFOLIO" target="_blank" rel="noopener noreferrer" class="gh-pinned-repo-card">
                   <div class="gh-repo-card-top">
-                    <span class="gh-repo-title">📂 MYPORTFOLIO</span>
+                    <span class="gh-repo-title"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:4px;"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/></svg>MYPORTFOLIO</span>
                     <span class="gh-repo-badge">Flagship 3D</span>
                   </div>
                   <div class="gh-repo-desc">Interactive Three.js WebGL portfolio with vintage brown telemetry.</div>
                   <div class="gh-repo-footer">
                     <span><span class="lang-dot webgl"></span>Three.js / HTML</span>
-                    <span>★ 1</span>
+                    <span><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" stroke="none" style="vertical-align:middle;margin-right:2px;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>1</span>
                     <span>Active Repo</span>
                   </div>
                 </a>
 
                 <a href="https://github.com/Mohammed-Ashraf-Shaik/myleetcode" target="_blank" rel="noopener noreferrer" class="gh-pinned-repo-card">
                   <div class="gh-repo-card-top">
-                    <span class="gh-repo-title">📂 myleetcode</span>
+                    <span class="gh-repo-title"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:4px;"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/></svg>myleetcode</span>
                     <span class="gh-repo-badge">DSA Solutions</span>
                   </div>
                   <div class="gh-repo-desc">Algorithmic solutions for LeetCode &amp; CodeChef competitive problems.</div>
@@ -417,7 +415,9 @@
         <div class="telemetry-row-card">
           <div class="tr-header">
             <div class="tr-platform">
-              <div class="tr-icon lc">⚡</div>
+              <div class="tr-icon lc">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zap"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+              </div>
               <div>
                 <div class="tr-title">LeetCode Live Pulse &amp; Mastery</div>
                 <div class="tr-user">@Shaik_mohameed_Ashraf • Competitive Programmer</div>
@@ -431,7 +431,7 @@
             <img src="PROFILEPIC.jpg" alt="LeetCode Avatar" class="gh-banner-avatar">
             <div class="gh-banner-meta">
               <div class="gh-banner-name">Shaik_mohameed_Ashraf</div>
-              <div class="gh-banner-login">@Shaik_mohameed_Ashraf • <span style="color:var(--accent-brass);">⚡ DSA Enthusiast</span></div>
+              <div class="gh-banner-login">@Shaik_mohameed_Ashraf • <span style="color:var(--accent-brass);"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;margin-right:2px;"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>DSA Enthusiast</span></div>
               <div class="gh-banner-bio" id="leetcode-bio-text">"Solving problems daily to sharpen algorithmic thinking and competitive edge."</div>
             </div>
             <a href="https://leetcode.com/u/Shaik_mohameed_Ashraf/" target="_blank" rel="noopener noreferrer" class="btn-primary" style="padding:0.5rem 1.1rem;font-size:0.8rem;white-space:nowrap;">
@@ -459,7 +459,7 @@
                 </div>
               </div>
               <div style="margin-top:1.1rem;padding-top:0.85rem;border-top:1px solid var(--border-subtle);font-size:0.82rem;font-family:var(--font-mono);color:var(--accent-brass);">
-                ⚡ ALGORITHMIC SPRINT • DAILY PROBLEM SOLVING ACTIVE
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;margin-right:4px;"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>ALGORITHMIC SPRINT • DAILY PROBLEM SOLVING ACTIVE
               </div>
             </div>
 
@@ -472,7 +472,7 @@
               <div class="gh-pinned-repos-grid">
                 <div class="gh-pinned-repo-card" style="cursor:default;">
                   <div class="gh-repo-card-top">
-                    <span class="gh-repo-title">🟢 Easy Problems</span>
+                    <span class="gh-repo-title"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:4px;"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>Easy Problems</span>
                     <span class="gh-repo-badge" style="color:#10b981;border-color:rgba(16,185,129,0.35);background:rgba(16,185,129,0.15);">Solved</span>
                   </div>
                   <div class="gh-repo-desc"><b id="leetcode-easy-val" class="count-up-num" data-target="87" style="color:#10b981;">0</b> / ~800 • Foundation & Pattern Recognition</div>
@@ -484,7 +484,7 @@
 
                 <div class="gh-pinned-repo-card" style="cursor:default;">
                   <div class="gh-repo-card-top">
-                    <span class="gh-repo-title">🟡 Medium Problems</span>
+                    <span class="gh-repo-title"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:4px;"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3" fill="#f59e0b"/></svg>Medium Problems</span>
                     <span class="gh-repo-badge" style="color:#f59e0b;border-color:rgba(245,158,11,0.35);background:rgba(245,158,11,0.15);">Solved</span>
                   </div>
                   <div class="gh-repo-desc"><b id="leetcode-med-val" class="count-up-num" data-target="37" style="color:#f59e0b;">0</b> / ~1700 • DP, Graphs, Trees</div>
@@ -496,7 +496,7 @@
 
                 <div class="gh-pinned-repo-card" style="cursor:default;">
                   <div class="gh-repo-card-top">
-                    <span class="gh-repo-title">🔴 Hard Problems</span>
+                    <span class="gh-repo-title"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:4px;"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>Hard Problems</span>
                     <span class="gh-repo-badge" style="color:#ef4444;border-color:rgba(239,68,68,0.35);background:rgba(239,68,68,0.15);">Solved</span>
                   </div>
                   <div class="gh-repo-desc"><b id="leetcode-hard-val" class="count-up-num" data-target="4" style="color:#ef4444;">0</b> / ~800 • Advanced Algorithms</div>
@@ -557,16 +557,18 @@
               <!-- Ashraf Chess Player Avatar with Crown & Status -->
               <div class="chess-player-avatar-box">
                 <img id="chess-avatar-img" src="PROFILEPIC.jpg" alt="Shaik Mohammed Ashraf - Chess Player" class="chess-avatar-img" onerror="this.src='chess.jpeg'">
-                <div class="chess-crown-badge" title="Legend League Competitor">👑</div>
+                <div class="chess-crown-badge" title="Legend League Competitor">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="#f59e0b" stroke="#f59e0b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-crown"><path d="m2 4 3 12h14l3-12-6 7-4-7-4 7-6-7zm3 16h14"/></svg>
+                </div>
                 <div class="chess-verified-dot" title="Active Rated Player"></div>
               </div>
               <div>
                 <div class="tr-title">Shaik Mohammed Ashraf <span class="chess-player-title-badge">LEGEND</span></div>
                 <div class="chess-meta-sub">
                   <span class="tr-user">@ashumm</span>
-                  <span class="chess-bullet-tag">♟️ Tactical Rapid</span>
-                  <span class="chess-bullet-tag">🏆 Legend League</span>
-                  <span class="chess-bullet-tag">🇮🇳 India</span>
+                  <span class="chess-bullet-tag"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:3px;"><polyline points="14.5 17.5 3 6 3 3 6 3 17.5 14.5"/><line x1="13" y1="19" x2="19" y2="13"/><line x1="16" y1="16" x2="20" y2="20"/><line x1="19" y1="21" x2="21" y2="19"/><polyline points="14.5 6.5 18 3 21 3 21 6 17.5 9.5"/><line x1="5" y1="14" x2="9" y2="18"/><line x1="7" y1="17" x2="4" y2="20"/><line x1="3" y1="19" x2="5" y2="21"/></svg>Tactical Rapid</span>
+                  <span class="chess-bullet-tag"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:3px;"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>Legend League</span>
+                  <span class="chess-bullet-tag"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:3px;"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>India</span>
                 </div>
               </div>
             </div>
@@ -597,7 +599,7 @@
                 </div>
               </div>
               <div style="margin-top:1.1rem;padding-top:0.85rem;border-top:1px solid var(--border-subtle);font-size:0.82rem;font-family:var(--font-mono);color:var(--accent-brass);display:flex;align-items:center;gap:0.5rem;">
-                <span>♟️ ACTIVE COMPETITIVE PLAYER</span>
+                <span><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:4px;"><polyline points="14.5 17.5 3 6 3 3 6 3 17.5 14.5"/><line x1="13" y1="19" x2="19" y2="13"/><line x1="16" y1="16" x2="20" y2="20"/><line x1="19" y1="21" x2="21" y2="19"/><polyline points="14.5 6.5 18 3 21 3 21 6 17.5 9.5"/><line x1="5" y1="14" x2="9" y2="18"/><line x1="7" y1="17" x2="4" y2="20"/><line x1="3" y1="19" x2="5" y2="21"/></svg>ACTIVE COMPETITIVE PLAYER</span>
                 <span>• 2,171+ GAMES RECORDED</span>
               </div>
             </div>
@@ -663,7 +665,8 @@
             <div class="flagship-features-grid">
               <div class="flagship-feat-item">
                 <div class="feat-item-title">
-                  <span style="color:var(--accent-amber);">⚡</span> Fast &amp; Fluid UX
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--accent-amber);"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                  <span>Fast &amp; Fluid UX</span>
                 </div>
                 <div class="feat-item-desc">
                   Engineered with modern Vite bundling and optimized asset delivery for lightning-fast sub-second interactions.
@@ -672,7 +675,8 @@
 
               <div class="flagship-feat-item">
                 <div class="feat-item-title">
-                  <span style="color:var(--accent-brass);">📱</span> 100% Adaptive UI
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--accent-brass);"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg>
+                  <span>100% Adaptive UI</span>
                 </div>
                 <div class="feat-item-desc">
                   Pixel-perfect responsive experience engineered across mobile smartphones, tablets, and desktop workstations.
@@ -681,7 +685,8 @@
 
               <div class="flagship-feat-item">
                 <div class="feat-item-title">
-                  <span style="color:var(--accent-emerald);">🏥</span> Centralized Health Hub
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--accent-emerald);"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/><path d="M3.22 12H9.5l.5-1 2 4.5 2-7 1.5 3.5h5.27"/></svg>
+                  <span>Centralized Health Hub</span>
                 </div>
                 <div class="feat-item-desc">
                   Unified interface providing appointment scheduling, emergency contact directory, and patient medical record navigation.
@@ -690,7 +695,8 @@
 
               <div class="flagship-feat-item">
                 <div class="feat-item-title">
-                  <span style="color:var(--accent-terracotta);">🚀</span> Cloud-Native Deployment
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--accent-terracotta);"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>
+                  <span>Cloud-Native Deployment</span>
                 </div>
                 <div class="feat-item-desc">
                   Continuous CI/CD pipeline integrated directly with Vercel edge network for 99.9% uptime and zero-latency CDN serving.
@@ -742,7 +748,9 @@
 
             <div class="mockup-screen-content">
               <div class="mockup-hero-visual">
-                <div class="mockup-app-icon">🏥</div>
+                <div class="mockup-app-icon">
+                  <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="var(--accent-amber)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-heart-pulse"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/><path d="M3.22 12H9.5l.5-1 2 4.5 2-7 1.5 3.5h5.27"/></svg>
+                </div>
                 <div class="mockup-app-name">SmartCare Portal</div>
                 <div style="font-size:0.82rem;color:var(--text-muted);">Smart Healthcare Management Web System</div>
               </div>
@@ -778,8 +786,8 @@
        TECHNICAL ARSENAL & SKILLS (Vintage Index Card Drawers)
        ======================================================================== -->
   <section id="skills" class="section">
-    <!-- Subtle Background Watermark -->
-    <div class="bg-watermark-text" style="top:25%;">ARSENAL</div>
+    <!-- Giant Subtle Watermark Backdrop -->
+    <div class="bg-watermark-text" style="top:25%;">SKILLS</div>
 
     <div class="container">
       <div class="section-header">
@@ -795,7 +803,9 @@
         <div class="skill-category-card">
           <div class="sk-header">
             <div class="sk-title-group">
-              <span class="sk-icon">⚡</span>
+              <span class="sk-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-code-2"><path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/></svg>
+              </span>
               <span class="sk-title">Core Languages</span>
             </div>
             <span class="sk-code">[CAT-01]</span>
@@ -814,7 +824,9 @@
         <div class="skill-category-card">
           <div class="sk-header">
             <div class="sk-title-group">
-              <span class="sk-icon">🎨</span>
+              <span class="sk-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-palette"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.74 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg>
+              </span>
               <span class="sk-title">Frontend &amp; 3D Graphics</span>
             </div>
             <span class="sk-code">[CAT-02]</span>
@@ -832,7 +844,9 @@
         <div class="skill-category-card">
           <div class="sk-header">
             <div class="sk-title-group">
-              <span class="sk-icon">🧠</span>
+              <span class="sk-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-cpu"><rect width="16" height="16" x="4" y="4" rx="2"/><rect width="6" height="6" x="9" y="9" rx="1"/><path d="M15 2v2"/><path d="M15 20v2"/><path d="M2 15h2"/><path d="M2 9h2"/><path d="M20 15h2"/><path d="M20 9h2"/><path d="M9 2v2"/><path d="M9 20v2"/></svg>
+              </span>
               <span class="sk-title">Algorithms &amp; Problem Solving</span>
             </div>
             <span class="sk-code">[CAT-03]</span>
@@ -851,7 +865,9 @@
         <div class="skill-category-card">
           <div class="sk-header">
             <div class="sk-title-group">
-              <span class="sk-icon">🗄️</span>
+              <span class="sk-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-database"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/><path d="M3 12A9 3 0 0 0 21 12"/></svg>
+              </span>
               <span class="sk-title">Backend, Vision &amp; Tools</span>
             </div>
             <span class="sk-code">[CAT-04]</span>
@@ -910,21 +926,30 @@
 
         <div class="about-pillars-col">
           <div class="about-pillar-card">
-            <div class="pillar-title">⚡ Algorithmic Problem Solver</div>
+            <div class="pillar-title">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--accent-amber);vertical-align:middle;margin-right:6px;"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+              <span>Algorithmic Problem Solver</span>
+            </div>
             <div class="pillar-desc">
               Strong grasp of DSA patterns: Sliding Window, Binary Search, Hash Tables, and Graph Traversals with keen focus on asymptotic efficiency.
             </div>
           </div>
 
           <div class="about-pillar-card">
-            <div class="pillar-title">🌐 Modern Full-Stack Engineering</div>
+            <div class="pillar-title">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--accent-amber);vertical-align:middle;margin-right:6px;"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+              <span>Modern Full-Stack Engineering</span>
+            </div>
             <div class="pillar-desc">
               Crafting modular frontend applications with Vite, clean CSS architectures, and robust MongoDB backend integrations.
             </div>
           </div>
 
           <div class="about-pillar-card">
-            <div class="pillar-title">🚀 Scalable Architecture &amp; Clean Code</div>
+            <div class="pillar-title">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--accent-amber);vertical-align:middle;margin-right:6px;"><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 12.5-8.58 3.91a2 2 0 0 1-1.66 0L2 12.5"/><path d="m22 17.5-8.58 3.91a2 2 0 0 1-1.66 0L2 17.5"/></svg>
+              <span>Scalable Architecture &amp; Clean Code</span>
+            </div>
             <div class="pillar-desc">
               Committed to modular structure, high maintainability, intuitive UI/UX, and optimal performance across modern full-stack web applications.
             </div>
@@ -1013,7 +1038,9 @@
             <!-- Email -->
             <div class="contact-quick-tile">
               <div class="cqt-left">
-                <span class="cqt-icon">✉️</span>
+                <span class="cqt-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                </span>
                 <div>
                   <div class="cqt-label">Primary Email</div>
                   <div class="cqt-val">ashubasha52@gmail.com</div>
@@ -1030,7 +1057,9 @@
             <!-- Phone -->
             <div class="contact-quick-tile">
               <div class="cqt-left">
-                <span class="cqt-icon">📞</span>
+                <span class="cqt-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-phone"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                </span>
                 <div>
                   <div class="cqt-label">Direct Phone</div>
                   <div class="cqt-val">+91 8500543154</div>
@@ -1047,7 +1076,9 @@
             <!-- Location -->
             <div class="contact-quick-tile">
               <div class="cqt-left">
-                <span class="cqt-icon">📍</span>
+                <span class="cqt-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
+                </span>
                 <div>
                   <div class="cqt-label">Base Location</div>
                   <div class="cqt-val">Nandyal, Andhra Pradesh, India</div>
@@ -1117,13 +1148,27 @@
        FLOATING VINTAGE BOTTOM NAV DOCK (Inspired by Shaik Awaiz)
        ======================================================================== -->
   <div class="vintage-floating-dock" role="navigation" aria-label="Quick Dock Navigation">
-    <a href="#hero" class="dock-item active" data-tooltip="Dossier" aria-label="Home">📜</a>
-    <a href="#telemetry" class="dock-item" data-tooltip="Live Radar" aria-label="Live Radar">📊</a>
-    <a href="#project" class="dock-item" data-tooltip="SmartCare" aria-label="SmartCare App">🏥</a>
-    <a href="#skills" class="dock-item" data-tooltip="Arsenal" aria-label="Skills & Arsenal">⚡</a>
-    <a href="#about" class="dock-item" data-tooltip="Mindset" aria-label="Mindset & Philosophy">🧠</a>
-    <a href="#education" class="dock-item" data-tooltip="Academics" aria-label="Academics">🎓</a>
-    <a href="#contact" class="dock-item" data-tooltip="Contact" aria-label="Contact">✉️</a>
+    <a href="#hero" class="dock-item active" data-tooltip="Dossier" aria-label="Home">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+    </a>
+    <a href="#telemetry" class="dock-item" data-tooltip="Live Radar" aria-label="Live Radar">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-activity"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+    </a>
+    <a href="#project" class="dock-item" data-tooltip="SmartCare" aria-label="SmartCare App">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-heart-pulse"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/><path d="M3.22 12H9.5l.5-1 2 4.5 2-7 1.5 3.5h5.27"/></svg>
+    </a>
+    <a href="#skills" class="dock-item" data-tooltip="Arsenal" aria-label="Skills & Arsenal">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-code-2"><path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/></svg>
+    </a>
+    <a href="#about" class="dock-item" data-tooltip="Mindset" aria-label="Mindset & Philosophy">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-compass"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+    </a>
+    <a href="#education" class="dock-item" data-tooltip="Academics" aria-label="Academics">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-graduation-cap"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"/><path d="M22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/></svg>
+    </a>
+    <a href="#contact" class="dock-item" data-tooltip="Contact" aria-label="Contact">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+    </a>
   </div>
 
   <!-- ========================================================================
@@ -1253,6 +1298,9 @@
 
   <!-- Three.js CDN -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
 
   <!-- Core Scripts -->
   <script src="js/audio-fx.js"></script>
