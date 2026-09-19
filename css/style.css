@@ -2950,6 +2950,10 @@ img.img-load-failed {
   resize: vertical;
 }
 
+#contact {
+  padding-bottom: calc(130px + env(safe-area-inset-bottom, 0px));
+}
+
 /* ==========================================================================
    FLOATING VINTAGE BOTTOM NAV DOCK (Inspired by Shaik Awaiz)
    ========================================================================== */
